@@ -31,6 +31,7 @@ An offline-ready Progressive Web Application (PWA) and architectural design port
 8. **Option 6: Smart Zero-Slab Mezzanine (Metal & Timber on 4 Masonry Pillars)**:
    - Eliminates the suspended concrete slab to save over $3,200 in construction costs and 4 weeks of curing downtime.
    - Supported by 4 solid non-metallic white-plastered masonry pillars carrying horizontal steel I-beams and timber joists (20 m² master suite).
+   - **Concrete-Free Timber & Metal Staircase**: Open-riser flight with solid 40mm oak treads on 10mm laser-cut steel sawtooth stringers, bolted directly to the mezzanine I-beam and floor baseplate with ZERO concrete steps or plinths.
    - Under-staircase built-in TV entertainment console and oak bookshelves freeing the entire double-height living room.
    - Private enclosed kids bedroom with solid partition walls, wooden door, custom integrated cabin beds with step drawers, and wardrobe.
    - Kangaroo-style hidden parapet roof concealing low-pitch metal roof and internal box gutters.

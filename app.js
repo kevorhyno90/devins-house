@@ -76,20 +76,53 @@ function promptGoogleSignIn() {
 // -------------------------------------------------------------------------
 // 3. Tab Navigation Engine
 // -------------------------------------------------------------------------
-function switchToTab(tabId, index) {
+function switchToTab(tabId, index, jumpTargetId) {
   document.querySelectorAll(".tab-btn").forEach((btn, i) => {
-    btn.classList.toggle("active", i === index);
+    const btnTab = btn.getAttribute("data-tab");
+    if (btnTab) {
+      btn.classList.toggle("active", btnTab === tabId);
+    } else if (typeof index === "number") {
+      btn.classList.toggle("active", i === index);
+    }
   });
-  document.querySelectorAll(".opt-summary-card").forEach((card, i) => {
-    card.classList.toggle("active-opt", i === index);
+
+  document.querySelectorAll(".deck-card, .opt-summary-card").forEach((card, i) => {
+    const cardTab = card.getAttribute("data-tab");
+    if (cardTab) {
+      card.classList.toggle("active-opt", cardTab === tabId);
+    } else if (typeof index === "number") {
+      card.classList.toggle("active-opt", i === index);
+    }
   });
+
   document.querySelectorAll(".tab-content").forEach((content) => {
     content.classList.remove("active");
   });
 
   const activeContent = document.getElementById("tab-" + tabId);
-  if (activeContent) activeContent.classList.add("active");
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  if (activeContent) {
+    activeContent.classList.add("active");
+  }
+
+  if (jumpTargetId) {
+    setTimeout(() => {
+      const targetEl = document.getElementById(jumpTargetId);
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }, 50);
+  } else {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+}
+
+function scrollToDesign(elementId) {
+  const el = document.getElementById(elementId);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 }
 
 // -------------------------------------------------------------------------

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Devin's House - Architectural & Construction Management PWA</title>
+  <title>Devin's House - Master Architectural Portfolio &amp; Construction Manager</title>
   <link rel="manifest" href="manifest.json" />
   <link rel="icon" type="image/jpeg" href="app_icon.jpg" />
   <link rel="apple-touch-icon" href="app_icon.jpg" />
@@ -38,116 +38,359 @@
   <header class="hero-banner">
     <div class="hero-top">
       <div>
-        <h1 class="hero-title">Devin's House - Architectural &amp; Construction Manager</h1>
-        <div class="hero-subtitle">Exact 8.00m × 5.00m Kangaroo-Style Hidden Roof House • Offline Ready • Editable Measurements • Budget &amp; Progress Tracking</div>
+        <h1 class="hero-title">Devin's House - All Architectural Design Options</h1>
+        <div class="hero-subtitle">Every Design Built From the Beginning • 3D Photorealistic Models &amp; Tailored 2D Floor Plans for Each Option • Offline Construction Tools</div>
       </div>
       <div class="status-badge">
         <div class="pulse-dot"></div>
-        OFFLINE READY PWA
+        5 COMPLETE DESIGN OPTIONS
       </div>
     </div>
 
-    <!-- Quick Switcher Summary Cards -->
-    <div class="options-pills">
-      <div class="opt-summary-card active-opt" onclick="switchToTab('opt-kangaroo', 0)">
-        <div class="opt-tag">Primary Design</div>
-        <div class="opt-name">8x5m Kangaroo House</div>
-        <div class="opt-desc">Hidden roof • 3D cutaway &amp; exterior • 2D CAD floor plan</div>
+    <!-- Visual 3D Showcase Deck for All 5 Built Options -->
+    <div class="showcase-deck">
+      <div class="deck-card active-opt" data-tab="opt-1" onclick="switchToTab('opt-1', 1)">
+        <div class="deck-thumb-wrap">
+          <img src="house_kangaroo_cutaway.jpg" alt="Option 1 Kangaroo Cutaway" class="deck-thumb-img" />
+          <span class="deck-pill pill-rose">Option 1 • Approved</span>
+        </div>
+        <div class="deck-body">
+          <div>
+            <div class="deck-title">8x5m Kangaroo Hidden Roof</div>
+            <div class="deck-meta">Concealed parapet roof • Full lower kitchen • Master changing suite • 3.5ft metal door</div>
+          </div>
+          <div class="deck-btn">View Option 1 Blueprint &amp; 3D ➜</div>
+        </div>
       </div>
-      <div class="opt-summary-card" onclick="switchToTab('opt-editor', 1)">
-        <div class="opt-tag">Live Customizer</div>
-        <div class="opt-name">Editable Measurements</div>
-        <div class="opt-desc">Tweak room dimensions with instant live area recalculation</div>
+
+      <div class="deck-card" data-tab="opt-2" onclick="switchToTab('opt-2', 2)">
+        <div class="deck-thumb-wrap">
+          <img src="house_master_wardrobe.jpg" alt="Option 2 Master Changing Nook" class="deck-thumb-img" />
+          <span class="deck-pill pill-amber">Option 2 • Rafters</span>
+        </div>
+        <div class="deck-body">
+          <div>
+            <div class="deck-title">8x5m Master Over Kitchen</div>
+            <div class="deck-meta">High exposed timber trusses • Slab only over kitchen • Untouched side wall stairs</div>
+          </div>
+          <div class="deck-btn">View Option 2 Blueprint &amp; 3D ➜</div>
+        </div>
       </div>
-      <div class="opt-summary-card" onclick="switchToTab('opt-expenses', 2)">
-        <div class="opt-tag">Financials</div>
-        <div class="opt-name">Expense &amp; Budget Tracker</div>
-        <div class="opt-desc">Log costs by category, track budget progress, export CSV</div>
+
+      <div class="deck-card" data-tab="opt-3" onclick="switchToTab('opt-3', 3)">
+        <div class="deck-thumb-wrap">
+          <img src="house_8x5_compact.jpg" alt="Option 3 Compact Loft" class="deck-thumb-img" />
+          <span class="deck-pill pill-blue">Option 3 • Mezzanine</span>
+        </div>
+        <div class="deck-body">
+          <div>
+            <div class="deck-title">8x5m Compact Loft House</div>
+            <div class="deck-meta">Double-height living • Ground kids room &amp; desk • Master loft above bath &amp; kids</div>
+          </div>
+          <div class="deck-btn">View Option 3 Blueprint &amp; 3D ➜</div>
+        </div>
       </div>
-      <div class="opt-summary-card" onclick="switchToTab('opt-estimators', 3)">
-        <div class="opt-tag">Engineering</div>
-        <div class="opt-name">Material &amp; Cost Estimators</div>
-        <div class="opt-desc">Calculators for paint, oak parquet, electrical &amp; plumbing</div>
+
+      <div class="deck-card" data-tab="opt-4" onclick="switchToTab('opt-4', 4)">
+        <div class="deck-thumb-wrap">
+          <img src="house_8x5_custom.jpg" alt="Option 4 Single Level" class="deck-thumb-img" />
+          <span class="deck-pill pill-green">Option 4 • Zero Stairs</span>
+        </div>
+        <div class="deck-body">
+          <div>
+            <div class="deck-title">8x5m 1-Story Dry Cabin</div>
+            <div class="deck-meta">100% single-level living • 1.2m acoustic double wardrobe buffer • 5-stool dining bar</div>
+          </div>
+          <div class="deck-btn">View Option 4 Blueprint &amp; 3D ➜</div>
+        </div>
       </div>
-      <div class="opt-summary-card" onclick="switchToTab('opt-milestones', 4)">
-        <div class="opt-tag">Execution</div>
-        <div class="opt-name">Construction Progress</div>
-        <div class="opt-desc">10-milestone checklist from ground slab to final handover</div>
-      </div>
-      <div class="opt-summary-card" onclick="switchToTab('opt-savings', 5)">
-        <div class="opt-tag">Optimization</div>
-        <div class="opt-name">Cost Minimization</div>
-        <div class="opt-desc">Actionable tips saving over $10,000 on structural build</div>
-      </div>
-      <div class="opt-summary-card" onclick="switchToTab('opt-export', 6)">
-        <div class="opt-tag">Downloads</div>
-        <div class="opt-name">Export &amp; Download Hub</div>
-        <div class="opt-desc">Download individual 3D renders, CAD SVGs, or Full PDF Report</div>
+
+      <div class="deck-card" data-tab="opt-5" onclick="switchToTab('opt-5', 5)">
+        <div class="deck-thumb-wrap">
+          <img src="house_kids_lower.jpg" alt="Option 5 Luxury Villa" class="deck-thumb-img" />
+          <span class="deck-pill pill-purple">Option 5 • 87m² Villa</span>
+        </div>
+        <div class="deck-body">
+          <div>
+            <div class="deck-title">Expanded 2-Story Villa</div>
+            <div class="deck-meta">Multi-level luxury estate • Lower kids suite • Upper master balcony &amp; spa ensuite</div>
+          </div>
+          <div class="deck-btn">View Option 5 Blueprint &amp; 3D ➜</div>
+        </div>
       </div>
     </div>
   </header>
 
   <!-- ================= MASTER NAVIGATION TABS ================= -->
   <nav class="tab-bar">
-    <button class="tab-btn active" onclick="switchToTab('opt-kangaroo', 0)">
-      <span>🦘</span> 3D Renders &amp; 2D Floor Plan
+    <button class="tab-btn" data-tab="opt-all" onclick="switchToTab('opt-all', 0)">
+      <span>🌟</span> All 5 Designs Gallery (Show All)
     </button>
-    <button class="tab-btn" onclick="switchToTab('opt-editor', 1)">
-      <span>📐</span> Editable Measurements
+    <button class="tab-btn active" data-tab="opt-1" onclick="switchToTab('opt-1', 1)">
+      <span>🦘</span> Option 1: Kangaroo Hidden Roof
     </button>
-    <button class="tab-btn" onclick="switchToTab('opt-expenses', 2)">
+    <button class="tab-btn" data-tab="opt-2" onclick="switchToTab('opt-2', 2)">
+      <span>🏠</span> Option 2: Master Over Kitchen
+    </button>
+    <button class="tab-btn" data-tab="opt-3" onclick="switchToTab('opt-3', 3)">
+      <span>📐</span> Option 3: Compact Loft House
+    </button>
+    <button class="tab-btn" data-tab="opt-4" onclick="switchToTab('opt-4', 4)">
+      <span>🌿</span> Option 4: Single-Level (Zero Stairs)
+    </button>
+    <button class="tab-btn" data-tab="opt-5" onclick="switchToTab('opt-5', 5)">
+      <span>🏛️</span> Option 5: Expanded 2-Story Villa
+    </button>
+    <button class="tab-btn" data-tab="opt-matrix" onclick="switchToTab('opt-matrix', 6)">
+      <span>⚖️</span> Comparison Matrix
+    </button>
+    <button class="tab-btn" data-tab="opt-editor" onclick="switchToTab('opt-editor', 7)">
+      <span>📏</span> Live Dimension Editor
+    </button>
+    <button class="tab-btn" data-tab="opt-expenses" onclick="switchToTab('opt-expenses', 8)">
       <span>💰</span> Expense &amp; Budget Tracker
     </button>
-    <button class="tab-btn" onclick="switchToTab('opt-estimators', 3)">
+    <button class="tab-btn" data-tab="opt-estimators" onclick="switchToTab('opt-estimators', 9)">
       <span>🛠️</span> Material &amp; Cost Estimators
     </button>
-    <button class="tab-btn" onclick="switchToTab('opt-milestones', 4)">
+    <button class="tab-btn" data-tab="opt-milestones" onclick="switchToTab('opt-milestones', 10)">
       <span>🏗️</span> Construction Progress
     </button>
-    <button class="tab-btn" onclick="switchToTab('opt-savings', 5)">
-      <span>💡</span> Cost Minimizer
-    </button>
-    <button class="tab-btn" onclick="switchToTab('opt-export', 6)">
+    <button class="tab-btn" data-tab="opt-export" onclick="switchToTab('opt-export', 11)">
       <span>💾</span> Export &amp; Downloads
-    </button>
-    <button class="tab-btn" onclick="switchToTab('opt-archive', 7)">
-      <span>🏛️</span> All Prior Options Archive
     </button>
   </nav>
 
   <!-- ======================================================= -->
-  <!-- TAB 1: 3D MODELS & TAILORED 2D FLOOR PLAN               -->
+  <!-- TAB 0: ALL 5 DESIGNS SHOWCASE GALLERY (SHOW ALL)        -->
   <!-- ======================================================= -->
-  <div id="tab-opt-kangaroo" class="tab-content active">
+  <div id="tab-opt-all" class="tab-content">
     <section class="main-card">
       <div class="card-header-row">
         <div>
-          <h2 class="card-title">Approved Kangaroo-Style Hidden Roof House (Exact 8.00m × 5.00m)</h2>
-          <p class="card-subtitle">Clean rectangular geometry with perimeter parapet walls concealing the sloping metal roof. The master bedroom sits on the kitchen slab with an integrated wardrobe and changing place, full-span lower kitchen, untouched stairs, kids room with door, and single 3.5ft metal front door.</p>
+          <h2 class="card-title">All 5 Architectural Design Options Built For Devin's House</h2>
+          <p class="card-subtitle">Every design version built from the start — complete with photorealistic 3D interior cutaways, exterior twilight facades, and vector CAD floor plans. Scroll through each option below or jump directly to any design.</p>
         </div>
-        <span class="badge-pill pill-rose">KANGAROO HIDDEN ROOF • PRIMARY</span>
+        <span class="badge-pill pill-cyan">5 COMPLETE OPTIONS ARCHIVE</span>
+      </div>
+
+      <!-- Quick Jump Bar -->
+      <div class="all-designs-jump-bar">
+        <span>⚡ Quick Jump:</span>
+        <button class="jump-link" onclick="scrollToDesign('showcase-opt-1')">🦘 Option 1 (Kangaroo Hidden Roof)</button>
+        <button class="jump-link" onclick="scrollToDesign('showcase-opt-2')">🏠 Option 2 (Master Over Kitchen)</button>
+        <button class="jump-link" onclick="scrollToDesign('showcase-opt-3')">📐 Option 3 (Compact Loft)</button>
+        <button class="jump-link" onclick="scrollToDesign('showcase-opt-4')">🌿 Option 4 (Single-Level Dry Cabin)</button>
+        <button class="jump-link" onclick="scrollToDesign('showcase-opt-5')">🏛️ Option 5 (Expanded 87m² Villa)</button>
+      </div>
+
+      <!-- SHOWCASE 1: OPTION 1 -->
+      <div id="showcase-opt-1" class="section-margin-top">
+        <div class="card-header-row">
+          <div>
+            <h3 class="spec-title">Option 1: Exact 8.00m × 5.00m Kangaroo-Style Hidden Roof (Primary Approved Design)</h3>
+            <p class="spec-content">Rectangular perimeter parapet concealing internal sloping corrugated metal roof. Master bedroom sits over kitchen slab with integrated wardrobe &amp; changing area. Lower kitchen spans entire section under master slab with no sinks/fridge. Untouched stairs along side wall. Kids room with timber door (bunk + wardrobe only). Single 3.5ft metal entrance door.</p>
+          </div>
+          <button class="ctrl-action-btn" onclick="switchToTab('opt-1', 1)">Open Option 1 Dedicated Tab ➜</button>
+        </div>
+
+        <div class="dual-view-grid section-margin-top">
+          <div class="view-card">
+            <div class="view-card-title"><span>✨</span> 3D Interior Cutaway: Kangaroo Parapets &amp; Layout</div>
+            <div class="render-frame">
+              <img src="house_kangaroo_cutaway.jpg" alt="Option 1 Cutaway" class="render-img" />
+              <div class="render-overlay-badge">Option 1: Kangaroo Interior Cutaway</div>
+            </div>
+          </div>
+          <div class="view-card">
+            <div class="view-card-title"><span>🏛️</span> 3D Exterior Facade: Flat-Top Kangaroo Parapet Monolith</div>
+            <div class="render-frame">
+              <img src="house_kangaroo_exterior.jpg" alt="Option 1 Facade" class="render-img" />
+              <div class="render-overlay-badge">Option 1: Kangaroo Exterior Facade</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="design-showcase-divider"></div>
+
+      <!-- SHOWCASE 2: OPTION 2 -->
+      <div id="showcase-opt-2">
+        <div class="card-header-row">
+          <div>
+            <h3 class="spec-title">Option 2: Exact 8.00m × 5.00m Master Over Kitchen (Gable Open Rafters)</h3>
+            <p class="spec-content">Exposed cathedral timber roof trusses soaring 4.2m over living &amp; kids room. Elevated master bedroom platform directly over kitchen concrete slab with integrated wardrobe, full-length mirror, and changing bench. Untouched floating timber staircase along side wall.</p>
+          </div>
+          <button class="ctrl-action-btn" onclick="switchToTab('opt-2', 2)">Open Option 2 Dedicated Tab ➜</button>
+        </div>
+
+        <div class="dual-view-grid section-margin-top">
+          <div class="view-card">
+            <div class="view-card-title"><span>✨</span> 3D Cutaway: Master Wardrobe, Changing Nook &amp; Open Rafters</div>
+            <div class="render-frame">
+              <img src="house_master_wardrobe.jpg" alt="Option 2 Changing Nook" class="render-img" />
+              <div class="render-overlay-badge">Option 2: Master Wardrobe &amp; Changing Nook</div>
+            </div>
+          </div>
+          <div class="view-card">
+            <div class="view-card-title"><span>🍽️</span> 3D Cutaway: Full-Span Lower Kitchen Under Concrete Slab</div>
+            <div class="render-frame">
+              <img src="house_kitchen_full.jpg" alt="Option 2 Full Lower Kitchen" class="render-img" />
+              <div class="render-overlay-badge">Option 2: Full Lower Kitchen Under Slab</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="design-showcase-divider"></div>
+
+      <!-- SHOWCASE 3: OPTION 3 -->
+      <div id="showcase-opt-3">
+        <div class="card-header-row">
+          <div>
+            <h3 class="spec-title">Option 3: Exact 8.00m × 5.00m Compact Mezzanine Loft House</h3>
+            <p class="spec-content">Mezzanine loft master bedroom perched above the ground-floor kids bedroom and bathroom. Cathedral ceiling over the front living room with front patio glass slider and compact kitchen pantry.</p>
+          </div>
+          <button class="ctrl-action-btn" onclick="switchToTab('opt-3', 3)">Open Option 3 Dedicated Tab ➜</button>
+        </div>
+
+        <div class="dual-view-grid section-margin-top">
+          <div class="view-card">
+            <div class="view-card-title"><span>✨</span> 3D Cutaway: Mezzanine Loft Over Kids Room</div>
+            <div class="render-frame">
+              <img src="house_8x5_compact.jpg" alt="Option 3 Compact Loft" class="render-img" />
+              <div class="render-overlay-badge">Option 3: Compact Loft Model</div>
+            </div>
+          </div>
+          <div class="view-card">
+            <div class="view-card-title"><span>📐</span> 2D Architectural Layout Blueprint</div>
+            <div class="blueprint-box">
+              <svg viewBox="0 0 1060 560" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="#061222"/>
+                <rect x="140" y="60" width="800" height="460" fill="#0c1f38" stroke="#00d2ff" stroke-width="3"/>
+                <rect x="158" y="78" width="764" height="424" fill="#08172c" stroke="#1d4ed8" stroke-width="1.5"/>
+                <text x="340" y="290" fill="#38bdf8" font-size="13" font-weight="800" text-anchor="middle">DOUBLE-HEIGHT LIVING SUITE (14.5 m²)</text>
+                <text x="730" y="160" fill="#93c5fd" font-size="12" font-weight="800" text-anchor="middle">GROUND KIDS BEDROOM (6.5 m²)</text>
+                <text x="730" y="380" fill="#fef3c7" font-size="12" font-weight="800" text-anchor="middle">KITCHEN PANTRY (6.0 m²) / MASTER MEZZANINE (10.2 m²)</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="design-showcase-divider"></div>
+
+      <!-- SHOWCASE 4: OPTION 4 -->
+      <div id="showcase-opt-4">
+        <div class="card-header-row">
+          <div>
+            <h3 class="spec-title">Option 4: Exact 8.00m × 5.00m Single-Level Dry Cabin (Zero Stairs)</h3>
+            <p class="spec-content">100% single-level living with zero stairs. Uses a central 1.20m double wardrobe acoustic sound buffer closet between the Master Bedroom and Kids Bedroom. Features an open front seating room and 5-stool dining bar.</p>
+          </div>
+          <button class="ctrl-action-btn" onclick="switchToTab('opt-4', 4)">Open Option 4 Dedicated Tab ➜</button>
+        </div>
+
+        <div class="dual-view-grid section-margin-top">
+          <div class="view-card">
+            <div class="view-card-title"><span>✨</span> 3D Photorealistic Interior Cutaway: Single-Level Layout</div>
+            <div class="render-frame">
+              <img src="house_8x5_custom.jpg" alt="Option 4 Single-Level Cutaway" class="render-img" />
+              <div class="render-overlay-badge">Option 4: Single-Level Cutaway</div>
+            </div>
+          </div>
+          <div class="view-card">
+            <div class="view-card-title"><span>📐</span> 2D CAD Blueprint: Zero Stairs &amp; Acoustic Buffer</div>
+            <div class="blueprint-box">
+              <svg viewBox="0 0 1060 620" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="#061222"/>
+                <rect x="140" y="60" width="800" height="500" fill="#0c1f38" stroke="#00d2ff" stroke-width="4"/>
+                <rect x="158" y="78" width="764" height="464" fill="#08172c" stroke="#1d4ed8" stroke-width="1.5"/>
+                <text x="315" y="150" fill="#93c5fd" font-size="13" font-weight="800" text-anchor="middle">KIDS ROOM: 3.00m × 1.70m (5.10 m²)</text>
+                <text x="315" y="400" fill="#38bdf8" font-size="13" font-weight="800" text-anchor="middle">MASTER SUITE: 3.50m × 2.84m (9.94 m²)</text>
+                <text x="700" y="180" fill="#ffffff" font-size="13" font-weight="800" text-anchor="middle">SEATING ROOM: 4.54m × 2.94m (13.35 m²)</text>
+                <text x="700" y="440" fill="#fef3c7" font-size="13" font-weight="800" text-anchor="middle">KITCHEN &amp; 5-STOOL BAR: 4.04m × 1.70m (6.87 m²)</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="design-showcase-divider"></div>
+
+      <!-- SHOWCASE 5: OPTION 5 -->
+      <div id="showcase-opt-5">
+        <div class="card-header-row">
+          <div>
+            <h3 class="spec-title">Option 5: Expanded 2-Story Luxury Villa (87.24 m² Total Floor Area)</h3>
+            <p class="spec-content">Full multi-level luxury estate. Lower level features a dedicated kids suite, expansive open living room, and entertainer's kitchen. Upper level features a private master retreat with cantilevered sunset balcony and spa bathroom.</p>
+          </div>
+          <button class="ctrl-action-btn" onclick="switchToTab('opt-5', 5)">Open Option 5 Dedicated Tab ➜</button>
+        </div>
+
+        <div class="dual-view-grid section-margin-top">
+          <div class="view-card">
+            <div class="view-card-title"><span>✨</span> 3D Interior Cutaway: Ground Kids Suite &amp; Luxury Volume</div>
+            <div class="render-frame">
+              <img src="house_kids_lower.jpg" alt="Option 5 Interior Cutaway" class="render-img" />
+              <div class="render-overlay-badge">Option 5: Villa Interior Cutaway</div>
+            </div>
+          </div>
+          <div class="view-card">
+            <div class="view-card-title"><span>🌆</span> 3D Exterior Facade: Modern Cantilevered Dusk Villa</div>
+            <div class="render-frame">
+              <img src="house_3d_exterior.jpg" alt="Option 5 Dusk Facade" class="render-img" />
+              <div class="render-overlay-badge">Option 5: Villa Dusk Facade</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- TAB 1: OPTION 1 - KANGAROO STYLE HIDDEN ROOF (PRIMARY)  -->
+  <!-- ======================================================= -->
+  <div id="tab-opt-1" class="tab-content active">
+    <section class="main-card">
+      <div class="card-header-row">
+        <div>
+          <h2 class="card-title">Option 1: Exact 8.00m × 5.00m Kangaroo-Style Hidden Roof House (Approved)</h2>
+          <p class="card-subtitle">Clean rectangular box with raised exterior parapet walls concealing the sloping metal roof. Inside: parents' master bedroom on top of the kitchen slab with an integrated wardrobe and changing place, full-span lower kitchen under the slab, untouched stairs, kids room with interior door, single 3.5ft metal door, and 5-piece seating.</p>
+        </div>
+        <span class="badge-pill pill-rose">PRIMARY APPROVED DESIGN</span>
+      </div>
+
+      <!-- Quick Switcher Bar for All Built Designs -->
+      <div class="all-designs-jump-bar">
+        <span>👀 Explore Other Built Options:</span>
+        <button class="jump-link" onclick="switchToTab('opt-all', 0)">🌟 View All 5 Designs Together</button>
+        <button class="jump-link" onclick="switchToTab('opt-2', 2)">🏠 Option 2 (Master Over Kitchen)</button>
+        <button class="jump-link" onclick="switchToTab('opt-3', 3)">📐 Option 3 (Compact Loft)</button>
+        <button class="jump-link" onclick="switchToTab('opt-4', 4)">🌿 Option 4 (Single-Level)</button>
+        <button class="jump-link" onclick="switchToTab('opt-5', 5)">🏛️ Option 5 (Luxury Villa)</button>
+        <button class="jump-link" onclick="switchToTab('opt-matrix', 6)">⚖️ Comparison Matrix</button>
       </div>
 
       <div class="dual-view-grid">
-        <!-- 3D Cutaway -->
+        <!-- 3D Interior Cutaway -->
         <div class="view-card">
           <div class="view-card-title">
-            <span>✨</span> 3D Interior Cutaway (Concealed Roof Structure)
+            <span>✨</span> 3D Interior Cutaway (Kangaroo Parapet &amp; Rooms)
           </div>
           <div class="render-frame">
-            <img src="house_kangaroo_cutaway.jpg" alt="Devin's House 3D Interior Cutaway" class="render-img" />
+            <img src="house_kangaroo_cutaway.jpg" alt="Option 1 Interior Cutaway" class="render-img" />
             <div class="render-overlay-badge">
-              <span>🦘</span> Devin's House Interior Cutaway
+              <span>🦘</span> Option 1: Kangaroo Hidden Roof Interior
             </div>
 
             <!-- Hotspots -->
             <div class="pinpoint pinpoint-roof pin-roof-top">
               1
-              <div class="pin-tooltip"><strong>Kangaroo Hidden Roof</strong>: Parapet Walls Concealing Roof</div>
+              <div class="pin-tooltip"><strong>Kangaroo Parapet</strong>: Conceals Sloping Roof Behind Walls</div>
             </div>
             <div class="pinpoint pinpoint-metal pin-door-front">
               2
-              <div class="pin-tooltip"><strong>Single 3.5ft Metal Door</strong>: Solid Dark Steel (No other doors)</div>
+              <div class="pin-tooltip"><strong>Single 3.5ft Metal Door</strong>: Solid Steel Security Door (No other doors)</div>
             </div>
             <div class="pinpoint pinpoint-sofa pin-seating-lounge">
               3
@@ -159,7 +402,7 @@
             </div>
             <div class="pinpoint pinpoint-stairs pin-stairs-untouched">
               5
-              <div class="pin-tooltip"><strong>Untouched Stairs</strong>: Open-Riser Stair Leading to Master</div>
+              <div class="pin-tooltip"><strong>Untouched Stairs</strong>: Open-Riser Stair along Wall Leading to Master</div>
             </div>
             <div class="pinpoint pinpoint-door pin-kids-entry">
               6
@@ -175,36 +418,37 @@
         <!-- 3D Exterior Facade -->
         <div class="view-card">
           <div class="view-card-title">
-            <span>🌆</span> 3D Exterior Facade (Hidden Roof Box Silhouette)
+            <span>🌆</span> 3D Exterior Facade (Concealed Roof Box Silhouette)
           </div>
           <div class="render-frame">
-            <img src="house_kangaroo_exterior.jpg" alt="Devin's House 3D Exterior Facade" class="render-img" />
+            <img src="house_kangaroo_exterior.jpg" alt="Option 1 Exterior Facade" class="render-img" />
             <div class="render-overlay-badge">
-              <span>🏛️</span> Modern Flat-Top Box Silhouette
+              <span>🏛️</span> Modern Flat-Top Silhouette with Parapet Coping
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Tailored 2D Floor Plan Blueprint -->
+      <!-- Tailored 2D Floor Plan Blueprint for Option 1 -->
       <div class="view-card section-margin-top">
         <div class="view-card-title">
-          <span>📐</span> Tailored 2D Architectural Floor Plan (Exact 8.00m × 5.00m Kangaroo Layout)
+          <span>📐</span> Tailored 2D Architectural Floor Plan (Option 1: Kangaroo Layout)
         </div>
         <div class="blueprint-box">
           <svg viewBox="0 0 1060 620" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <pattern id="gridKangaroo" width="20" height="20" patternUnits="userSpaceOnUse">
+              <pattern id="gridK1" width="20" height="20" patternUnits="userSpaceOnUse">
                 <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#0f2647" stroke-width="0.75"/>
               </pattern>
-              <marker id="arrowK" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+              <marker id="arrowK1" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
                 <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#00d2ff"/>
               </marker>
             </defs>
 
             <rect width="100%" height="100%" fill="#061222"/>
-            <rect width="100%" height="100%" fill="url(#gridKangaroo)"/>
+            <rect width="100%" height="100%" fill="url(#gridK1)"/>
 
+            <!-- Outer 8x5m Parapet Walls -->
             <rect x="140" y="80" width="800" height="500" fill="#0c1f38" stroke="#00d2ff" stroke-width="4"/>
             <rect x="158" y="98" width="764" height="464" fill="#08172c" stroke="#1d4ed8" stroke-width="1.5"/>
 
@@ -214,30 +458,36 @@
             <rect x="933" y="75" width="12" height="510" fill="#1e293b"/>
             <text x="540" y="72" fill="#38bdf8" font-size="11" font-weight="900" text-anchor="middle">RAISED PARAPET WALLS (CONCEALED KANGAROO ROOF BEHIND)</text>
 
+            <!-- Single 3.5ft Metal Entrance Door -->
             <rect x="420" y="80" width="107" height="18" fill="#475569" stroke="#94a3b8" stroke-width="2"/>
             <line x1="420" y1="98" x2="420" y2="205" stroke="#ffffff" stroke-width="3.5"/>
             <path d="M 420 205 A 107 107 0 0 0 527 98" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4,4"/>
             <rect x="400" y="45" width="150" height="24" rx="4" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
             <text x="475" y="61" fill="#38bdf8" font-size="11" font-weight="900" text-anchor="middle">3.5-FT METAL DOOR (ONLY ENTRANCE)</text>
 
+            <!-- Seating Room under High Ceiling -->
             <rect x="175" y="115" width="280" height="430" fill="none" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4,4"/>
             <text x="315" y="135" fill="#38bdf8" font-size="12" font-weight="800" text-anchor="middle">SEATING ROOM (OPEN HIGH CEILING)</text>
 
+            <!-- 3-Seater Sofa -->
             <rect x="190" y="240" width="65" height="200" rx="6" fill="#1e293b" stroke="#cbd5e1" stroke-width="2"/>
             <text x="222" y="340" fill="#ffffff" font-size="11" font-weight="800" transform="rotate(-90 222 340)" text-anchor="middle">3-SEATER SOFA</text>
 
+            <!-- Rectangular Coffee Table -->
             <rect x="280" y="285" width="60" height="110" rx="4" fill="#78350f" fill-opacity="0.5" stroke="#d97706" stroke-width="2"/>
             <text x="310" y="340" fill="#fde68a" font-size="10" font-weight="800" transform="rotate(-90 310 340)" text-anchor="middle">RECTANGULAR TABLE</text>
 
+            <!-- Armchairs -->
             <rect x="270" y="225" width="80" height="50" rx="5" fill="#334155" stroke="#94a3b8" stroke-width="1.8"/>
             <text x="310" y="255" fill="#e2e8f0" font-size="10" font-weight="700" text-anchor="middle">1-SEATER</text>
-
             <rect x="270" y="405" width="80" height="50" rx="5" fill="#334155" stroke="#94a3b8" stroke-width="1.8"/>
             <text x="310" y="435" fill="#e2e8f0" font-size="10" font-weight="700" text-anchor="middle">1-SEATER</text>
 
+            <!-- TV Stand Console -->
             <rect x="380" y="265" width="28" height="150" rx="3" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
             <text x="394" y="340" fill="#a78bfa" font-size="10.5" font-weight="800" transform="rotate(-90 394 340)" text-anchor="middle">TV STAND CONSOLE</text>
 
+            <!-- Full Lower Kitchen Under Slab -->
             <rect x="470" y="300" width="452" height="262" fill="#b45309" fill-opacity="0.15" stroke="#f59e0b" stroke-width="2"/>
             <rect x="480" y="310" width="370" height="26" rx="4" fill="#b45309"/>
             <text x="665" y="327" fill="#ffffff" font-size="11" font-weight="900" text-anchor="middle">KITCHEN UNDER SLAB (NO SINK / NO FRIDGE)</text>
@@ -252,17 +502,11 @@
             <circle cx="655" cy="510" r="11" fill="#d97706"/>
             <circle cx="725" cy="510" r="11" fill="#d97706"/>
 
+            <!-- Untouched Stairs -->
             <rect x="850" y="110" width="70" height="180" fill="#334155" stroke="#eab308" stroke-width="2"/>
-            <line x1="850" y1="130" x2="920" y2="130" stroke="#eab308" stroke-width="1.5"/>
-            <line x1="850" y1="150" x2="920" y2="150" stroke="#eab308" stroke-width="1.5"/>
-            <line x1="850" y1="170" x2="920" y2="170" stroke="#eab308" stroke-width="1.5"/>
-            <line x1="850" y1="190" x2="920" y2="190" stroke="#eab308" stroke-width="1.5"/>
-            <line x1="850" y1="210" x2="920" y2="210" stroke="#eab308" stroke-width="1.5"/>
-            <line x1="850" y1="230" x2="920" y2="230" stroke="#eab308" stroke-width="1.5"/>
-            <line x1="850" y1="250" x2="920" y2="250" stroke="#eab308" stroke-width="1.5"/>
-            <line x1="850" y1="270" x2="920" y2="270" stroke="#eab308" stroke-width="1.5"/>
             <text x="885" y="200" fill="#fde047" font-size="10.5" font-weight="900" transform="rotate(-90 885 200)" text-anchor="middle">UNTOUCHED STAIRS</text>
 
+            <!-- Kids Room with Door -->
             <rect x="560" y="98" width="280" height="190" fill="#1e3a5f" fill-opacity="0.3" stroke="#00d2ff" stroke-width="2"/>
             <text x="700" y="125" fill="#38bdf8" font-size="11.5" font-weight="800" text-anchor="middle">KIDS ROOM (ENCLOSED WITH DOOR)</text>
 
@@ -273,21 +517,22 @@
 
             <rect x="670" y="140" width="160" height="85" rx="4" fill="#1e40af" fill-opacity="0.4" stroke="#60a5fa" stroke-width="2"/>
             <text x="750" y="185" fill="#93c5fd" font-size="11" font-weight="800" text-anchor="middle">BUNK BED (2-TIER)</text>
-
             <rect x="580" y="140" width="80" height="60" rx="3" fill="#065f46" stroke="#34d399" stroke-width="2"/>
             <text x="620" y="175" fill="#a7f3d0" font-size="10" font-weight="800" text-anchor="middle">WARDROBE</text>
 
+            <!-- Master Overhead Slab Indicator -->
             <rect x="470" y="300" width="452" height="262" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="6,6"/>
             <rect x="760" y="495" width="155" height="55" rx="4" fill="#881337" stroke="#fb7185" stroke-width="1.5"/>
             <text x="837" y="515" fill="#ffffff" font-size="10" font-weight="900" text-anchor="middle">OVERHEAD SLAB:</text>
             <text x="837" y="530" fill="#fecdd3" font-size="9.5" font-weight="700" text-anchor="middle">MASTER SUITE + WARDROBE</text>
             <text x="837" y="542" fill="#fecdd3" font-size="9.5" font-weight="700" text-anchor="middle">&amp; CHANGING PLACE</text>
 
-            <line x1="140" y1="35" x2="940" y2="35" stroke="#00d2ff" stroke-width="2" marker-start="url(#arrowK)" marker-end="url(#arrowK)"/>
+            <!-- Laser Dimensions -->
+            <line x1="140" y1="35" x2="940" y2="35" stroke="#00d2ff" stroke-width="2" marker-start="url(#arrowK1)" marker-end="url(#arrowK1)"/>
             <rect x="475" y="20" width="130" height="26" rx="4" fill="#061222" stroke="#00d2ff" stroke-width="1.5"/>
             <text x="540" y="38" fill="#ffffff" font-size="13" font-weight="900" text-anchor="middle">8.00 METERS</text>
 
-            <line x1="75" y1="80" x2="75" y2="580" stroke="#00d2ff" stroke-width="2" marker-start="url(#arrowK)" marker-end="url(#arrowK)"/>
+            <line x1="75" y1="80" x2="75" y2="580" stroke="#00d2ff" stroke-width="2" marker-start="url(#arrowK1)" marker-end="url(#arrowK1)"/>
             <rect x="25" y="315" width="100" height="26" rx="4" fill="#061222" stroke="#00d2ff" stroke-width="1.5"/>
             <text x="75" y="333" fill="#ffffff" font-size="13" font-weight="900" text-anchor="middle">5.00 METERS</text>
           </svg>
@@ -297,7 +542,288 @@
   </div>
 
   <!-- ======================================================= -->
-  <!-- TAB 2: EDITABLE MEASUREMENTS & LIVE AREA CALCULATOR     -->
+  <!-- TAB 2: OPTION 2 - MASTER OVER KITCHEN (OPEN RAFTERS)    -->
+  <!-- ======================================================= -->
+  <div id="tab-opt-2" class="tab-content">
+    <section class="main-card">
+      <div class="card-header-row">
+        <div>
+          <h2 class="card-title">Option 2: 8.00m × 5.00m Master Over Kitchen (Gable Open Rafters)</h2>
+          <p class="card-subtitle">Celebrates open exposed timber roof trusses over the living room and kids room, with the master bedroom platform on the kitchen slab featuring an integrated wardrobe and dressing bench.</p>
+        </div>
+        <span class="badge-pill pill-amber">EXPOSED TIMBER RAFTERS</span>
+      </div>
+
+      <div class="dual-view-grid">
+        <div class="view-card">
+          <div class="view-card-title"><span>✨</span> 3D Cutaway: Master Changing Nook &amp; Open Ceiling</div>
+          <div class="render-frame">
+            <img src="house_master_wardrobe.jpg" alt="Option 2 3D Cutaway" class="render-img" />
+            <div class="render-overlay-badge">Option 2: Master Wardrobe &amp; Changing Nook</div>
+          </div>
+        </div>
+
+        <div class="view-card">
+          <div class="view-card-title"><span>✨</span> 3D Cutaway: Full Lower Kitchen &amp; Untouched Stairs</div>
+          <div class="render-frame">
+            <img src="house_kitchen_full.jpg" alt="Option 2 Full Kitchen Cutaway" class="render-img" />
+            <div class="render-overlay-badge">Option 2: Full-Span Lower Kitchen</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="view-card section-margin-top">
+        <div class="view-card-title"><span>📐</span> 2D Blueprint: Open Rafters &amp; Master Elevation</div>
+        <div class="blueprint-box">
+          <svg viewBox="0 0 1060 560" xmlns="http://www.w3.org/2000/svg">
+            <rect width="100%" height="100%" fill="#061222"/>
+            <rect x="140" y="60" width="800" height="460" fill="#0c1f38" stroke="#00d2ff" stroke-width="3"/>
+            <rect x="158" y="78" width="764" height="424" fill="#08172c" stroke="#1d4ed8" stroke-width="1.5"/>
+            <text x="340" y="290" fill="#38bdf8" font-size="13" font-weight="800" text-anchor="middle">HIGH OPEN LIVING &amp; SEATING SUITE (12.3 m²)</text>
+            <text x="730" y="160" fill="#93c5fd" font-size="12" font-weight="800" text-anchor="middle">KIDS ROOM WITH DOOR (6.2 m²)</text>
+            <text x="730" y="380" fill="#fef3c7" font-size="12" font-weight="800" text-anchor="middle">LOWER KITCHEN (9.9 m²) / UPPER MASTER OVERHEAD (9.9 m²)</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- TAB 3: OPTION 3 - COMPACT MEZZANINE LOFT HOUSE          -->
+  <!-- ======================================================= -->
+  <div id="tab-opt-3" class="tab-content">
+    <section class="main-card">
+      <div class="card-header-row">
+        <div>
+          <h2 class="card-title">Option 3: 8.00m × 5.00m Compact Mezzanine Loft House</h2>
+          <p class="card-subtitle">Mezzanine loft master bedroom built above the kids bedroom and bathroom, with double-height ceiling over the front living room and patio deck slider.</p>
+        </div>
+        <span class="badge-pill pill-blue">COMPACT MEZZANINE LOFT</span>
+      </div>
+
+      <div class="dual-view-grid">
+        <div class="view-card">
+          <div class="view-card-title"><span>✨</span> 3D Photorealistic Model</div>
+          <div class="render-frame">
+            <img src="house_8x5_compact.jpg" alt="Option 3 3D Cutaway" class="render-img" />
+            <div class="render-overlay-badge">Option 3: Compact Mezzanine Loft</div>
+          </div>
+        </div>
+
+        <div class="view-card">
+          <div class="view-card-title"><span>📐</span> 2D Architectural Layout</div>
+          <div class="blueprint-box">
+            <svg viewBox="0 0 1060 560" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100%" height="100%" fill="#061222"/>
+              <rect x="140" y="50" width="800" height="460" fill="#0c1f38" stroke="#00d2ff" stroke-width="3"/>
+              <rect x="158" y="68" width="764" height="424" fill="#08172c" stroke="#1d4ed8" stroke-width="1.5"/>
+              <rect x="168" y="240" width="340" height="230" fill="#1e3a5f" fill-opacity="0.3" stroke="#38bdf8" stroke-width="2"/>
+              <text x="338" y="360" fill="#38bdf8" font-size="13" font-weight="800" text-anchor="middle">LOWER KIDS ROOM (8.16 m²)</text>
+              <rect x="520" y="240" width="390" height="230" fill="#1e293b" stroke="#cbd5e1" stroke-width="2"/>
+              <text x="715" y="360" fill="#ffffff" font-size="13" font-weight="800" text-anchor="middle">LIVING LOUNGE (11.76 m²)</text>
+              <rect x="168" y="78" width="340" height="150" fill="#b45309" fill-opacity="0.3" stroke="#f59e0b" stroke-width="2"/>
+              <text x="338" y="155" fill="#fef3c7" font-size="13" font-weight="800" text-anchor="middle">KITCHEN &amp; BAR (7.20 m²)</text>
+              <rect x="520" y="78" width="390" height="150" fill="#881337" fill-opacity="0.4" stroke="#fb7185" stroke-width="2"/>
+              <text x="715" y="155" fill="#fecdd3" font-size="13" font-weight="800" text-anchor="middle">UPPER MASTER LOFT (11.52 m²)</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- TAB 4: OPTION 4 - SINGLE LEVEL DRY CABIN (ZERO STAIRS)  -->
+  <!-- ======================================================= -->
+  <div id="tab-opt-4" class="tab-content">
+    <section class="main-card">
+      <div class="card-header-row">
+        <div>
+          <h2 class="card-title">Option 4: Exact 8.00m × 5.00m Single-Level Dry Cabin (Zero Stairs)</h2>
+          <p class="card-subtitle">100% single-level living. Zero stairs anywhere. Features the 1.20m double wardrobe acoustic sound buffer closet between Master Suite and Kids room, 5-piece seating, and 5-stool dining bar.</p>
+        </div>
+        <span class="badge-pill pill-green">100% SINGLE LEVEL (ZERO STAIRS)</span>
+      </div>
+
+      <div class="dual-view-grid">
+        <div class="view-card">
+          <div class="view-card-title"><span>✨</span> 3D Photorealistic Interior Cutaway: Single-Level Layout</div>
+          <div class="render-frame">
+            <img src="house_8x5_custom.jpg" alt="Option 4 Single Level Cutaway" class="render-img" />
+            <div class="render-overlay-badge">Option 4: Single-Level Dry Cabin</div>
+          </div>
+        </div>
+
+        <div class="view-card">
+          <div class="view-card-title"><span>📐</span> Original 2D CAD Vector Blueprint with Laser Dimension Chains</div>
+          <div class="blueprint-box">
+            <svg viewBox="0 0 1060 620" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100%" height="100%" fill="#061222"/>
+              <rect x="140" y="60" width="800" height="500" fill="#0c1f38" stroke="#00d2ff" stroke-width="4"/>
+              <rect x="158" y="78" width="764" height="464" fill="#08172c" stroke="#1d4ed8" stroke-width="1.5"/>
+              <rect x="158" y="230" width="332" height="18" fill="#1e3a5f" stroke="#00d2ff" stroke-width="1.5"/>
+              <rect x="472" y="78" width="18" height="152" fill="#1e3a5f" stroke="#00d2ff" stroke-width="1.5"/>
+              <rect x="490" y="248" width="18" height="294" fill="#1e3a5f" stroke="#00d2ff" stroke-width="1.5"/>
+              <text x="315" y="150" fill="#93c5fd" font-size="13" font-weight="800" text-anchor="middle">KIDS ROOM: 3.00m × 1.70m (5.10 m²)</text>
+              <text x="315" y="400" fill="#38bdf8" font-size="13" font-weight="800" text-anchor="middle">MASTER SUITE: 3.50m × 2.84m (9.94 m²)</text>
+              <text x="700" y="180" fill="#ffffff" font-size="13" font-weight="800" text-anchor="middle">SEATING ROOM: 4.54m × 2.94m (13.35 m²)</text>
+              <text x="700" y="440" fill="#fef3c7" font-size="13" font-weight="800" text-anchor="middle">KITCHEN &amp; 5-STOOL BAR: 4.04m × 1.70m (6.87 m²)</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- TAB 5: OPTION 5 - EXPANDED 2-STORY LUXURY VILLA (87M²)  -->
+  <!-- ======================================================= -->
+  <div id="tab-opt-5" class="tab-content">
+    <section class="main-card">
+      <div class="card-header-row">
+        <div>
+          <h2 class="card-title">Option 5: Expanded 2-Story Luxury Villa (87.24 m²)</h2>
+          <p class="card-subtitle">Full luxury family villa with separate ground-floor kids suite and luxury upper master retreat with cantilevered balcony and spa bath.</p>
+        </div>
+        <span class="badge-pill pill-purple">EXPANDED VILLA (87.2 m²)</span>
+      </div>
+
+      <div class="dual-view-grid">
+        <div class="view-card">
+          <div class="view-card-title"><span>✨</span> 3D Interior Cutaway: Ground Kids Suite</div>
+          <div class="render-frame">
+            <img src="house_kids_lower.jpg" alt="Option 5 Interior Cutaway" class="render-img" />
+            <div class="render-overlay-badge">Option 5: Kids Lower Suite Cutaway</div>
+          </div>
+        </div>
+
+        <div class="view-card">
+          <div class="view-card-title"><span>🌆</span> 3D Exterior Twilight Facade: Modern Villa</div>
+          <div class="render-frame">
+            <img src="house_3d_exterior.jpg" alt="Option 5 Exterior Facade" class="render-img" />
+            <div class="render-overlay-badge">Option 5: Villa Twilight Facade</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dual-view-grid section-margin-top">
+        <div class="view-card">
+          <div class="view-card-title"><span>✨</span> 3D Cutaway: Early 2-Story Double Height Concept</div>
+          <div class="render-frame">
+            <img src="house_3d_interior.jpg" alt="Option 5 Early Concept" class="render-img" />
+            <div class="render-overlay-badge">Option 5: Concept Cutaway</div>
+          </div>
+        </div>
+
+        <div class="view-card">
+          <div class="view-card-title"><span>📐</span> 2D Architectural Layout Blueprint</div>
+          <div class="blueprint-box">
+            <svg viewBox="0 0 1060 620" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100%" height="100%" fill="#061222"/>
+              <rect x="120" y="50" width="820" height="520" fill="#0c1f38" stroke="#a855f7" stroke-width="3"/>
+              <rect x="138" y="68" width="784" height="484" fill="#08172c" stroke="#6b21a8" stroke-width="1.5"/>
+              <text x="320" y="200" fill="#c084fc" font-size="13" font-weight="800" text-anchor="middle">GROUND KIDS EN-SUITE (16.2 m²)</text>
+              <text x="320" y="420" fill="#e9d5ff" font-size="13" font-weight="800" text-anchor="middle">EXPANDED SEATING LOUNGE (22.5 m²)</text>
+              <text x="720" y="200" fill="#fef08a" font-size="13" font-weight="800" text-anchor="middle">CHEF'S ISLAND KITCHEN (15.8 m²)</text>
+              <text x="720" y="420" fill="#38bdf8" font-size="13" font-weight="800" text-anchor="middle">UPPER MASTER RETREAT &amp; BALCONY (32.7 m²)</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- TAB 6: COMPARISON MATRIX                                -->
+  <!-- ======================================================= -->
+  <div id="tab-opt-matrix" class="tab-content">
+    <section class="main-card">
+      <h2 class="card-title">Side-by-Side Architectural Comparison Matrix</h2>
+      <p class="card-subtitle">Direct evaluation across all 5 designs to select the ideal layout for your parcel and lifestyle.</p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Criteria</th>
+            <th>Option 1: Kangaroo Hidden Roof (Approved)</th>
+            <th>Option 2: Master Over Kitchen</th>
+            <th>Option 3: Compact Loft</th>
+            <th>Option 4: Single-Level</th>
+            <th>Option 5: Expanded Villa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Footprint</strong></td>
+            <td><span class="matrix-best">Strict 8m × 5m (40m²)</span></td>
+            <td><span class="matrix-best">Strict 8m × 5m (40m²)</span></td>
+            <td><span class="matrix-best">Strict 8m × 5m (40m²)</span></td>
+            <td><span class="matrix-best">Strict 8m × 5m (40m²)</span></td>
+            <td>~10.5m × 8m (~55m²)</td>
+          </tr>
+          <tr>
+            <td><strong>Roof Style</strong></td>
+            <td><span class="matrix-best">Kangaroo Hidden Parapets</span></td>
+            <td>Exposed Timber Rafters</td>
+            <td>Shed / Gable</td>
+            <td>Standard Flat</td>
+            <td>Modern Overhang</td>
+          </tr>
+          <tr>
+            <td><strong>Upper Slab</strong></td>
+            <td><span class="matrix-best">Only Over Kitchen</span></td>
+            <td><span class="matrix-best">Only Over Kitchen</span></td>
+            <td>Over Kids &amp; Bath</td>
+            <td>Zero Slab</td>
+            <td>Full Concrete Slab</td>
+          </tr>
+          <tr>
+            <td><strong>Kids Room</strong></td>
+            <td><span class="matrix-best">Ground (Door, Bunk + Wardrobe)</span></td>
+            <td><span class="matrix-best">Ground (Door, Bunk + Wardrobe)</span></td>
+            <td>Ground (Bunk + Desk)</td>
+            <td>Ground (Bunk + Closet)</td>
+            <td>Ground (Luxury Suite)</td>
+          </tr>
+          <tr>
+            <td><strong>Master Suite</strong></td>
+            <td><span class="matrix-best">Over Kitchen + Wardrobe &amp; Changing</span></td>
+            <td><span class="matrix-best">Over Kitchen + Wardrobe &amp; Changing</span></td>
+            <td>Over Kids Suite</td>
+            <td>Ground with Sound Closet</td>
+            <td>Upper with Balcony &amp; Spa</td>
+          </tr>
+          <tr>
+            <td><strong>Kitchen Spec</strong></td>
+            <td><span class="matrix-best">Full Lower Section (No Sink/Fridge)</span></td>
+            <td><span class="matrix-best">Full Lower Section (No Sink/Fridge)</span></td>
+            <td>L-Kitchen (Barstools)</td>
+            <td>Dry L-Drawers</td>
+            <td>Island Bar &amp; Appliances</td>
+          </tr>
+          <tr>
+            <td><strong>Stairs</strong></td>
+            <td><span class="matrix-best">Untouched Along Wall</span></td>
+            <td><span class="matrix-best">Untouched Along Wall</span></td>
+            <td>Center Stair</td>
+            <td>Zero Stairs</td>
+            <td>Floating Luxury Stair</td>
+          </tr>
+          <tr>
+            <td><strong>Entrance Door</strong></td>
+            <td><span class="matrix-best">Single 3.5ft Metal Door (Only door)</span></td>
+            <td><span class="matrix-best">Single 3.5ft Metal Door (Only door)</span></td>
+            <td>Sliding Glass Door</td>
+            <td>Standard Front Door</td>
+            <td>Pivot Timber Door</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- TAB 7: EDITABLE MEASUREMENTS                            -->
   <!-- ======================================================= -->
   <div id="tab-opt-editor" class="tab-content">
     <section class="main-card">
@@ -352,7 +878,6 @@
         </div>
       </div>
 
-      <!-- Live Dynamic Area Calculation Chips -->
       <div class="stats-card-grid">
         <div class="stat-chip">
           <div class="stat-chip-label">Total Ground Footprint</div>
@@ -379,7 +904,7 @@
   </div>
 
   <!-- ======================================================= -->
-  <!-- TAB 3: EXPENSE & BUDGET TRACKER                         -->
+  <!-- TAB 8: EXPENSE & BUDGET TRACKER                         -->
   <!-- ======================================================= -->
   <div id="tab-opt-expenses" class="tab-content">
     <section class="main-card">
@@ -391,7 +916,6 @@
         <button class="ctrl-action-btn" onclick="exportExpensesCSV()">Export to CSV</button>
       </div>
 
-      <!-- Budget Progress Summary Bar -->
       <div class="budget-summary-bar">
         <div class="card-header-row">
           <div>
@@ -424,7 +948,6 @@
         </div>
       </div>
 
-      <!-- Add Expense Form -->
       <form id="expenseForm" class="expense-form-row">
         <div class="form-group">
           <label class="form-label" for="expName">Expense Description</label>
@@ -462,7 +985,6 @@
         <button type="submit" class="ctrl-action-btn">+ Add Expense</button>
       </form>
 
-      <!-- Expense Ledger Table -->
       <div class="section-margin-top">
         <table class="data-table">
           <thead>
@@ -484,7 +1006,7 @@
   </div>
 
   <!-- ======================================================= -->
-  <!-- TAB 4: MATERIAL, FINISHING & ENGINEERING ESTIMATORS     -->
+  <!-- TAB 9: MATERIAL, FINISHING & ENGINEERING ESTIMATORS     -->
   <!-- ======================================================= -->
   <div id="tab-opt-estimators" class="tab-content">
     <section class="main-card">
@@ -496,25 +1018,24 @@
       </div>
 
       <div class="dual-view-grid">
-        <!-- 1. Wall Painting & Primer Takeoff -->
         <div class="spec-box">
           <div class="spec-title">
             <span>🎨 1. Wall Paint &amp; Primer Calculator</span>
             <span class="badge-pill pill-green">Finishes</span>
           </div>
           <div class="spec-content">
-            <p>Calculates gross wall area from your house dimensions minus openings (doors/windows):</p>
+            <p>Calculates gross wall area minus doors and windows:</p>
             <div class="stats-card-grid">
               <div class="stat-chip">
-                <div class="stat-chip-label">Net Wall Surface Area</div>
+                <div class="stat-chip-label">Net Wall Area</div>
                 <div class="stat-chip-value" id="calc_netWallArea">0 m²</div>
               </div>
               <div class="stat-chip">
-                <div class="stat-chip-label">Primer / Undercoat Required</div>
+                <div class="stat-chip-label">Primer Required</div>
                 <div class="stat-chip-value" id="calc_primerLiters">0 Liters</div>
               </div>
               <div class="stat-chip">
-                <div class="stat-chip-label">Topcoat Paint (2 Coats)</div>
+                <div class="stat-chip-label">Paint (2 Coats)</div>
                 <div class="stat-chip-value" id="calc_paintLiters">0 Liters</div>
               </div>
               <div class="stat-chip">
@@ -525,14 +1046,13 @@
           </div>
         </div>
 
-        <!-- 2. Parquet & Flooring Takeoff -->
         <div class="spec-box">
           <div class="spec-title">
             <span>🪵 2. Oak Parquet &amp; Tile Estimator</span>
             <span class="badge-pill pill-amber">Flooring</span>
           </div>
           <div class="spec-content">
-            <p>Calculates herringbone engineered oak flooring for seating room + master loft, with 10% wastage allowance:</p>
+            <p>Calculates herringbone engineered oak flooring with 10% wastage allowance:</p>
             <div class="stats-card-grid">
               <div class="stat-chip">
                 <div class="stat-chip-label">Required Parquet Area</div>
@@ -546,7 +1066,6 @@
           </div>
         </div>
 
-        <!-- 3. Electrical Estimator -->
         <div class="spec-box">
           <div class="spec-title">
             <span>⚡ 3. Electrical Rough-In Estimator</span>
@@ -554,15 +1073,15 @@
           </div>
           <div class="spec-content">
             <div class="form-group section-margin-top">
-              <label class="form-label" for="input_lightPoints">Ceiling &amp; Sconce Light Points</label>
+              <label class="form-label" for="input_lightPoints">Light Points</label>
               <input type="number" class="form-input" id="input_lightPoints" value="14" oninput="calculateElectrical()" />
             </div>
             <div class="form-group">
-              <label class="form-label" for="input_socketPoints">Power &amp; TV Socket Outlets</label>
+              <label class="form-label" for="input_socketPoints">Power Outlets</label>
               <input type="number" class="form-input" id="input_socketPoints" value="12" oninput="calculateElectrical()" />
             </div>
             <div class="form-group">
-              <label class="form-label" for="input_coveStrips">LED Architectural Cove Strips (Meters)</label>
+              <label class="form-label" for="input_coveStrips">LED Cove Strips (Meters)</label>
               <input type="number" class="form-input" id="input_coveStrips" value="25" oninput="calculateElectrical()" />
             </div>
             <div class="stat-chip section-margin-top">
@@ -572,7 +1091,6 @@
           </div>
         </div>
 
-        <!-- 4. Plumbing & Roof Drainage Estimator -->
         <div class="spec-box">
           <div class="spec-title">
             <span>🚰 4. Plumbing &amp; Kangaroo Roof Gutters</span>
@@ -584,7 +1102,7 @@
               <input type="number" class="form-input" id="input_gutterLength" value="16" oninput="calculatePlumbing()" />
             </div>
             <div class="form-group">
-              <label class="form-label" for="input_bathPoints">Bathroom Supply &amp; Drainage Points</label>
+              <label class="form-label" for="input_bathPoints">Bathroom Drainage Points</label>
               <input type="number" class="form-input" id="input_bathPoints" value="4" oninput="calculatePlumbing()" />
             </div>
             <p class="profile-role-text section-margin-top">Note: Kitchen is strictly DRY (saves over $1,500 in plumbing runs).</p>
@@ -599,7 +1117,7 @@
   </div>
 
   <!-- ======================================================= -->
-  <!-- TAB 5: CONSTRUCTION PROGRESS TRACKER                    -->
+  <!-- TAB 10: CONSTRUCTION PROGRESS TRACKER                   -->
   <!-- ======================================================= -->
   <div id="tab-opt-milestones" class="tab-content">
     <section class="main-card">
@@ -622,95 +1140,102 @@
   </div>
 
   <!-- ======================================================= -->
-  <!-- TAB 6: COST MINIMIZATION ADVISOR                        -->
-  <!-- ======================================================= -->
-  <div id="tab-opt-savings" class="tab-content">
-    <section class="main-card">
-      <div class="card-header-row">
-        <div>
-          <h2 class="card-title">Cost Minimization &amp; Value Engineering Guide</h2>
-          <p class="card-subtitle">Proven structural decisions that reduce your total construction expense by over $10,800 without compromising beauty or durability.</p>
-        </div>
-        <span class="badge-pill pill-green">ESTIMATED SAVINGS: $10,800+</span>
-      </div>
-
-      <div class="spec-grid">
-        <div class="spec-box">
-          <div class="spec-title">
-            <span>🏗️ Single Kitchen Slab vs Full Floor</span>
-            <span class="badge-pill pill-green">Saves ~$4,200</span>
-          </div>
-          <p class="spec-content">Casting an intermediate concrete slab <strong>strictly over the kitchen area (~9.88m²)</strong> rather than the entire 40m² ground floor saves 75% of second-floor formwork, props, concrete volume, and rebar steel reinforcement.</p>
-        </div>
-
-        <div class="spec-box">
-          <div class="spec-title">
-            <span>🦘 Kangaroo Roof vs Flat Concrete Roof</span>
-            <span class="badge-pill pill-green">Saves ~$3,800</span>
-          </div>
-          <p class="spec-content">Flat concrete roof slabs require costly torch-on waterproofing membranes, thermal screed, and frequent maintenance. The kangaroo concealed roof uses cost-effective light gauge metal trusses and corrugated sheeting hidden behind parapets, delivering the same modern flat-top aesthetic with zero leakage risks.</p>
-        </div>
-
-        <div class="spec-box">
-          <div class="spec-title">
-            <span>🍽️ Dry Pantry vs Wet Kitchen Plumbing</span>
-            <span class="badge-pill pill-green">Saves ~$1,500</span>
-          </div>
-          <p class="spec-content">Eliminating the kitchen sink and dishwasher eliminates underground grease trap excavation, kitchen waste piping through the foundation slab, and hot/cold water supply lines to the kitchen island.</p>
-        </div>
-
-        <div class="spec-box">
-          <div class="spec-title">
-            <span>🚪 Single Metal Entrance Security Door</span>
-            <span class="badge-pill pill-green">Saves ~$1,300</span>
-          </div>
-          <p class="spec-content">Installing one single 3.5ft solid metal security door and omitting back patio sliding glass doors eliminates expensive multi-track patio sliders, exterior security shutters, and secondary deadbolts.</p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ======================================================= -->
-  <!-- TAB 7: EXPORT & DOWNLOAD HUB                            -->
+  <!-- TAB 11: EXPORT & DOWNLOAD HUB                           -->
   <!-- ======================================================= -->
   <div id="tab-opt-export" class="tab-content">
     <section class="main-card">
       <div class="card-header-row">
         <div>
           <h2 class="card-title">Export &amp; Download Center</h2>
-          <p class="card-subtitle">Download high-resolution 3D renders, vector CAD floor plans, and financial logs individually, or export the full construction pack as a printable PDF.</p>
+          <p class="card-subtitle">Download individual 3D models, CAD blueprints, expense sheets, or generate the complete PDF construction report.</p>
         </div>
       </div>
 
       <div class="download-grid">
         <div class="download-card">
           <div>
-            <div class="download-card-header">3D Interior Cutaway Model</div>
-            <div class="download-card-desc">High-resolution photorealistic 3D render showing the kangaroo parapets, master suite on kitchen slab, and interior rooms.</div>
+            <div class="download-card-header">Option 1: Kangaroo 3D Interior</div>
+            <div class="download-card-desc">High-resolution render showing the kangaroo parapet walls, master suite on kitchen slab, and rooms.</div>
           </div>
-          <button class="ctrl-action-btn" onclick="downloadImage('house_kangaroo_cutaway.jpg', 'Devins_House_3D_Interior_Cutaway.jpg')">Download 3D Interior (.jpg)</button>
+          <button class="ctrl-action-btn" onclick="downloadImage('house_kangaroo_cutaway.jpg', 'Devins_House_Kangaroo_3D_Interior.jpg')">Download 3D Interior (.jpg)</button>
         </div>
 
         <div class="download-card">
           <div>
-            <div class="download-card-header">3D Exterior Facade Model</div>
-            <div class="download-card-desc">High-resolution architectural exterior showing the flat-top kangaroo box silhouette, 3.5ft metal door, and facade.</div>
+            <div class="download-card-header">Option 1: Kangaroo 3D Exterior</div>
+            <div class="download-card-desc">High-resolution exterior showing the flat-top kangaroo box silhouette and 3.5ft metal door.</div>
           </div>
-          <button class="ctrl-action-btn" onclick="downloadImage('house_kangaroo_exterior.jpg', 'Devins_House_3D_Exterior_Facade.jpg')">Download 3D Exterior (.jpg)</button>
+          <button class="ctrl-action-btn" onclick="downloadImage('house_kangaroo_exterior.jpg', 'Devins_House_Kangaroo_3D_Exterior.jpg')">Download 3D Exterior (.jpg)</button>
         </div>
 
         <div class="download-card">
           <div>
-            <div class="download-card-header">Tailored 2D CAD Blueprint</div>
-            <div class="download-card-desc">Full 2D CAD vector floor plan with laser dimension chains, door swing arcs, and room zoning.</div>
+            <div class="download-card-header">Option 2: Master Wardrobe &amp; Rafters</div>
+            <div class="download-card-desc">High-resolution render of master suite platform with changing nook and open timber roof trusses.</div>
           </div>
-          <button class="ctrl-action-btn" onclick="window.open('house_kangaroo_cutaway.jpg', '_blank')">View Blueprint Fullscreen</button>
+          <button class="ctrl-action-btn" onclick="downloadImage('house_master_wardrobe.jpg', 'Devins_House_Option2_Master_Wardrobe.jpg')">Download Option 2 Master (.jpg)</button>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">Option 2: Full Lower Kitchen Under Slab</div>
+            <div class="download-card-desc">High-resolution render of full-span lower kitchen with untouched side wall floating stairs.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('house_kitchen_full.jpg', 'Devins_House_Option2_Kitchen_Full.jpg')">Download Option 2 Kitchen (.jpg)</button>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">Option 2: Concrete Slab Structural Model</div>
+            <div class="download-card-desc">Structural model showing the intermediate reinforced concrete slab over the kitchen.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('house_slab_kitchen.jpg', 'Devins_House_Concrete_Slab_Model.jpg')">Download Slab Model (.jpg)</button>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">Option 3: Compact Mezzanine Loft</div>
+            <div class="download-card-desc">High-resolution model of the 8x5m compact loft with double-height front living volume.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('house_8x5_compact.jpg', 'Devins_House_Option3_Compact_Loft.jpg')">Download Option 3 Loft (.jpg)</button>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">Option 4: Single-Level Dry Cabin</div>
+            <div class="download-card-desc">High-resolution model of the 100% single-level cabin with 1.2m acoustic double wardrobe buffer.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('house_8x5_custom.jpg', 'Devins_House_Option4_Single_Level.jpg')">Download Option 4 Cabin (.jpg)</button>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">Option 5: Luxury Villa Kids Suite</div>
+            <div class="download-card-desc">High-resolution interior cutaway of the expanded 87.2m² multi-level luxury villa.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('house_kids_lower.jpg', 'Devins_House_Option5_Villa_Interior.jpg')">Download Villa Interior (.jpg)</button>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">Option 5: Villa Twilight Facade</div>
+            <div class="download-card-desc">Photorealistic dusk exterior facade of the expanded luxury cantilevered villa.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('house_3d_exterior.jpg', 'Devins_House_Option5_Villa_Facade.jpg')">Download Villa Facade (.jpg)</button>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">Option 5: Concept Cutaway</div>
+            <div class="download-card-desc">Original conceptual cutaway showing double-height volume and open living zoning.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('house_3d_interior.jpg', 'Devins_House_Concept_Cutaway.jpg')">Download Concept Model (.jpg)</button>
         </div>
 
         <div class="download-card">
           <div>
             <div class="download-card-header">Expense Ledger (CSV)</div>
-            <div class="download-card-desc">Complete spreadsheet of all logged expenses, categories, payment dates, and status for Microsoft Excel or Google Sheets.</div>
+            <div class="download-card-desc">Complete spreadsheet of all logged construction expenses for Microsoft Excel or Google Sheets.</div>
           </div>
           <button class="ctrl-action-btn" onclick="exportExpensesCSV()">Export Expenses (.csv)</button>
         </div>
@@ -718,7 +1243,7 @@
         <div class="download-card">
           <div>
             <div class="download-card-header">Master Data Backup (JSON)</div>
-            <div class="download-card-desc">Full offline backup of custom measurements, budget, milestone states, and user profile data.</div>
+            <div class="download-card-desc">Offline backup of custom measurements, budget, milestone states, and user profile data.</div>
           </div>
           <button class="ctrl-action-btn" onclick="exportAllDataJSON()">Export Master Data (.json)</button>
         </div>
@@ -726,41 +1251,9 @@
         <div class="download-card">
           <div>
             <div class="download-card-header">Full Construction Pack (Print / PDF)</div>
-            <div class="download-card-desc">Generate a professional clean printable PDF document containing the complete architectural specs, dimensions, and financial summary.</div>
+            <div class="download-card-desc">Generate a professional clean printable PDF document containing the complete architectural specs and schedules.</div>
           </div>
           <button class="ctrl-action-btn" onclick="printFullSpecificationDocument()">Print / Save as PDF</button>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <!-- ======================================================= -->
-  <!-- TAB 8: ALL PRIOR OPTIONS & COMPARISON ARCHIVE           -->
-  <!-- ======================================================= -->
-  <div id="tab-opt-archive" class="tab-content">
-    <section class="main-card">
-      <div class="card-header-row">
-        <div>
-          <h2 class="card-title">Prior Design Options Archive &amp; Side-by-Side Comparison</h2>
-          <p class="card-subtitle">Review previous iterations (Compact Loft, Single-Level Dry Cabin, Expanded Luxury Villa) alongside the comprehensive comparison matrix.</p>
-        </div>
-      </div>
-
-      <div class="spec-grid">
-        <div class="download-card">
-          <div class="download-card-header">Option 2: 8x5m Compact Loft House</div>
-          <div class="render-frame section-margin-top">
-            <img src="house_8x5_compact.jpg" alt="Option 2 Compact Loft" class="render-img" />
-          </div>
-          <div class="download-card-desc section-margin-top">Mezzanine loft master bedroom over kids room and bath, double-height ceiling over living room.</div>
-        </div>
-
-        <div class="download-card">
-          <div class="download-card-header">Option 4: Expanded 2-Story Luxury Villa (87m²)</div>
-          <div class="render-frame section-margin-top">
-            <img src="house_kids_lower.jpg" alt="Option 4 Luxury Villa" class="render-img" />
-          </div>
-          <div class="download-card-desc section-margin-top">Multi-level luxury villa with separate ground-floor kids suite and upper master retreat with private balcony.</div>
         </div>
       </div>
     </section>

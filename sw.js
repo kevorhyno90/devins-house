@@ -1,4 +1,4 @@
-const CACHE_NAME = "devins-house-v1";
+const CACHE_NAME = "devins-house-v2";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
@@ -11,7 +11,9 @@ const ASSETS_TO_CACHE = [
   "./house_kangaroo_exterior.jpg",
   "./house_master_wardrobe.jpg",
   "./house_kitchen_full.jpg",
+  "./house_slab_kitchen.jpg",
   "./house_8x5_compact.jpg",
+  "./house_8x5_custom.jpg",
   "./house_kids_lower.jpg",
   "./house_3d_exterior.jpg",
   "./house_3d_interior.jpg"

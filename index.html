@@ -1669,10 +1669,11 @@
       <h2 class="card-title">Side-by-Side Architectural Comparison Matrix</h2>
       <p class="card-subtitle">Direct evaluation across all 5 designs to select the ideal layout for your parcel and lifestyle.</p>
 
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Criteria</th>
+      <div class="table-responsive">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Criteria</th>
             <th>Option 1: Kangaroo Hidden Roof (Approved)</th>
             <th>Option 2: Master Over Kitchen</th>
             <th>Option 3: Compact Loft</th>
@@ -1756,6 +1757,7 @@
           </tr>
         </tbody>
       </table>
+      </div>
     </section>
   </div>
 
@@ -1813,6 +1815,31 @@
           <label class="form-label" for="input_doorWidth">Main Entrance Door Width (Meters)</label>
           <input type="number" step="0.01" class="form-input" id="input_doorWidth" oninput="onMeasurementChange()" />
         </div>
+        <!-- Option 6 Smart Zero-Slab Measurements -->
+        <div class="form-group">
+          <label class="form-label" for="input_opt6MasterWidth" style="color: #34d399;">Option 6: Master Mezzanine Width (M)</label>
+          <input type="number" step="0.1" class="form-input" id="input_opt6MasterWidth" oninput="onMeasurementChange()" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="input_opt6MasterDepth" style="color: #34d399;">Option 6: Master Mezzanine Depth (M)</label>
+          <input type="number" step="0.1" class="form-input" id="input_opt6MasterDepth" oninput="onMeasurementChange()" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="input_opt6KidsWidth" style="color: #60a5fa;">Option 6: Kids Room Width (M)</label>
+          <input type="number" step="0.1" class="form-input" id="input_opt6KidsWidth" oninput="onMeasurementChange()" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="input_opt6KidsDepth" style="color: #60a5fa;">Option 6: Kids Room Depth (M)</label>
+          <input type="number" step="0.1" class="form-input" id="input_opt6KidsDepth" oninput="onMeasurementChange()" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="input_opt6KitchenWidth" style="color: #c084fc;">Option 6: Kitchen Width (M)</label>
+          <input type="number" step="0.1" class="form-input" id="input_opt6KitchenWidth" oninput="onMeasurementChange()" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="input_opt6KitchenDepth" style="color: #c084fc;">Option 6: Kitchen Depth (M)</label>
+          <input type="number" step="0.1" class="form-input" id="input_opt6KitchenDepth" oninput="onMeasurementChange()" />
+        </div>
       </div>
 
       <div class="stats-card-grid">
@@ -1835,8 +1862,18 @@
         <div class="stat-chip">
           <div class="stat-chip-label">Upper Master Suite Slab</div>
           <div class="stat-chip-value" id="calc_masterArea">9.88 m²</div>
+        </div>        <div class="stat-chip">
+          <div class="stat-chip-label" style="color: #34d399;">Option 6 Master Mezzanine</div>
+          <div class="stat-chip-value" id="calc_opt6MasterArea">20.00 m²</div>
         </div>
-      </div>
+        <div class="stat-chip">
+          <div class="stat-chip-label" style="color: #60a5fa;">Option 6 Kids Bedroom</div>
+          <div class="stat-chip-value" id="calc_opt6KidsArea">8.32 m²</div>
+        </div>
+        <div class="stat-chip">
+          <div class="stat-chip-label" style="color: #c084fc;">Option 6 Kitchen &amp; Bar</div>
+          <div class="stat-chip-value" id="calc_opt6KitchenArea">7.68 m²</div>
+        </div>      </div>
 
       <!-- MASTER ROOM & FURNITURE DIMENSIONS SPECIFICATION TABLE -->
       <div class="section-margin-top">
@@ -2402,5 +2439,15 @@
 </div>
 
 <script src="app.js"></script>
+
+  <!-- Floating In-Place Edit Mode Controls -->
+  <div id="floatingEditBar" class="floating-edit-bar" style="display: none;">
+    <div class="floating-edit-text">
+      <span>✏️</span> <strong>Edit Mode Active</strong>: Click any title, note, or dimension text to edit directly on the page!
+    </div>
+    <button class="floating-save-btn" onclick="saveInPlaceEdits()">💾 Save All Edits</button>
+    <button class="floating-reset-btn" onclick="resetInPlaceEdits()">↺ Reset to Defaults</button>
+  </div>
+
 </body>
 </html>

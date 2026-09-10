@@ -141,7 +141,13 @@ const DEFAULT_MEASUREMENTS = {
   masterDepth: 2.60,
   doorWidth: 1.07, // 3.5 feet
   cathedralHeight: 4.20,
-  slabHeight: 2.40
+  slabHeight: 2.40,
+  opt6MasterWidth: 4.00,
+  opt6MasterDepth: 5.00,
+  opt6KidsWidth: 2.60,
+  opt6KidsDepth: 3.20,
+  opt6KitchenWidth: 2.40,
+  opt6KitchenDepth: 3.20
 };
 
 let measurements = JSON.parse(localStorage.getItem("devins_measurements")) || DEFAULT_MEASUREMENTS;
@@ -177,6 +183,15 @@ function recalculateAreas() {
   setText("calc_kidsArea", kidsArea + " m²");
   setText("calc_kitchenArea", kitchenArea + " m²");
   setText("calc_masterArea", masterArea + " m²");
+
+  // Option 6 Live Recalculations
+  const opt6Master = ((measurements.opt6MasterWidth || 4.0) * (measurements.opt6MasterDepth || 5.0)).toFixed(2);
+  const opt6Kids = ((measurements.opt6KidsWidth || 2.6) * (measurements.opt6KidsDepth || 3.2)).toFixed(2);
+  const opt6Kitchen = ((measurements.opt6KitchenWidth || 2.4) * (measurements.opt6KitchenDepth || 3.2)).toFixed(2);
+
+  setText("calc_opt6MasterArea", opt6Master + " m²");
+  setText("calc_opt6KidsArea", opt6Kids + " m²");
+  setText("calc_opt6KitchenArea", opt6Kitchen + " m²");
 
   // Re-run paint and structural calculators based on updated measurements
   calculateFinishes();
@@ -504,4 +519,85 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const expForm = document.getElementById("expenseForm");
   if (expForm) expForm.addEventListener("submit", addExpense);
+
+  loadInPlaceEdits();
 });
+
+// -------------------------------------------------------------------------
+// 12. Universal In-Place Live Editing Engine
+// -------------------------------------------------------------------------
+let isEditModeActive = false;
+
+function toggleEditMode() {
+  isEditModeActive = !isEditModeActive;
+  document.body.classList.toggle("in-edit-mode", isEditModeActive);
+
+  const btn = document.getElementById("toggleEditModeBtn");
+  const btnText = document.getElementById("editModeBtnText");
+  const floatingBar = document.getElementById("floatingEditBar");
+
+  if (btn && btnText) {
+    if (isEditModeActive) {
+      btn.classList.add("editing-active");
+      btnText.textContent = "Edit Mode: ON";
+      if (floatingBar) floatingBar.style.display = "flex";
+      enableEditableElements(true);
+    } else {
+      btn.classList.remove("editing-active");
+      btnText.textContent = "Edit Mode: OFF";
+      if (floatingBar) floatingBar.style.display = "none";
+      enableEditableElements(false);
+      saveInPlaceEdits();
+    }
+  }
+}
+
+const EDITABLE_SELECTORS = ".spec-title, .spec-content, .card-title, .card-subtitle, td, th, .stat-chip-label, .stat-chip-value, .deck-title, .deck-meta";
+
+function enableEditableElements(enable) {
+  const elements = document.querySelectorAll(EDITABLE_SELECTORS);
+  elements.forEach((el, index) => {
+    if (!el.getAttribute("data-edit-key")) {
+      el.setAttribute("data-edit-key", "edit_node_" + index);
+    }
+    el.contentEditable = enable ? "true" : "false";
+  });
+}
+
+function saveInPlaceEdits() {
+  const customTexts = {};
+  const elements = document.querySelectorAll("[data-edit-key]");
+  elements.forEach((el) => {
+    const key = el.getAttribute("data-edit-key");
+    if (key) {
+      customTexts[key] = el.innerHTML;
+    }
+  });
+  localStorage.setItem("devins_custom_texts", JSON.stringify(customTexts));
+  alert("All text, room dimension notes, and specifications have been saved successfully!");
+}
+
+function loadInPlaceEdits() {
+  const saved = localStorage.getItem("devins_custom_texts");
+  if (!saved) return;
+  try {
+    const customTexts = JSON.parse(saved);
+    const elements = document.querySelectorAll(EDITABLE_SELECTORS);
+    elements.forEach((el, index) => {
+      const key = "edit_node_" + index;
+      el.setAttribute("data-edit-key", key);
+      if (customTexts[key]) {
+        el.innerHTML = customTexts[key];
+      }
+    });
+  } catch (err) {
+    console.error("Error loading custom texts:", err);
+  }
+}
+
+function resetInPlaceEdits() {
+  if (confirm("Reset all text, titles, notes, and tables back to the original specifications?")) {
+    localStorage.removeItem("devins_custom_texts");
+    location.reload();
+  }
+}

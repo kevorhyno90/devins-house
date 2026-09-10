@@ -26,7 +26,8 @@ const ASSETS_TO_CACHE = [
   "./interior_staircase_mezzanine.jpg",
   "./compact_20sqm_private_kids.jpg",
   "./seating_suite_complete_cutaway.jpg",
-  "./metal_timber_master_cutaway.jpg"
+  "./metal_timber_master_cutaway.jpg",
+  "./timber_slab_construction_guide.jpg"
 ];
 
 // Install Event: Pre-cache all core assets and images

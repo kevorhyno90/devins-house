@@ -118,13 +118,27 @@
           <div class="deck-btn">View Option 5 Blueprint &amp; 3D ➜</div>
         </div>
       </div>
+
+      <div class="deck-card" data-tab="opt-6" onclick="switchToTab('opt-6', 6)">
+        <div class="deck-thumb-wrap">
+          <img src="smart_architectural_layout.jpg" alt="Option 6 Smart Zero-Slab" class="deck-thumb-img" />
+          <span class="deck-pill pill-green">Option 6 • Zero-Slab</span>
+        </div>
+        <div class="deck-body">
+          <div>
+            <div class="deck-title">Smart Zero-Slab Mezzanine</div>
+            <div class="deck-meta">4 masonry pillars • Under-stair TV wall • Kangaroo hidden roof • $3,200 savings</div>
+          </div>
+          <div class="deck-btn">View Option 6 Blueprint &amp; 3D ➜</div>
+        </div>
+      </div>
     </div>
   </header>
 
   <!-- ================= MASTER NAVIGATION TABS ================= -->
   <nav class="tab-bar">
     <button class="tab-btn" data-tab="opt-all" onclick="switchToTab('opt-all', 0)">
-      <span>🌟</span> All 5 Designs Gallery (Show All)
+      <span>🌟</span> All 6 Designs Gallery (Show All)
     </button>
     <button class="tab-btn active" data-tab="opt-1" onclick="switchToTab('opt-1', 1)">
       <span>🦘</span> Option 1: Kangaroo Hidden Roof
@@ -141,10 +155,13 @@
     <button class="tab-btn" data-tab="opt-5" onclick="switchToTab('opt-5', 5)">
       <span>🏛️</span> Option 5: Expanded 2-Story Villa
     </button>
-    <button class="tab-btn" data-tab="opt-matrix" onclick="switchToTab('opt-matrix', 6)">
+    <button class="tab-btn" data-tab="opt-6" onclick="switchToTab('opt-6', 6)">
+      <span>💡</span> Option 6: Smart Zero-Slab
+    </button>
+    <button class="tab-btn" data-tab="opt-matrix" onclick="switchToTab('opt-matrix', 7)">
       <span>⚖️</span> Comparison Matrix
     </button>
-    <button class="tab-btn" data-tab="opt-editor" onclick="switchToTab('opt-editor', 7)">
+    <button class="tab-btn" data-tab="opt-editor" onclick="switchToTab('opt-editor', 8)">
       <span>📏</span> Live Dimension Editor
     </button>
     <button class="tab-btn" data-tab="opt-expenses" onclick="switchToTab('opt-expenses', 8)">
@@ -171,7 +188,7 @@
           <h2 class="card-title">All 5 Architectural Design Options Built For Devin's House</h2>
           <p class="card-subtitle">Every design version built from the start — complete with photorealistic 3D interior cutaways, exterior twilight facades, and vector CAD floor plans. Scroll through each option below or jump directly to any design.</p>
         </div>
-        <span class="badge-pill pill-cyan">5 COMPLETE OPTIONS ARCHIVE</span>
+        <span class="badge-pill pill-cyan">6 COMPLETE OPTIONS ARCHIVE</span>
       </div>
 
       <!-- Quick Jump Bar -->
@@ -182,6 +199,7 @@
         <button class="jump-link" onclick="scrollToDesign('showcase-opt-3')">📐 Option 3 (Compact Loft)</button>
         <button class="jump-link" onclick="scrollToDesign('showcase-opt-4')">🌿 Option 4 (Single-Level Dry Cabin)</button>
         <button class="jump-link" onclick="scrollToDesign('showcase-opt-5')">🏛️ Option 5 (Expanded 87m² Villa)</button>
+        <button class="jump-link" onclick="scrollToDesign('showcase-opt-6')">💡 Option 6 (Smart Zero-Slab Mezzanine)</button>
       </div>
 
       <!-- SHOWCASE 1: OPTION 1 -->
@@ -340,6 +358,52 @@
             <div class="render-frame">
               <img src="house_3d_exterior.jpg" alt="Option 5 Dusk Facade" class="render-img" />
               <div class="render-overlay-badge">Option 5: Villa Dusk Facade</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="design-showcase-divider"></div>
+
+      <!-- SHOWCASE 6: OPTION 6 - SMART ZERO-SLAB MEZZANINE (40M²) -->
+      <div id="showcase-opt-6">
+        <div class="card-header-row">
+          <div>
+            <h3 class="spec-title">Option 6: Smart Zero-Slab 40m² Mezzanine (Metal &amp; Timber on 4 Masonry Pillars)</h3>
+            <p class="spec-content">Ultra low-cost 8.00m × 5.00m layout eliminating the expensive reinforced concrete upper slab. Features an exact 20.00 m² upper master bedroom built with structural steel beams and timber joists supported by 4 solid non-metallic white-plastered masonry pillars. Includes under-staircase built-in TV media unit, Kangaroo hidden parapet roof, private enclosed kids bedroom with integrated cabin beds, 3-seater sofa + armchairs suite, metallic front security door, and metallic-frame glass windows.</p>
+          </div>
+          <button class="ctrl-action-btn" onclick="switchToTab('opt-6', 6)">Open Option 6 Dedicated Tab ➜</button>
+        </div>
+
+        <div class="dual-view-grid section-margin-top">
+          <div class="view-card">
+            <div class="view-card-title"><span>✨</span> 3D Cutaway: Smart Space Planning &amp; Under-Stair TV Console</div>
+            <div class="render-frame">
+              <img src="smart_architectural_layout.jpg" alt="Option 6 Smart Layout" class="render-img" />
+              <div class="render-overlay-badge">Option 6: Smart Integrated Layout</div>
+            </div>
+          </div>
+          <div class="view-card">
+            <div class="view-card-title"><span>🦘</span> 3D Cutaway: Kangaroo Hidden Roof &amp; Integrated Kids Beds</div>
+            <div class="render-frame">
+              <img src="hidden_roof_integrated_beds.jpg" alt="Option 6 Hidden Roof" class="render-img" />
+              <div class="render-overlay-badge">Option 6: Hidden Roof &amp; Built-in Beds</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="dual-view-grid section-margin-top">
+          <div class="view-card">
+            <div class="view-card-title"><span>📐</span> 3D Dimensioned Cutaway (Exact 8x5m / 40m² Ground Footprint)</div>
+            <div class="render-frame">
+              <img src="exact_40sqm_dimensions.jpg" alt="Option 6 Dimensions" class="render-img" />
+              <div class="render-overlay-badge">Option 6: Exact 40m² Dimensions</div>
+            </div>
+          </div>
+          <div class="view-card">
+            <div class="view-card-title"><span>🌆</span> 3D Twilight Render: Master Wardrobe &amp; Metallic Fixtures</div>
+            <div class="render-frame">
+              <img src="master_wardrobe_lighting_render.jpg" alt="Option 6 Twilight Lighting" class="render-img" />
+              <div class="render-overlay-badge">Option 6: Master Wardrobe &amp; Lighting</div>
             </div>
           </div>
         </div>
@@ -734,6 +798,870 @@
   </div>
 
   <!-- ======================================================= -->
+  <!-- TAB 6: OPTION 6 - SMART ZERO-SLAB MEZZANINE (40M²)      -->
+  <!-- ======================================================= -->
+  <div id="tab-opt-6" class="tab-content">
+    <section class="main-card">
+      <div class="card-header-row">
+        <div>
+          <h2 class="card-title">Option 6: Smart 40m² Zero-Slab Mezzanine (Metal &amp; Timber Evolution)</h2>
+          <p class="card-subtitle">Maximum cost-efficiency engineering: Completely eliminates the suspended concrete slab ($3,200+ savings). Features an exact 20.00 m² upper master bedroom built with structural steel perimeter beams and timber joists supported by 4 solid non-metallic white-plastered masonry pillars. Equipped with under-staircase built-in TV media center, Kangaroo hidden parapet roof, private enclosed kids suite with custom integrated cabin beds, 3-seater sofa + armchairs suite, metallic front door, and metallic-frame windows.</p>
+        </div>
+        <span class="badge-pill pill-green">FLAGSHIP ZERO-SLAB (40.0 m²)</span>
+      </div>
+
+      <!-- Quick Nav Anchor Pills within Option 6 -->
+      <div class="all-designs-jump-bar">
+        <span>⚡ Explore Sub-Designs:</span>
+        <button class="jump-link" onclick="scrollToDesign('sub-opt-6a')">6A: Smart Media Wall</button>
+        <button class="jump-link" onclick="scrollToDesign('sub-opt-6b')">6B: Hidden Roof &amp; Kids Beds</button>
+        <button class="jump-link" onclick="scrollToDesign('sub-opt-6c')">6C: 40m² CAD Dimensions</button>
+        <button class="jump-link" onclick="scrollToDesign('sub-opt-6d')">6D: Wardrobe &amp; Lighting</button>
+        <button class="jump-link" onclick="scrollToDesign('sub-opt-6e')">6E: 4 Masonry Pillars</button>
+        <button class="jump-link" onclick="scrollToDesign('sub-opt-6f')">6F: Interior Timber Stairs</button>
+        <button class="jump-link" onclick="scrollToDesign('sub-opt-6g')">6G: Seating &amp; Section</button>
+      </div>
+
+      <!-- ======================================================= -->
+      <!-- SUB-DESIGN 6A: SMART INTEGRATED LAYOUT & UNDER-STAIR TV -->
+      <!-- ======================================================= -->
+      <div id="sub-opt-6a" class="section-margin-top">
+        <div class="card-header-row">
+          <div>
+            <h3 class="spec-title">6A. Smart Integrated Layout &amp; Under-Stair Media Wall Console</h3>
+            <p class="spec-content">Eliminates floor clutter by integrating a custom media console, TV unit, and book storage under the straight timber staircase hugging the side wall. 4 structural pillars are aligned flush with walls and the kitchen breakfast bar, ensuring zero walkway blockages.</p>
+          </div>
+          <span class="badge-pill pill-cyan">SMART SPACE PLANNING</span>
+        </div>
+
+        <div class="dual-view-grid section-margin-top">
+          <div class="view-card">
+            <div class="view-card-title"><span>✨</span> 3D Cutaway: Smart Under-Stair TV Unit &amp; Open Flow</div>
+            <div class="render-frame">
+              <img src="smart_architectural_layout.jpg" alt="Option 6A Smart Layout" class="render-img" />
+              <div class="render-overlay-badge">3D Render: Smart Integrated Space</div>
+            </div>
+          </div>
+
+          <div class="view-card">
+            <div class="view-card-title"><span>📐</span> 2D Blueprint: Smart Ground Floor &amp; Mezzanine Plan</div>
+            <div class="blueprint-box">
+              <svg viewBox="0 0 1060 620" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="#061222"/>
+                <!-- Exterior 8.00m x 5.00m Walls -->
+                <rect x="70" y="50" width="920" height="520" fill="#0b172a" stroke="#10b981" stroke-width="3.5" rx="4"/>
+                <rect x="88" y="68" width="884" height="484" fill="#081324" stroke="#047857" stroke-width="1.5"/>
+                
+                <!-- Divider Wall: Living (Left 4.0m) vs Service/Kids (Right 4.0m) -->
+                <line x1="530" y1="68" x2="530" y2="552" stroke="#10b981" stroke-width="3" stroke-dasharray="6,4"/>
+                
+                <!-- Double-Height Living Room (4.0m x 5.0m = 20m²) -->
+                <rect x="98" y="78" width="422" height="464" fill="#0e2338" opacity="0.6"/>
+                <text x="310" y="115" fill="#38bdf8" font-size="15" font-weight="900" text-anchor="middle">DOUBLE-HEIGHT LIVING SUITE: 4.00m × 5.00m (20.00 m²)</text>
+                
+                <!-- Staircase & Under-Stair TV Console along side wall -->
+                <rect x="98" y="140" width="90" height="240" fill="#1e3a5f" stroke="#38bdf8" stroke-width="1.5"/>
+                <text x="143" y="165" fill="#bae6fd" font-size="10" font-weight="800" text-anchor="middle">STAIRS UP</text>
+                <line x1="98" y1="180" x2="188" y2="180" stroke="#38bdf8" stroke-width="1"/>
+                <line x1="98" y1="210" x2="188" y2="210" stroke="#38bdf8" stroke-width="1"/>
+                <line x1="98" y1="240" x2="188" y2="240" stroke="#38bdf8" stroke-width="1"/>
+                <line x1="98" y1="270" x2="188" y2="270" stroke="#38bdf8" stroke-width="1"/>
+                <line x1="98" y1="300" x2="188" y2="300" stroke="#38bdf8" stroke-width="1"/>
+                <line x1="98" y1="330" x2="188" y2="330" stroke="#38bdf8" stroke-width="1"/>
+                <line x1="98" y1="360" x2="188" y2="360" stroke="#38bdf8" stroke-width="1"/>
+                
+                <!-- Under-Stair Built-in Media TV Console -->
+                <rect x="195" y="180" width="22" height="160" fill="#f59e0b" stroke="#d97706" stroke-width="1.5"/>
+                <text x="206" y="265" fill="#ffffff" font-size="9" font-weight="800" text-anchor="middle" transform="rotate(-90 206 265)">UNDER-STAIR TV WALL &amp; SHELVES</text>
+                
+                <!-- 3-Seater Sofa & Armchairs -->
+                <rect x="250" y="210" width="80" height="140" rx="6" fill="#334155" stroke="#94a3b8" stroke-width="1.5"/>
+                <text x="290" y="285" fill="#f8fafc" font-size="11" font-weight="800" text-anchor="middle">3-SEATER</text>
+                <rect x="350" y="240" width="70" height="80" rx="4" fill="#b45309" stroke="#f59e0b" stroke-width="1.5"/>
+                <text x="385" y="285" fill="#fef3c7" font-size="10" font-weight="800" text-anchor="middle">COFFEE TABLE</text>
+                <rect x="340" y="160" width="60" height="60" rx="4" fill="#334155" stroke="#94a3b8" stroke-width="1"/>
+                <text x="370" y="195" fill="#cbd5e1" font-size="9" font-weight="700" text-anchor="middle">1-SEATER</text>
+                <rect x="340" y="340" width="60" height="60" rx="4" fill="#334155" stroke="#94a3b8" stroke-width="1"/>
+                <text x="370" y="375" fill="#cbd5e1" font-size="9" font-weight="700" text-anchor="middle">1-SEATER</text>
+                
+                <!-- Black Metallic Front Door (Bottom left) -->
+                <rect x="98" y="520" width="70" height="32" fill="#0f172a" stroke="#ef4444" stroke-width="2"/>
+                <path d="M 98 520 A 70 70 0 0 1 168 552" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4,3"/>
+                <text x="140" y="510" fill="#f87171" font-size="10" font-weight="800">METALLIC FRONT DOOR</text>
+
+                <!-- 4 Masonry Pillars (White Plastered 200x200mm) -->
+                <rect x="520" y="68" width="22" height="22" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
+                <rect x="520" y="310" width="22" height="22" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
+                <rect x="950" y="68" width="22" height="22" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
+                <rect x="950" y="310" width="22" height="22" fill="#ffffff" stroke="#10b981" stroke-width="2"/>
+                <text x="560" y="325" fill="#34d399" font-size="9" font-weight="800">PILLAR (INTEGRATED AT BAR)</text>
+
+                <!-- Private Kids Bedroom (Enclosed Solid Wall) -->
+                <rect x="535" y="68" width="437" height="240" fill="#172554" stroke="#3b82f6" stroke-width="2"/>
+                <text x="750" y="105" fill="#93c5fd" font-size="13" font-weight="800" text-anchor="middle">PRIVATE KIDS BEDROOM: 2.60m × 3.20m (8.32 m²)</text>
+                <!-- Integrated Bunk Bed with Steps -->
+                <rect x="760" y="130" width="200" height="90" fill="#1e3a8a" stroke="#60a5fa" stroke-width="1.5" rx="3"/>
+                <text x="860" y="180" fill="#ffffff" font-size="11" font-weight="800" text-anchor="middle">INTEGRATED BUNK + STEPS</text>
+                <!-- Kids Wooden Wardrobe -->
+                <rect x="550" y="130" width="80" height="60" fill="#78350f" stroke="#d97706" stroke-width="1.5"/>
+                <text x="590" y="165" fill="#fef3c7" font-size="9" font-weight="800" text-anchor="middle">WARDROBE</text>
+                <!-- Kids Private Wooden Door -->
+                <path d="M 660 308 A 45 45 0 0 1 705 263" fill="none" stroke="#60a5fa" stroke-width="1.5" stroke-dasharray="3,3"/>
+                <line x1="660" y1="308" x2="660" y2="263" stroke="#60a5fa" stroke-width="2"/>
+                <text x="690" y="295" fill="#93c5fd" font-size="9" font-weight="800">WOODEN DOOR</text>
+
+                <!-- Kitchen with Breakfast Bar (Under Mezzanine) -->
+                <rect x="535" y="315" width="437" height="237" fill="#1e1b4b" stroke="#8b5cf6" stroke-width="2"/>
+                <text x="750" y="350" fill="#c4b5fd" font-size="13" font-weight="800" text-anchor="middle">KITCHEN &amp; BREAKFAST BAR: 2.40m × 3.20m (7.68 m²)</text>
+                <rect x="545" y="370" width="120" height="160" fill="#312e81" stroke="#a78bfa" stroke-width="1.5"/>
+                <text x="605" y="455" fill="#ede9fe" font-size="10" font-weight="800" text-anchor="middle">L-COUNTER &amp; STOOLS</text>
+
+                <!-- Mezzanine Overlay Indicator -->
+                <rect x="525" y="60" width="455" height="500" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-dasharray="10,6"/>
+                <text x="750" y="540" fill="#fbbf24" font-size="13" font-weight="900" text-anchor="middle">UPPER MASTER MEZZANINE OVERLAY: 4.00m × 5.00m (20.00 m²)</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Room Dimensions & Additional Notes Table -->
+        <div class="table-responsive section-margin-top">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Space Name</th>
+                <th>Level</th>
+                <th>Exact Dimensions</th>
+                <th>Net Area</th>
+                <th>Ceiling Height</th>
+                <th>Smart Design Feature &amp; Materials</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Double-Height Living Lounge</strong></td>
+                <td>Ground</td>
+                <td>4.00m × 5.00m</td>
+                <td>20.00 m²</td>
+                <td>5.20m (Cathedral apex)</td>
+                <td>Under-stair custom media wall with TV mount, oak bookshelves, 3-seater sofa + 3 armchairs.</td>
+              </tr>
+              <tr>
+                <td><strong>Private Kids Bedroom</strong></td>
+                <td>Ground</td>
+                <td>2.60m × 3.20m</td>
+                <td>8.32 m²</td>
+                <td>2.50m (Under mezzanine)</td>
+                <td>100% private solid partition walls, acoustic hinged timber door, custom built-in bunk beds with step-drawers.</td>
+              </tr>
+              <tr>
+                <td><strong>Kitchen &amp; Breakfast Bar</strong></td>
+                <td>Ground</td>
+                <td>2.40m × 3.20m</td>
+                <td>7.68 m²</td>
+                <td>2.50m (Under mezzanine)</td>
+                <td>Integrated breakfast counter with front pillar integrated into the bar edge; LED cove task lighting.</td>
+              </tr>
+              <tr>
+                <td><strong>Bathroom / Utility Stack</strong></td>
+                <td>Ground</td>
+                <td>1.60m × 2.50m</td>
+                <td>4.00 m²</td>
+                <td>2.50m (Under mezzanine)</td>
+                <td>Direct central plumbing stack behind kitchen pantry; glass shower cubicle, water closet, wall vanity.</td>
+              </tr>
+              <tr>
+                <td><strong>Upper Master Mezzanine</strong></td>
+                <td>Upper</td>
+                <td>4.00m × 5.00m</td>
+                <td>20.00 m²</td>
+                <td>2.45m (To rafter tie)</td>
+                <td>Zero concrete slab: 150x75mm steel I-beams + 50x150mm timber joists on 4 masonry pillars; full wooden wardrobe.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="card-grid section-margin-top">
+          <div class="stat-chip">
+            <div class="stat-chip-label">Under-Stair Storage Gained</div>
+            <div class="stat-chip-value">+3.20 m²</div>
+          </div>
+          <div class="stat-chip">
+            <div class="stat-chip-label">Walkway Obstruction</div>
+            <div class="stat-chip-value">0.0% (Zero)</div>
+          </div>
+          <div class="stat-chip">
+            <div class="stat-chip-label">Structural Floor Savings</div>
+            <div class="stat-chip-value">$3,240 USD</div>
+          </div>
+          <div class="stat-chip">
+            <div class="stat-chip-label">Total Living Space</div>
+            <div class="stat-chip-value">60.00 m²</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="design-showcase-divider"></div>
+
+      <!-- ======================================================= -->
+      <!-- SUB-DESIGN 6B: KANGAROO HIDDEN ROOF & INTEGRATED BEDS   -->
+      <!-- ======================================================= -->
+      <div id="sub-opt-6b" class="section-margin-top">
+        <div class="card-header-row">
+          <div>
+            <h3 class="spec-title">6B. Kangaroo-Style Hidden Parapet Roof &amp; Integrated Kids Cabin Bed System</h3>
+            <p class="spec-content">Exterior perimeter parapet walls conceal the low-pitch corrugated metal sheet roof and internal box gutter. Inside the kids bedroom, each child has an integrated sleeping berth built directly into the room's wall structure with stepping pull-out storage drawers.</p>
+          </div>
+          <span class="badge-pill pill-amber">CONCEALED ROOF &amp; CABIN BEDS</span>
+        </div>
+
+        <div class="dual-view-grid section-margin-top">
+          <div class="view-card">
+            <div class="view-card-title"><span>🦘</span> 3D Cutaway: Hidden Parapet Silhouette &amp; Step Beds</div>
+            <div class="render-frame">
+              <img src="hidden_roof_integrated_beds.jpg" alt="Option 6B Hidden Roof" class="render-img" />
+              <div class="render-overlay-badge">3D Render: Hidden Parapet &amp; Bunk Steps</div>
+            </div>
+          </div>
+
+          <div class="view-card">
+            <div class="view-card-title"><span>📐</span> 2D Blueprint: Parapet Roof Fall &amp; Kids Bed Joinery</div>
+            <div class="blueprint-box">
+              <svg viewBox="0 0 1060 620" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="#061222"/>
+                <!-- Roof Plan Boundary -->
+                <rect x="80" y="60" width="900" height="240" fill="#0f172a" stroke="#f59e0b" stroke-width="3" rx="4"/>
+                <text x="530" y="95" fill="#fef3c7" font-size="14" font-weight="900" text-anchor="middle">KANGAROO PARAPET ROOF PLAN (8.00m × 5.00m)</text>
+                
+                <!-- Parapet Perimeter Wall (300mm thick masonry) -->
+                <rect x="95" y="75" width="870" height="210" fill="#1e293b" stroke="#cbd5e1" stroke-width="2"/>
+                <text x="120" y="115" fill="#94a3b8" font-size="10" font-weight="700">EXTERIOR PARAPET WALL (CONCEALING ROOF)</text>
+                
+                <!-- Internal Box Gutter along rear edge -->
+                <rect x="110" y="90" width="840" height="30" fill="#0369a1" stroke="#38bdf8" stroke-width="1.5"/>
+                <text x="530" y="110" fill="#ffffff" font-size="11" font-weight="800" text-anchor="middle">INTERNAL BOX GUTTER (300mm WIDTH, 1:100 FALL TO DOWNPIPES)</text>
+                
+                <!-- Corrugated Sheet Fall Lines -->
+                <line x1="110" y1="140" x2="950" y2="140" stroke="#475569" stroke-width="1.5" stroke-dasharray="6,6"/>
+                <line x1="110" y1="180" x2="950" y2="180" stroke="#475569" stroke-width="1.5" stroke-dasharray="6,6"/>
+                <line x1="110" y1="220" x2="950" y2="220" stroke="#475569" stroke-width="1.5" stroke-dasharray="6,6"/>
+                <text x="530" y="200" fill="#38bdf8" font-size="13" font-weight="800" text-anchor="middle">LOW-PITCH METAL SHEETING (SLOPE 1:15 ➔ DRAINS INTO BOX GUTTER)</text>
+
+                <!-- Kids Custom Integrated Beds Joinery Detail (Bottom Half) -->
+                <rect x="80" y="325" width="900" height="260" fill="#0f172a" stroke="#3b82f6" stroke-width="3" rx="4"/>
+                <text x="530" y="355" fill="#93c5fd" font-size="14" font-weight="900" text-anchor="middle">KIDS ROOM CUSTOM JOINERY: INTEGRATED BUNK &amp; STEP-DRAWERS</text>
+                
+                <!-- Bed Berths -->
+                <rect x="120" y="380" width="460" height="170" fill="#1e3a8a" stroke="#60a5fa" stroke-width="2" rx="4"/>
+                <text x="350" y="440" fill="#ffffff" font-size="13" font-weight="800" text-anchor="middle">UPPER &amp; LOWER 0.90m × 1.90m BED BERTHS</text>
+                <text x="350" y="470" fill="#bfdbfe" font-size="11" font-weight="600" text-anchor="middle">Built directly into wall studs with anti-fall timber baluster</text>
+                
+                <!-- Step Drawers -->
+                <rect x="600" y="420" width="160" height="130" fill="#78350f" stroke="#f59e0b" stroke-width="2" rx="3"/>
+                <text x="680" y="460" fill="#fef3c7" font-size="11" font-weight="800" text-anchor="middle">STEPPING STAIRS</text>
+                <text x="680" y="485" fill="#fed7aa" font-size="9" font-weight="700" text-anchor="middle">3 Pull-out storage drawers</text>
+                <text x="680" y="505" fill="#fed7aa" font-size="9" font-weight="700" text-anchor="middle">Eliminates ladder hazard</text>
+
+                <!-- Wardrobe Nook -->
+                <rect x="780" y="380" width="170" height="170" fill="#451a03" stroke="#b45309" stroke-width="2" rx="3"/>
+                <text x="865" y="460" fill="#fef3c7" font-size="11" font-weight="800" text-anchor="middle">INTEGRATED WARDROBE</text>
+                <text x="865" y="485" fill="#fed7aa" font-size="9" font-weight="700" text-anchor="middle">Hanging rail + 4 shelves</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive section-margin-top">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th>Technical Specification</th>
+                <th>Dimensions</th>
+                <th>Engineering Purpose &amp; Durability</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Kangaroo Parapet Wall</strong></td>
+                <td>200mm solid masonry with waterproof plaster &amp; flashing</td>
+                <td>800mm height above roof slope</td>
+                <td>Conceals roof slope from view, giving a sleek cubic modernist architecture; protects against wind uplift.</td>
+              </tr>
+              <tr>
+                <td><strong>Internal Box Gutter</strong></td>
+                <td>0.8mm pre-painted galvanized steel with bitumen underlay</td>
+                <td>300mm width × 150mm depth</td>
+                <td>Continuous fall 1:100 directing rainwater to 110mm concealed downpipes inside the rear wall cavity.</td>
+              </tr>
+              <tr>
+                <td><strong>Integrated Bunk Berths</strong></td>
+                <td>38mm kiln-dried solid cypress/pine frame bolted to wall</td>
+                <td>Dual 0.90m × 1.90m berths</td>
+                <td>Custom built-in structure saves 2.4 m² of room space; cannot wobble or shake like loose flatpack bunks.</td>
+              </tr>
+              <tr>
+                <td><strong>Stepping Storage Drawers</strong></td>
+                <td>Heavy-duty ball-bearing soft-close runners (45kg rated)</td>
+                <td>3 steps (250mm rise, 300mm tread)</td>
+                <td>Replaces dangerous vertical ladder with safe wide steps containing deep toy/shoe storage drawers.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="design-showcase-divider"></div>
+
+      <!-- ======================================================= -->
+      <!-- SUB-DESIGN 6C: EXACT 40M² DIMENSIONAL BLUEPRINT         -->
+      <!-- ======================================================= -->
+      <div id="sub-opt-6c" class="section-margin-top">
+        <div class="card-header-row">
+          <div>
+            <h3 class="spec-title">6C. Exact 8.00m × 5.00m (40m²) Dimensioned Architectural CAD Plan</h3>
+            <p class="spec-content">Every millimeter verified: 40.00 m² ground base strictly partitioned into a 20.00 m² double-height living room and a 20.00 m² service/bedroom bay, crowned by the 20.00 m² upper master mezzanine.</p>
+          </div>
+          <span class="badge-pill pill-blue">CAD DIMENSIONAL AUDIT</span>
+        </div>
+
+        <div class="dual-view-grid section-margin-top">
+          <div class="view-card">
+            <div class="view-card-title"><span>📐</span> 3D Dimensional Cutaway (Area Callouts &amp; Heights)</div>
+            <div class="render-frame">
+              <img src="exact_40sqm_dimensions.jpg" alt="Option 6C Dimensions" class="render-img" />
+              <div class="render-overlay-badge">3D Render: Dimensioned Cutaway</div>
+            </div>
+          </div>
+
+          <div class="view-card">
+            <div class="view-card-title"><span>📐</span> 2D Blueprint: Precision CAD Dimensioned Layout</div>
+            <div class="blueprint-box">
+              <svg viewBox="0 0 1060 620" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="#061222"/>
+                <!-- CAD Dimension Lines -->
+                <!-- Overall Width 8.00m -->
+                <line x1="120" y1="40" x2="960" y2="40" stroke="#38bdf8" stroke-width="2"/>
+                <line x1="120" y1="32" x2="120" y2="48" stroke="#38bdf8" stroke-width="2"/>
+                <line x1="960" y1="32" x2="960" y2="48" stroke="#38bdf8" stroke-width="2"/>
+                <text x="540" y="32" fill="#38bdf8" font-size="14" font-weight="900" text-anchor="middle">8.00 METERS OVERALL LENGTH</text>
+
+                <!-- Overall Depth 5.00m -->
+                <line x1="990" y1="70" x2="990" y2="550" stroke="#38bdf8" stroke-width="2"/>
+                <line x1="982" y1="70" x2="998" y2="70" stroke="#38bdf8" stroke-width="2"/>
+                <line x1="982" y1="550" x2="998" y2="550" stroke="#38bdf8" stroke-width="2"/>
+                <text x="1025" y="315" fill="#38bdf8" font-size="14" font-weight="900" text-anchor="middle" transform="rotate(90 1025 315)">5.00 METERS WIDTH</text>
+
+                <!-- Walls -->
+                <rect x="120" y="70" width="840" height="480" fill="#0f172a" stroke="#38bdf8" stroke-width="3"/>
+                <line x1="540" y1="70" x2="540" y2="550" stroke="#64748b" stroke-width="2" stroke-dasharray="6,4"/>
+
+                <!-- Left Half: Living (4.00m x 5.00m) -->
+                <rect x="135" y="85" width="390" height="450" fill="#0284c7" opacity="0.15"/>
+                <text x="330" y="190" fill="#38bdf8" font-size="16" font-weight="900" text-anchor="middle">LIVING SUITE</text>
+                <text x="330" y="220" fill="#ffffff" font-size="14" font-weight="800" text-anchor="middle">4.00m × 5.00m</text>
+                <text x="330" y="245" fill="#93c5fd" font-size="13" font-weight="700" text-anchor="middle">Area: 20.00 m² (Cathedral Ceiling 5.2m)</text>
+                <text x="330" y="290" fill="#cbd5e1" font-size="11" text-anchor="middle">• 3-Seater Sofa &amp; Three 1-Seater Armchairs</text>
+                <text x="330" y="315" fill="#cbd5e1" text-anchor="middle" font-size="11">• Under-Stair TV Entertainment Wall</text>
+                <text x="330" y="340" fill="#cbd5e1" text-anchor="middle" font-size="11">• Black Metallic Front Door (1.0m × 2.4m)</text>
+
+                <!-- Right Half: Kids & Kitchen (4.00m x 5.00m) -->
+                <!-- Kids Room (2.60m x 3.20m = 8.32m²) -->
+                <rect x="555" y="85" width="390" height="230" fill="#1e3a8a" opacity="0.3" stroke="#60a5fa" stroke-width="1.5"/>
+                <text x="750" y="150" fill="#60a5fa" font-size="14" font-weight="800" text-anchor="middle">PRIVATE KIDS BEDROOM</text>
+                <text x="750" y="175" fill="#ffffff" font-size="13" font-weight="800" text-anchor="middle">2.60m × 3.20m (8.32 m²)</text>
+                <text x="750" y="200" fill="#bfdbfe" font-size="11" text-anchor="middle">Solid Partition Wall &amp; Hinged Timber Door</text>
+
+                <!-- Kitchen & Dining Bar (2.40m x 3.20m = 7.68m²) -->
+                <rect x="555" y="330" width="390" height="205" fill="#6d28d9" opacity="0.3" stroke="#c084fc" stroke-width="1.5"/>
+                <text x="750" y="390" fill="#c084fc" font-size="14" font-weight="800" text-anchor="middle">KITCHEN &amp; BREAKFAST BAR</text>
+                <text x="750" y="415" fill="#ffffff" font-size="13" font-weight="800" text-anchor="middle">2.40m × 3.20m (7.68 m²)</text>
+                <text x="750" y="440" fill="#e9d5ff" font-size="11" text-anchor="middle">L-Shaped Counter + 3 Bar Stools</text>
+
+                <!-- Bottom Dimension Line: 4.00m + 4.00m -->
+                <line x1="120" y1="580" x2="540" y2="580" stroke="#f59e0b" stroke-width="1.5"/>
+                <text x="330" y="600" fill="#f59e0b" font-size="12" font-weight="800" text-anchor="middle">4.00m Living Bay</text>
+                <line x1="540" y1="580" x2="960" y2="580" stroke="#f59e0b" stroke-width="1.5"/>
+                <text x="750" y="600" fill="#f59e0b" font-size="12" font-weight="800" text-anchor="middle">4.00m Service/Bed Bay (Mezzanine Above)</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive section-margin-top">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Area Category</th>
+                <th>Length</th>
+                <th>Width</th>
+                <th>Calculated Area</th>
+                <th>Percentage of Footprint</th>
+                <th>Code Compliance &amp; Light/Air Ratio</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Ground Footprint Envelope</strong></td>
+                <td>8.00 m</td>
+                <td>5.00 m</td>
+                <td><strong>40.00 m²</strong></td>
+                <td>100.0% Base</td>
+                <td>Meets standard residential compact zoning; 100% compliant.</td>
+              </tr>
+              <tr>
+                <td><strong>Double-Height Living</strong></td>
+                <td>4.00 m</td>
+                <td>5.00 m</td>
+                <td><strong>20.00 m²</strong></td>
+                <td>50.0% Ground</td>
+                <td>Double-height glass wall provides 48% window-to-floor daylight ratio.</td>
+              </tr>
+              <tr>
+                <td><strong>Ground Service/Bed Zone</strong></td>
+                <td>4.00 m</td>
+                <td>5.00 m</td>
+                <td><strong>20.00 m²</strong></td>
+                <td>50.0% Ground</td>
+                <td>Houses private kids room (8.32m²), kitchen (7.68m²), and bath (4.00m²).</td>
+              </tr>
+              <tr>
+                <td><strong>Upper Master Mezzanine</strong></td>
+                <td>4.00 m</td>
+                <td>5.00 m</td>
+                <td><strong>20.00 m²</strong></td>
+                <td>50.0% Equivalent</td>
+                <td>Zero-slab construction adds +20m² usable floor without expanding plot footprint.</td>
+              </tr>
+              <tr>
+                <td><strong>Total Usable House Area</strong></td>
+                <td>—</td>
+                <td>—</td>
+                <td><strong>60.00 m²</strong></td>
+                <td><strong>150.0% Efficiency</strong></td>
+                <td><strong>60m² total interior living area out of an 8x5m plot!</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="design-showcase-divider"></div>
+
+      <!-- ======================================================= -->
+      <!-- SUB-DESIGN 6D: MASTER WARDROBE & TWILIGHT LIGHTING      -->
+      <!-- ======================================================= -->
+      <div id="sub-opt-6d" class="section-margin-top">
+        <div class="card-header-row">
+          <div>
+            <h3 class="spec-title">6D. Master Bedroom Wardrobe, Metallic Fixtures &amp; Twilight Lighting Scheme</h3>
+            <p class="spec-content">Features a full-height solid oak wardrobe closet in the master bedroom, black metallic security entrance door, metallic-frame windows, and warm 2700K ambient LED lighting with linear under-mezzanine cove channels.</p>
+          </div>
+          <span class="badge-pill pill-purple">ARCHITECTURAL LIGHTING</span>
+        </div>
+
+        <div class="dual-view-grid section-margin-top">
+          <div class="view-card">
+            <div class="view-card-title"><span>🌆</span> 3D Render: Master Wardrobe &amp; Ambient Lighting</div>
+            <div class="render-frame">
+              <img src="master_wardrobe_lighting_render.jpg" alt="Option 6D Lighting" class="render-img" />
+              <div class="render-overlay-badge">3D Render: Twilight Ambiance</div>
+            </div>
+          </div>
+
+          <div class="view-card">
+            <div class="view-card-title"><span>📐</span> 2D Blueprint: Reflected Ceiling &amp; Lighting Plan</div>
+            <div class="blueprint-box">
+              <svg viewBox="0 0 1060 620" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="#061222"/>
+                <rect x="100" y="60" width="860" height="500" fill="#0f172a" stroke="#c084fc" stroke-width="2.5" rx="4"/>
+                <text x="530" y="95" fill="#e9d5ff" font-size="14" font-weight="900" text-anchor="middle">REFLECTED CEILING &amp; ELECTRICAL LIGHTING PLAN (2700K WARM LED)</text>
+
+                <!-- Linear Cove LED Strip Under Mezzanine Beams -->
+                <line x1="520" y1="80" x2="520" y2="540" stroke="#f59e0b" stroke-width="6" stroke-linecap="round"/>
+                <text x="490" y="310" fill="#fbbf24" font-size="11" font-weight="800" text-anchor="middle" transform="rotate(-90 490 310)">UNDER-BEAM WARM LED COVE STRIP (24V COB 2700K)</text>
+
+                <!-- Kitchen Pendant Lights -->
+                <circle cx="680" cy="380" r="12" fill="#fbbf24" stroke="#d97706" stroke-width="2"/>
+                <circle cx="760" cy="380" r="12" fill="#fbbf24" stroke="#d97706" stroke-width="2"/>
+                <circle cx="840" cy="380" r="12" fill="#fbbf24" stroke="#d97706" stroke-width="2"/>
+                <text x="760" y="420" fill="#fef3c7" font-size="10" font-weight="800" text-anchor="middle">3 × AMBER GLASS PENDANTS (KITCHEN BAR)</text>
+
+                <!-- Staircase Tread Step-Lights -->
+                <rect x="110" y="160" width="16" height="6" fill="#38bdf8"/>
+                <rect x="110" y="200" width="16" height="6" fill="#38bdf8"/>
+                <rect x="110" y="240" width="16" height="6" fill="#38bdf8"/>
+                <rect x="110" y="280" width="16" height="6" fill="#38bdf8"/>
+                <rect x="110" y="320" width="16" height="6" fill="#38bdf8"/>
+                <text x="140" y="360" fill="#7dd3fc" font-size="10" font-weight="700">RECESSED STEP LIGHTS (1W LED)</text>
+
+                <!-- Recessed Ceiling Spotlights -->
+                <circle cx="280" cy="220" r="8" fill="#fef08a"/>
+                <circle cx="420" cy="220" r="8" fill="#fef08a"/>
+                <circle cx="280" cy="380" r="8" fill="#fef08a"/>
+                <circle cx="420" cy="380" r="8" fill="#fef08a"/>
+                <circle cx="700" cy="180" r="8" fill="#fef08a"/>
+                <circle cx="850" cy="180" r="8" fill="#fef08a"/>
+                <text x="350" y="300" fill="#fef08a" font-size="11" font-weight="700" text-anchor="middle">FLUSH RECESSED CEILING DOWNLIGHTS</text>
+
+                <!-- Master Wardrobe Nook Backlight -->
+                <rect x="580" y="90" width="180" height="40" fill="#78350f" stroke="#d97706" stroke-width="1.5"/>
+                <line x1="580" y1="88" x2="760" y2="88" stroke="#fbbf24" stroke-width="3"/>
+                <text x="670" y="115" fill="#fef3c7" font-size="10" font-weight="800" text-anchor="middle">MASTER WARDROBE + LED HALO</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive section-margin-top">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Fixture</th>
+                <th>Type / Model</th>
+                <th>Specs / Color Temp</th>
+                <th>Circuit Control &amp; Energy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Under-Mezzanine Cove</strong></td>
+                <td>Continuous COB LED linear channel in black aluminum profile</td>
+                <td>24V DC, 2700K Warm White (1,100 lm/m)</td>
+                <td>Triac dimmable driver; controlled from kitchen &amp; living switch pads.</td>
+              </tr>
+              <tr>
+                <td><strong>Breakfast Bar Pendants</strong></td>
+                <td>3 × Hand-blown fluted amber glass pendants</td>
+                <td>E27 4W vintage LED filament bulbs (2200K)</td>
+                <td>Dedicated switch at bar counter; adds warm hospitality ambiance.</td>
+              </tr>
+              <tr>
+                <td><strong>Stairway Step Lights</strong></td>
+                <td>Low-glare louvered wall-recessed fixtures</td>
+                <td>1W 12V micro-LED, 3000K Warm White</td>
+                <td>Automatic 2-way PIR motion sensor switch top &amp; bottom.</td>
+              </tr>
+              <tr>
+                <td><strong>Metallic Front Door</strong></td>
+                <td>Thermally insulated steel security entrance door</td>
+                <td>Dark anthracite powder coat, multi-point lock</td>
+                <td>Heavy-duty 1.0m × 2.4m door with stainless steel vertical pull bar.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="design-showcase-divider"></div>
+
+      <!-- ======================================================= -->
+      <!-- SUB-DESIGN 6E: 4 SOLID NON-METALLIC MASONRY PILLARS     -->
+      <!-- ======================================================= -->
+      <div id="sub-opt-6e" class="section-margin-top">
+        <div class="card-header-row">
+          <div>
+            <h3 class="spec-title">6E. 4 Solid Non-Metallic Masonry Pillars &amp; Zero-Slab Steel/Timber Framing</h3>
+            <p class="spec-content">The engineering core of Option 6: 4 solid 200×200mm white-plastered masonry/concrete columns carry 100% of the upper master bedroom load, transferring dead weight directly to 4 isolated foundation pad footings. Zero load on perimeter walls; zero heavy suspended concrete slab.</p>
+          </div>
+          <span class="badge-pill pill-green">4 SOLID MASONRY PILLARS</span>
+        </div>
+
+        <div class="dual-view-grid section-margin-top">
+          <div class="view-card">
+            <div class="view-card-title"><span>🏛️</span> 3D Render: 4 Non-Metallic Plastered Pillars</div>
+            <div class="render-frame">
+              <img src="masonry_pillars_mezzanine.jpg" alt="Option 6E Masonry Pillars" class="render-img" />
+              <div class="render-overlay-badge">3D Render: White Masonry Pillars</div>
+            </div>
+          </div>
+
+          <div class="view-card">
+            <div class="view-card-title"><span>📐</span> 2D Blueprint: Structural Framing &amp; Pillar Layout</div>
+            <div class="blueprint-box">
+              <svg viewBox="0 0 1060 620" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="#061222"/>
+                <text x="530" y="45" fill="#34d399" font-size="14" font-weight="900" text-anchor="middle">STRUCTURAL FRAMING PLAN: 4 MASONRY PILLARS + STEEL I-BEAMS + TIMBER JOISTS</text>
+
+                <!-- Ground Foundation Slab -->
+                <rect x="100" y="60" width="860" height="500" fill="#0f172a" stroke="#10b981" stroke-width="2.5" rx="4"/>
+
+                <!-- 4 Isolated Pad Footings (600x600x300mm) -->
+                <rect x="500" y="70" width="60" height="60" fill="#065f46" stroke="#34d399" stroke-width="2"/>
+                <rect x="500" y="480" width="60" height="60" fill="#065f46" stroke="#34d399" stroke-width="2"/>
+                <rect x="880" y="70" width="60" height="60" fill="#065f46" stroke="#34d399" stroke-width="2"/>
+                <rect x="880" y="480" width="60" height="60" fill="#065f46" stroke="#34d399" stroke-width="2"/>
+
+                <!-- 4 Solid Masonry Pillars (200x200mm) centered on pad footings -->
+                <rect x="515" y="85" width="30" height="30" fill="#ffffff" stroke="#047857" stroke-width="3"/>
+                <rect x="515" y="495" width="30" height="30" fill="#ffffff" stroke="#047857" stroke-width="3"/>
+                <rect x="895" y="85" width="30" height="30" fill="#ffffff" stroke="#047857" stroke-width="3"/>
+                <rect x="895" y="495" width="30" height="30" fill="#ffffff" stroke="#047857" stroke-width="3"/>
+
+                <text x="440" y="105" fill="#ffffff" font-size="11" font-weight="800">PILLAR 1</text>
+                <text x="440" y="515" fill="#ffffff" font-size="11" font-weight="800">PILLAR 2</text>
+                <text x="940" y="105" fill="#ffffff" font-size="11" font-weight="800">PILLAR 3</text>
+                <text x="940" y="515" fill="#ffffff" font-size="11" font-weight="800">PILLAR 4</text>
+
+                <!-- Primary Steel I-Beams (150x75mm) Spanning Between Pillars -->
+                <line x1="530" y1="100" x2="530" y2="510" stroke="#f59e0b" stroke-width="8"/>
+                <line x1="910" y1="100" x2="910" y2="510" stroke="#f59e0b" stroke-width="8"/>
+                <line x1="530" y1="100" x2="910" y2="100" stroke="#f59e0b" stroke-width="8"/>
+                <line x1="530" y1="510" x2="910" y2="510" stroke="#f59e0b" stroke-width="8"/>
+                <text x="720" y="90" fill="#fef3c7" font-size="11" font-weight="800" text-anchor="middle">PRIMARY STEEL I-BEAM (150×75mm)</text>
+
+                <!-- Secondary Timber Joists @ 400mm c/c -->
+                <line x1="530" y1="150" x2="910" y2="150" stroke="#38bdf8" stroke-width="2"/>
+                <line x1="530" y1="190" x2="910" y2="190" stroke="#38bdf8" stroke-width="2"/>
+                <line x1="530" y1="230" x2="910" y2="230" stroke="#38bdf8" stroke-width="2"/>
+                <line x1="530" y1="270" x2="910" y2="270" stroke="#38bdf8" stroke-width="2"/>
+                <line x1="530" y1="310" x2="910" y2="310" stroke="#38bdf8" stroke-width="2"/>
+                <line x1="530" y1="350" x2="910" y2="350" stroke="#38bdf8" stroke-width="2"/>
+                <line x1="530" y1="390" x2="910" y2="390" stroke="#38bdf8" stroke-width="2"/>
+                <line x1="530" y1="430" x2="910" y2="430" stroke="#38bdf8" stroke-width="2"/>
+                <line x1="530" y1="470" x2="910" y2="470" stroke="#38bdf8" stroke-width="2"/>
+                <text x="720" y="315" fill="#bae6fd" font-size="12" font-weight="900" text-anchor="middle">50×150mm STRUCTURAL TIMBER JOISTS @ 400mm CENTERS</text>
+                <text x="720" y="340" fill="#67e8f9" font-size="11" font-weight="700" text-anchor="middle">18mm Tongue-and-Groove Hardwood Subfloor (Zero Concrete Slab)</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive section-margin-top">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Structural Component</th>
+                <th>Material &amp; Dimension</th>
+                <th>Load Capacity</th>
+                <th>Structural Rationale &amp; Cost Savings</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>4 Vertical Pillars</strong></td>
+                <td>200×200mm solid concrete/masonry filled with 4 × Y12 rebar</td>
+                <td>120 kN per pillar</td>
+                <td>Standard local masonry construction. Non-metallic, plaster-finished, maintenance-free.</td>
+              </tr>
+              <tr>
+                <td><strong>Isolated Pad Footings</strong></td>
+                <td>600×600×300mm reinforced concrete (C25/30)</td>
+                <td>Soil bearing 150 kPa</td>
+                <td>Transfers upper floor weight directly into subsoil, bypassing exterior walls completely.</td>
+              </tr>
+              <tr>
+                <td><strong>Primary Header Beams</strong></td>
+                <td>150×75mm Universal Steel I-Beams (Grade S275)</td>
+                <td>Max bending 42 kNm</td>
+                <td>Spans 4.0m between pillars with zero central sagging or vibration.</td>
+              </tr>
+              <tr>
+                <td><strong>Secondary Floor Joists</strong></td>
+                <td>50×150mm kiln-dried C24 treated timber @ 400mm c/c</td>
+                <td>Live load 2.0 kN/m²</td>
+                <td>Interlocking joists slotted into steel hangers; filled with 75mm acoustic Rockwool.</td>
+              </tr>
+              <tr>
+                <td><strong>Subfloor Decking</strong></td>
+                <td>18mm exterior-grade structural tongue-and-groove OSB-3 / Plywood</td>
+                <td>Point load 1.4 kN</td>
+                <td>Screwed and glued to joists with elastomeric glue; eliminates all floor squeaks.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="design-showcase-divider"></div>
+
+      <!-- ======================================================= -->
+      <!-- SUB-DESIGN 6F: INTERIOR OPEN-RISER TIMBER STAIRCASE     -->
+      <!-- ======================================================= -->
+      <div id="sub-opt-6f" class="section-margin-top">
+        <div class="card-header-row">
+          <div>
+            <h3 class="spec-title">6F. Interior Open-Riser Timber Staircase &amp; Integrated Landing</h3>
+            <p class="spec-content">Positioned completely inside the living space along the side wall. Enters directly into the 20.00 m² upper master mezzanine footprint through an internal stairwell opening without cantilevering or wasting any exterior space.</p>
+          </div>
+          <span class="badge-pill pill-rose">OPEN-RISER ERGONOMICS</span>
+        </div>
+
+        <div class="dual-view-grid section-margin-top">
+          <div class="view-card">
+            <div class="view-card-title"><span>🪜</span> 3D Render: Interior Open-Riser Timber Staircase</div>
+            <div class="render-frame">
+              <img src="interior_staircase_mezzanine.jpg" alt="Option 6F Interior Staircase" class="render-img" />
+              <div class="render-overlay-badge">3D Render: Interior Stair Flight</div>
+            </div>
+          </div>
+
+          <div class="view-card">
+            <div class="view-card-title"><span>📐</span> 2D Blueprint: Staircase Elevation &amp; Landing Opening</div>
+            <div class="blueprint-box">
+              <svg viewBox="0 0 1060 620" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="#061222"/>
+                <text x="530" y="45" fill="#f43f5e" font-size="14" font-weight="900" text-anchor="middle">STAIRCASE SECTION &amp; LANDING OPENING (14 RISERS @ 186mm)</text>
+
+                <!-- Ground Slab Level (+0.00) -->
+                <line x1="80" y1="520" x2="980" y2="520" stroke="#64748b" stroke-width="3"/>
+                <text x="110" y="545" fill="#94a3b8" font-size="12" font-weight="800">GROUND FLOOR (+0.00m)</text>
+
+                <!-- Mezzanine Floor Level (+2.60) -->
+                <line x1="520" y1="260" x2="980" y2="260" stroke="#f59e0b" stroke-width="4"/>
+                <text x="750" y="245" fill="#fbbf24" font-size="12" font-weight="800">UPPER MASTER MEZZANINE (+2.60m)</text>
+
+                <!-- Stair Stringer (Black Steel Channel 150x50mm) -->
+                <line x1="140" y1="520" x2="520" y2="260" stroke="#334155" stroke-width="12" stroke-linecap="round"/>
+                <line x1="140" y1="520" x2="520" y2="260" stroke="#0ea5e9" stroke-width="4" stroke-linecap="round"/>
+
+                <!-- 14 Floating Solid Oak Treads (250mm x 40mm) -->
+                <!-- Step 1 to 14 -->
+                <rect x="140" y="501" width="45" height="10" fill="#f59e0b" stroke="#d97706" rx="2"/>
+                <rect x="167" y="482" width="45" height="10" fill="#f59e0b" stroke="#d97706" rx="2"/>
+                <rect x="194" y="463" width="45" height="10" fill="#f59e0b" stroke="#d97706" rx="2"/>
+                <rect x="221" y="444" width="45" height="10" fill="#f59e0b" stroke="#d97706" rx="2"/>
+                <rect x="248" y="425" width="45" height="10" fill="#f59e0b" stroke="#d97706" rx="2"/>
+                <rect x="275" y="406" width="45" height="10" fill="#f59e0b" stroke="#d97706" rx="2"/>
+                <rect x="302" y="387" width="45" height="10" fill="#f59e0b" stroke="#d97706" rx="2"/>
+                <rect x="329" y="368" width="45" height="10" fill="#f59e0b" stroke="#d97706" rx="2"/>
+                <rect x="356" y="349" width="45" height="10" fill="#f59e0b" stroke="#d97706" rx="2"/>
+                <rect x="383" y="330" width="45" height="10" fill="#f59e0b" stroke="#d97706" rx="2"/>
+                <rect x="410" y="311" width="45" height="10" fill="#f59e0b" stroke="#d97706" rx="2"/>
+                <rect x="437" y="292" width="45" height="10" fill="#f59e0b" stroke="#d97706" rx="2"/>
+                <rect x="464" y="273" width="45" height="10" fill="#f59e0b" stroke="#d97706" rx="2"/>
+                <rect x="491" y="254" width="45" height="10" fill="#f59e0b" stroke="#d97706" rx="2"/>
+
+                <!-- Handrail & Guardrail (900mm height) -->
+                <line x1="140" y1="430" x2="520" y2="170" stroke="#f43f5e" stroke-width="3"/>
+                <line x1="520" y1="170" x2="980" y2="170" stroke="#f43f5e" stroke-width="3"/>
+                <text x="750" y="155" fill="#fb7185" font-size="11" font-weight="800">MEZZANINE SAFETY BALUSTRADE (900mm)</text>
+
+                <!-- Headroom Clearance Indicator -->
+                <line x1="329" y1="368" x2="329" y2="170" stroke="#10b981" stroke-width="1.5" stroke-dasharray="4,4"/>
+                <text x="345" y="270" fill="#34d399" font-size="10" font-weight="800">HEADROOM CLEARANCE: 2.25m (MIN 2.0m REQ)</text>
+
+                <!-- Stair Landing Opening Tag -->
+                <rect x="520" y="260" width="90" height="20" fill="#0284c7" opacity="0.4"/>
+                <text x="565" y="295" fill="#38bdf8" font-size="10" font-weight="800" text-anchor="middle">INTERNAL STAIRWELL ENTRY</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-responsive section-margin-top">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Parameter</th>
+                <th>Measurement</th>
+                <th>Standard Compliance</th>
+                <th>Architectural Benefit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Number of Risers</strong></td>
+                <td>14 risers</td>
+                <td>Uniform rise throughout</td>
+                <td>Comfortable, effortless ascent to 2.60m mezzanine level.</td>
+              </tr>
+              <tr>
+                <td><strong>Riser Height</strong></td>
+                <td>185.7 mm</td>
+                <td>Max code limit 190mm (PASS)</td>
+                <td>Gentle rise suitable for both adults and children.</td>
+              </tr>
+              <tr>
+                <td><strong>Tread Depth (Run)</strong></td>
+                <td>250.0 mm</td>
+                <td>Min code limit 240mm (PASS)</td>
+                <td>Solid footing with rounded bullnose edges.</td>
+              </tr>
+              <tr>
+                <td><strong>Clear Stair Width</strong></td>
+                <td>850 mm</td>
+                <td>Min residential 800mm (PASS)</td>
+                <td>Allows moving luggage and master bedroom furnishings upstairs easily.</td>
+              </tr>
+              <tr>
+                <td><strong>Structural Anchor</strong></td>
+                <td>M16 high-tensile anchor bolts</td>
+                <td>Baseplate to ground slab; top bracket to steel header I-beam</td>
+                <td>Rigid, completely squeak-free connection that doesn't vibrate.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="design-showcase-divider"></div>
+
+      <!-- ======================================================= -->
+      <!-- SUB-DESIGN 6G: COMPLETE SEATING SUITE & FULL SECTION   -->
+      <!-- ======================================================= -->
+      <div id="sub-opt-6g" class="section-margin-top">
+        <div class="card-header-row">
+          <div>
+            <h3 class="spec-title">6G. Complete Seating Room Suite &amp; Longitudinal Section (A-A)</h3>
+            <p class="spec-content">Showcases the complete living room seating suite: 3-seater sofa, three 1-seater armchairs, rectangular oak coffee table, and TV console under soaring cathedral ceiling, paired with the full architectural section cutaway.</p>
+          </div>
+          <span class="badge-pill pill-cyan">PANORAMIC SECTION AUDIT</span>
+        </div>
+
+        <div class="dual-view-grid section-margin-top">
+          <div class="view-card">
+            <div class="view-card-title"><span>🛋️</span> 3D Render: Full Seating Room Suite Cutaway</div>
+            <div class="render-frame">
+              <img src="seating_suite_complete_cutaway.jpg" alt="Option 6G Seating Suite" class="render-img" />
+              <div class="render-overlay-badge">3D Render: Full Seating Suite</div>
+            </div>
+          </div>
+
+          <div class="view-card">
+            <div class="view-card-title"><span>📐</span> 2D Blueprint: Complete Architectural Section (A-A)</div>
+            <div class="blueprint-box">
+              <svg viewBox="0 0 1060 620" xmlns="http://www.w3.org/2000/svg">
+                <rect width="100%" height="100%" fill="#061222"/>
+                <text x="530" y="45" fill="#38bdf8" font-size="14" font-weight="900" text-anchor="middle">COMPLETE LONGITUDINAL ARCHITECTURAL SECTION A-A (8.00m SPAN)</text>
+
+                <!-- Foundation Line -->
+                <rect x="90" y="530" width="880" height="40" fill="#334155" stroke="#64748b"/>
+                <text x="530" y="555" fill="#cbd5e1" font-size="11" font-weight="700" text-anchor="middle">GROUND FOUNDATION SLAB &amp; PAD FOOTINGS</text>
+
+                <!-- Left: Double-Height Living Room (Apex +5.40m) -->
+                <path d="M 90 530 L 90 120 L 530 120 L 530 530 Z" fill="#0369a1" opacity="0.15" stroke="#38bdf8" stroke-width="2"/>
+                <text x="310" y="160" fill="#38bdf8" font-size="14" font-weight="900" text-anchor="middle">DOUBLE-HEIGHT LIVING ROOM (+5.4m)</text>
+                <text x="310" y="200" fill="#bae6fd" font-size="12" text-anchor="middle">3-Seater Sofa + 3 Armchairs + Oak Coffee Table</text>
+                <text x="310" y="230" fill="#bae6fd" font-size="12" text-anchor="middle">Tall Black Metallic Frame Glass Windows</text>
+                <text x="310" y="260" fill="#bae6fd" font-size="12" text-anchor="middle">Black Metallic Security Front Door</text>
+
+                <!-- Right Upper: Master Mezzanine (+2.60m to +5.10m) -->
+                <path d="M 530 330 L 970 330 L 970 120 L 530 120 Z" fill="#b45309" opacity="0.2" stroke="#f59e0b" stroke-width="2"/>
+                <text x="750" y="160" fill="#fbbf24" font-size="14" font-weight="900" text-anchor="middle">UPPER MASTER MEZZANINE (+2.60m)</text>
+                <text x="750" y="195" fill="#fef3c7" font-size="12" text-anchor="middle">King Bed + Solid Oak Wardrobe Closet</text>
+                <text x="750" y="225" fill="#fef3c7" font-size="12" text-anchor="middle">Zero-Slab Metal/Timber Deck on 4 Masonry Pillars</text>
+
+                <!-- Right Lower: Private Kids Room & Kitchen (Ground to +2.60m) -->
+                <path d="M 530 530 L 970 530 L 970 330 L 530 330 Z" fill="#1e1b4b" opacity="0.4" stroke="#8b5cf6" stroke-width="2"/>
+                <text x="750" y="380" fill="#c4b5fd" font-size="14" font-weight="900" text-anchor="middle">LOWER PRIVATE SUITE (+0.00m to +2.50m)</text>
+                <text x="750" y="415" fill="#ede9fe" font-size="12" text-anchor="middle">Private Kids Room (Walled, Door, Cabin Beds) + L-Kitchen &amp; Bar</text>
+                <text x="750" y="445" fill="#ede9fe" font-size="12" text-anchor="middle">Sound-Insulated Ceiling with 75mm Rockwool</text>
+
+                <!-- Kangaroo Parapet Top -->
+                <line x1="90" y1="100" x2="970" y2="100" stroke="#10b981" stroke-width="3.5"/>
+                <text x="530" y="85" fill="#34d399" font-size="12" font-weight="900" text-anchor="middle">KANGAROO HIDDEN PARAPET CREST (+5.80m LEVEL)</text>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+
+  <!-- ======================================================= -->
   <!-- TAB 6: COMPARISON MATRIX                                -->
   <!-- ======================================================= -->
   <div id="tab-opt-matrix" class="tab-content">
@@ -750,6 +1678,7 @@
             <th>Option 3: Compact Loft</th>
             <th>Option 4: Single-Level</th>
             <th>Option 5: Expanded Villa</th>
+            <th style="background: rgba(16, 185, 129, 0.2); color: #34d399;">Option 6: Smart Zero-Slab</th>
           </tr>
         </thead>
         <tbody>
@@ -760,6 +1689,7 @@
             <td><span class="matrix-best">Strict 8m × 5m (40m²)</span></td>
             <td><span class="matrix-best">Strict 8m × 5m (40m²)</span></td>
             <td>~10.5m × 8m (~55m²)</td>
+            <td><span class="matrix-best">Strict 8m × 5m (40m²)</span></td>
           </tr>
           <tr>
             <td><strong>Roof Style</strong></td>
@@ -768,6 +1698,7 @@
             <td>Shed / Gable</td>
             <td>Standard Flat</td>
             <td>Modern Overhang</td>
+            <td><span class="matrix-best">Kangaroo Hidden Parapets</span></td>
           </tr>
           <tr>
             <td><strong>Upper Slab</strong></td>
@@ -776,6 +1707,7 @@
             <td>Over Kids &amp; Bath</td>
             <td>Zero Slab</td>
             <td>Full Concrete Slab</td>
+            <td><span class="matrix-best">Zero Slab (Metal/Timber on 4 Pillars)</span></td>
           </tr>
           <tr>
             <td><strong>Kids Room</strong></td>
@@ -784,6 +1716,7 @@
             <td>Ground (Bunk + Desk)</td>
             <td>Ground (Bunk + Closet)</td>
             <td>Ground (Luxury Suite)</td>
+            <td><span class="matrix-best">Ground (Walled, Integrated Beds + Wardrobe)</span></td>
           </tr>
           <tr>
             <td><strong>Master Suite</strong></td>
@@ -792,6 +1725,7 @@
             <td>Over Kids Suite</td>
             <td>Ground with Sound Closet</td>
             <td>Upper with Balcony &amp; Spa</td>
+            <td><span class="matrix-best">Upper (20m² Mezzanine + Full Wardrobe)</span></td>
           </tr>
           <tr>
             <td><strong>Kitchen Spec</strong></td>
@@ -800,6 +1734,7 @@
             <td>L-Kitchen (Barstools)</td>
             <td>Dry L-Drawers</td>
             <td>Island Bar &amp; Appliances</td>
+            <td><span class="matrix-best">L-Kitchen + Integrated Breakfast Bar</span></td>
           </tr>
           <tr>
             <td><strong>Stairs</strong></td>
@@ -808,6 +1743,7 @@
             <td>Center Stair</td>
             <td>Zero Stairs</td>
             <td>Floating Luxury Stair</td>
+            <td><span class="matrix-best">Internal Open-Riser (Media Wall Under)</span></td>
           </tr>
           <tr>
             <td><strong>Entrance Door</strong></td>
@@ -816,6 +1752,7 @@
             <td>Sliding Glass Door</td>
             <td>Standard Front Door</td>
             <td>Pivot Timber Door</td>
+            <td><span class="matrix-best">Single Black Metallic Security Door</span></td>
           </tr>
         </tbody>
       </table>
@@ -1377,6 +2314,54 @@
             <div class="download-card-desc">Photorealistic dusk exterior facade of the expanded luxury cantilevered villa.</div>
           </div>
           <button class="ctrl-action-btn" onclick="downloadImage('house_3d_exterior.jpg', 'Devins_House_Option5_Villa_Facade.jpg')">Download Villa Facade (.jpg)</button>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">Option 6: Smart Integrated Layout</div>
+            <div class="download-card-desc">High-resolution cutaway showing under-stair media wall, 4 integrated masonry pillars, and conversational seating suite.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('smart_architectural_layout.jpg', 'Devins_House_Option6_Smart_Layout.jpg')">Download Option 6 Smart Layout (.jpg)</button>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">Option 6: Hidden Roof &amp; Integrated Kids Beds</div>
+            <div class="download-card-desc">High-resolution cutaway displaying the Kangaroo hidden parapet roof and custom built-in cabin beds with step drawers.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('hidden_roof_integrated_beds.jpg', 'Devins_House_Option6_Hidden_Roof.jpg')">Download Option 6 Hidden Roof (.jpg)</button>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">Option 6: Exact 40m² Dimensional Blueprint</div>
+            <div class="download-card-desc">Fully dimensioned architectural cutaway diagram with CAD measurements for all 8x5m rooms and heights.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('exact_40sqm_dimensions.jpg', 'Devins_House_Option6_Dimensions.jpg')">Download 40m² Dimensions (.jpg)</button>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">Option 6: Master Wardrobe &amp; Twilight Lighting</div>
+            <div class="download-card-desc">Atmospheric evening render showing master bedroom wooden wardrobe, metallic windows, metallic front door, and 2700K lighting.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('master_wardrobe_lighting_render.jpg', 'Devins_House_Option6_Twilight_Lighting.jpg')">Download Twilight Render (.jpg)</button>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">Option 6: 4 Solid Masonry Pillars System</div>
+            <div class="download-card-desc">Structural render showcasing the 4 white-plastered masonry columns carrying the zero-slab steel &amp; timber mezzanine.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('masonry_pillars_mezzanine.jpg', 'Devins_House_Option6_Masonry_Pillars.jpg')">Download Masonry Pillars (.jpg)</button>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">Option 6: Interior Open-Riser Timber Staircase</div>
+            <div class="download-card-desc">High-detail cutaway focusing on the interior straight timber staircase with step lighting and zero added overhang.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('interior_staircase_mezzanine.jpg', 'Devins_House_Option6_Interior_Stairs.jpg')">Download Interior Stairs (.jpg)</button>
         </div>
 
         <div class="download-card">

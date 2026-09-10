@@ -1,4 +1,4 @@
-const CACHE_NAME = "devins-house-v2";
+const CACHE_NAME = "devins-house-v3";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
@@ -16,7 +16,17 @@ const ASSETS_TO_CACHE = [
   "./house_8x5_custom.jpg",
   "./house_kids_lower.jpg",
   "./house_3d_exterior.jpg",
-  "./house_3d_interior.jpg"
+  "./house_3d_interior.jpg",
+  "./smart_architectural_layout.jpg",
+  "./hidden_roof_integrated_beds.jpg",
+  "./exact_40sqm_dimensions.jpg",
+  "./master_wardrobe_lighting_render.jpg",
+  "./masonry_pillars_mezzanine.jpg",
+  "./four_pillar_metal_timber.jpg",
+  "./interior_staircase_mezzanine.jpg",
+  "./compact_20sqm_private_kids.jpg",
+  "./seating_suite_complete_cutaway.jpg",
+  "./metal_timber_master_cutaway.jpg"
 ];
 
 // Install Event: Pre-cache all core assets and images

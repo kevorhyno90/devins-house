@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Devin's House - Architectural & Construction Management PWA</title>
+  <link rel="manifest" href="manifest.json" />
+  <link rel="icon" type="image/jpeg" href="app_icon.jpg" />
+  <link rel="apple-touch-icon" href="app_icon.jpg" />
+  <meta name="theme-color" content="#0f192c" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<div class="wrapper">
+
+  <!-- ================= USER PROFILE & PWA INSTALL BAR ================= -->
+  <aside class="user-pwa-bar">
+    <div class="user-profile-widget">
+      <img src="app_icon.jpg" alt="Devin's House Logo" class="profile-avatar-img" id="profileAvatar" />
+      <div class="profile-info">
+        <span class="profile-name-text" id="profileName">Devin</span>
+        <span class="profile-role-text" id="profileRole">Owner &amp; Master Builder</span>
+      </div>
+    </div>
+
+    <div class="auth-pwa-actions">
+      <button class="google-auth-btn" onclick="promptGoogleSignIn()">
+        <span>🇬</span> Sign in with Google
+      </button>
+      <button class="pwa-install-btn" id="installAppBtn" onclick="triggerAppInstall()">
+        <span>📲</span> Install Devin's House App
+      </button>
+    </div>
+  </aside>
+
+  <!-- ================= MASTER HEADER ================= -->
+  <header class="hero-banner">
+    <div class="hero-top">
+      <div>
+        <h1 class="hero-title">Devin's House - Architectural &amp; Construction Manager</h1>
+        <div class="hero-subtitle">Exact 8.00m × 5.00m Kangaroo-Style Hidden Roof House • Offline Ready • Editable Measurements • Budget &amp; Progress Tracking</div>
+      </div>
+      <div class="status-badge">
+        <div class="pulse-dot"></div>
+        OFFLINE READY PWA
+      </div>
+    </div>
+
+    <!-- Quick Switcher Summary Cards -->
+    <div class="options-pills">
+      <div class="opt-summary-card active-opt" onclick="switchToTab('opt-kangaroo', 0)">
+        <div class="opt-tag">Primary Design</div>
+        <div class="opt-name">8x5m Kangaroo House</div>
+        <div class="opt-desc">Hidden roof • 3D cutaway &amp; exterior • 2D CAD floor plan</div>
+      </div>
+      <div class="opt-summary-card" onclick="switchToTab('opt-editor', 1)">
+        <div class="opt-tag">Live Customizer</div>
+        <div class="opt-name">Editable Measurements</div>
+        <div class="opt-desc">Tweak room dimensions with instant live area recalculation</div>
+      </div>
+      <div class="opt-summary-card" onclick="switchToTab('opt-expenses', 2)">
+        <div class="opt-tag">Financials</div>
+        <div class="opt-name">Expense &amp; Budget Tracker</div>
+        <div class="opt-desc">Log costs by category, track budget progress, export CSV</div>
+      </div>
+      <div class="opt-summary-card" onclick="switchToTab('opt-estimators', 3)">
+        <div class="opt-tag">Engineering</div>
+        <div class="opt-name">Material &amp; Cost Estimators</div>
+        <div class="opt-desc">Calculators for paint, oak parquet, electrical &amp; plumbing</div>
+      </div>
+      <div class="opt-summary-card" onclick="switchToTab('opt-milestones', 4)">
+        <div class="opt-tag">Execution</div>
+        <div class="opt-name">Construction Progress</div>
+        <div class="opt-desc">10-milestone checklist from ground slab to final handover</div>
+      </div>
+      <div class="opt-summary-card" onclick="switchToTab('opt-savings', 5)">
+        <div class="opt-tag">Optimization</div>
+        <div class="opt-name">Cost Minimization</div>
+        <div class="opt-desc">Actionable tips saving over $10,000 on structural build</div>
+      </div>
+      <div class="opt-summary-card" onclick="switchToTab('opt-export', 6)">
+        <div class="opt-tag">Downloads</div>
+        <div class="opt-name">Export &amp; Download Hub</div>
+        <div class="opt-desc">Download individual 3D renders, CAD SVGs, or Full PDF Report</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= MASTER NAVIGATION TABS ================= -->
+  <nav class="tab-bar">
+    <button class="tab-btn active" onclick="switchToTab('opt-kangaroo', 0)">
+      <span>🦘</span> 3D Renders &amp; 2D Floor Plan
+    </button>
+    <button class="tab-btn" onclick="switchToTab('opt-editor', 1)">
+      <span>📐</span> Editable Measurements
+    </button>
+    <button class="tab-btn" onclick="switchToTab('opt-expenses', 2)">
+      <span>💰</span> Expense &amp; Budget Tracker
+    </button>
+    <button class="tab-btn" onclick="switchToTab('opt-estimators', 3)">
+      <span>🛠️</span> Material &amp; Cost Estimators
+    </button>
+    <button class="tab-btn" onclick="switchToTab('opt-milestones', 4)">
+      <span>🏗️</span> Construction Progress
+    </button>
+    <button class="tab-btn" onclick="switchToTab('opt-savings', 5)">
+      <span>💡</span> Cost Minimizer
+    </button>
+    <button class="tab-btn" onclick="switchToTab('opt-export', 6)">
+      <span>💾</span> Export &amp; Downloads
+    </button>
+    <button class="tab-btn" onclick="switchToTab('opt-archive', 7)">
+      <span>🏛️</span> All Prior Options Archive
+    </button>
+  </nav>
+
+  <!-- ======================================================= -->
+  <!-- TAB 1: 3D MODELS & TAILORED 2D FLOOR PLAN               -->
+  <!-- ======================================================= -->
+  <div id="tab-opt-kangaroo" class="tab-content active">
+    <section class="main-card">
+      <div class="card-header-row">
+        <div>
+          <h2 class="card-title">Approved Kangaroo-Style Hidden Roof House (Exact 8.00m × 5.00m)</h2>
+          <p class="card-subtitle">Clean rectangular geometry with perimeter parapet walls concealing the sloping metal roof. The master bedroom sits on the kitchen slab with an integrated wardrobe and changing place, full-span lower kitchen, untouched stairs, kids room with door, and single 3.5ft metal front door.</p>
+        </div>
+        <span class="badge-pill pill-rose">KANGAROO HIDDEN ROOF • PRIMARY</span>
+      </div>
+
+      <div class="dual-view-grid">
+        <!-- 3D Cutaway -->
+        <div class="view-card">
+          <div class="view-card-title">
+            <span>✨</span> 3D Interior Cutaway (Concealed Roof Structure)
+          </div>
+          <div class="render-frame">
+            <img src="house_kangaroo_cutaway.jpg" alt="Devin's House 3D Interior Cutaway" class="render-img" />
+            <div class="render-overlay-badge">
+              <span>🦘</span> Devin's House Interior Cutaway
+            </div>
+
+            <!-- Hotspots -->
+            <div class="pinpoint pinpoint-roof pin-roof-top">
+              1
+              <div class="pin-tooltip"><strong>Kangaroo Hidden Roof</strong>: Parapet Walls Concealing Roof</div>
+            </div>
+            <div class="pinpoint pinpoint-metal pin-door-front">
+              2
+              <div class="pin-tooltip"><strong>Single 3.5ft Metal Door</strong>: Solid Dark Steel (No other doors)</div>
+            </div>
+            <div class="pinpoint pinpoint-sofa pin-seating-lounge">
+              3
+              <div class="pin-tooltip"><strong>Seating Suite</strong>: 3-Seater Sofa + 2 Armchairs + Rectangular Table + TV Stand</div>
+            </div>
+            <div class="pinpoint pinpoint-kitchen pin-kitchen-lower">
+              4
+              <div class="pin-tooltip"><strong>Full Lower Kitchen</strong>: Spans Entire Width Under Master Slab (No Sink, No Fridge)</div>
+            </div>
+            <div class="pinpoint pinpoint-stairs pin-stairs-untouched">
+              5
+              <div class="pin-tooltip"><strong>Untouched Stairs</strong>: Open-Riser Stair Leading to Master</div>
+            </div>
+            <div class="pinpoint pinpoint-door pin-kids-entry">
+              6
+              <div class="pin-tooltip"><strong>Kids Room with Door</strong>: Bunk Bed + Wardrobe Only (No Desks)</div>
+            </div>
+            <div class="pinpoint pinpoint-wardrobe pin-master-loft">
+              7
+              <div class="pin-tooltip"><strong>Master Suite on Slab</strong>: Queen Bed + Wardrobe + Changing Area with Mirror &amp; Bench</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3D Exterior Facade -->
+        <div class="view-card">
+          <div class="view-card-title">
+            <span>🌆</span> 3D Exterior Facade (Hidden Roof Box Silhouette)
+          </div>
+          <div class="render-frame">
+            <img src="house_kangaroo_exterior.jpg" alt="Devin's House 3D Exterior Facade" class="render-img" />
+            <div class="render-overlay-badge">
+              <span>🏛️</span> Modern Flat-Top Box Silhouette
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tailored 2D Floor Plan Blueprint -->
+      <div class="view-card section-margin-top">
+        <div class="view-card-title">
+          <span>📐</span> Tailored 2D Architectural Floor Plan (Exact 8.00m × 5.00m Kangaroo Layout)
+        </div>
+        <div class="blueprint-box">
+          <svg viewBox="0 0 1060 620" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="gridKangaroo" width="20" height="20" patternUnits="userSpaceOnUse">
+                <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#0f2647" stroke-width="0.75"/>
+              </pattern>
+              <marker id="arrowK" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#00d2ff"/>
+              </marker>
+            </defs>
+
+            <rect width="100%" height="100%" fill="#061222"/>
+            <rect width="100%" height="100%" fill="url(#gridKangaroo)"/>
+
+            <rect x="140" y="80" width="800" height="500" fill="#0c1f38" stroke="#00d2ff" stroke-width="4"/>
+            <rect x="158" y="98" width="764" height="464" fill="#08172c" stroke="#1d4ed8" stroke-width="1.5"/>
+
+            <rect x="135" y="75" width="810" height="12" fill="#1e293b"/>
+            <rect x="135" y="573" width="810" height="12" fill="#1e293b"/>
+            <rect x="135" y="75" width="12" height="510" fill="#1e293b"/>
+            <rect x="933" y="75" width="12" height="510" fill="#1e293b"/>
+            <text x="540" y="72" fill="#38bdf8" font-size="11" font-weight="900" text-anchor="middle">RAISED PARAPET WALLS (CONCEALED KANGAROO ROOF BEHIND)</text>
+
+            <rect x="420" y="80" width="107" height="18" fill="#475569" stroke="#94a3b8" stroke-width="2"/>
+            <line x1="420" y1="98" x2="420" y2="205" stroke="#ffffff" stroke-width="3.5"/>
+            <path d="M 420 205 A 107 107 0 0 0 527 98" fill="none" stroke="#38bdf8" stroke-width="2" stroke-dasharray="4,4"/>
+            <rect x="400" y="45" width="150" height="24" rx="4" fill="#0f172a" stroke="#38bdf8" stroke-width="1.5"/>
+            <text x="475" y="61" fill="#38bdf8" font-size="11" font-weight="900" text-anchor="middle">3.5-FT METAL DOOR (ONLY ENTRANCE)</text>
+
+            <rect x="175" y="115" width="280" height="430" fill="none" stroke="#38bdf8" stroke-width="1" stroke-dasharray="4,4"/>
+            <text x="315" y="135" fill="#38bdf8" font-size="12" font-weight="800" text-anchor="middle">SEATING ROOM (OPEN HIGH CEILING)</text>
+
+            <rect x="190" y="240" width="65" height="200" rx="6" fill="#1e293b" stroke="#cbd5e1" stroke-width="2"/>
+            <text x="222" y="340" fill="#ffffff" font-size="11" font-weight="800" transform="rotate(-90 222 340)" text-anchor="middle">3-SEATER SOFA</text>
+
+            <rect x="280" y="285" width="60" height="110" rx="4" fill="#78350f" fill-opacity="0.5" stroke="#d97706" stroke-width="2"/>
+            <text x="310" y="340" fill="#fde68a" font-size="10" font-weight="800" transform="rotate(-90 310 340)" text-anchor="middle">RECTANGULAR TABLE</text>
+
+            <rect x="270" y="225" width="80" height="50" rx="5" fill="#334155" stroke="#94a3b8" stroke-width="1.8"/>
+            <text x="310" y="255" fill="#e2e8f0" font-size="10" font-weight="700" text-anchor="middle">1-SEATER</text>
+
+            <rect x="270" y="405" width="80" height="50" rx="5" fill="#334155" stroke="#94a3b8" stroke-width="1.8"/>
+            <text x="310" y="435" fill="#e2e8f0" font-size="10" font-weight="700" text-anchor="middle">1-SEATER</text>
+
+            <rect x="380" y="265" width="28" height="150" rx="3" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+            <text x="394" y="340" fill="#a78bfa" font-size="10.5" font-weight="800" transform="rotate(-90 394 340)" text-anchor="middle">TV STAND CONSOLE</text>
+
+            <rect x="470" y="300" width="452" height="262" fill="#b45309" fill-opacity="0.15" stroke="#f59e0b" stroke-width="2"/>
+            <rect x="480" y="310" width="370" height="26" rx="4" fill="#b45309"/>
+            <text x="665" y="327" fill="#ffffff" font-size="11" font-weight="900" text-anchor="middle">KITCHEN UNDER SLAB (NO SINK / NO FRIDGE)</text>
+
+            <rect x="480" y="345" width="442" height="45" rx="4" fill="#047857" fill-opacity="0.4" stroke="#10b981" stroke-width="2"/>
+            <text x="701" y="372" fill="#a7f3d0" font-size="11" font-weight="800" text-anchor="middle">FULL-WIDTH WALNUT PANTRY DRAWERS &amp; SHELVING</text>
+
+            <rect x="480" y="430" width="280" height="50" rx="5" fill="#b45309" fill-opacity="0.6" stroke="#f59e0b" stroke-width="2"/>
+            <text x="620" y="460" fill="#fef3c7" font-size="11" font-weight="800" text-anchor="middle">DINING BAR ISLAND (4 STOOLS)</text>
+            <circle cx="515" cy="510" r="11" fill="#d97706"/>
+            <circle cx="585" cy="510" r="11" fill="#d97706"/>
+            <circle cx="655" cy="510" r="11" fill="#d97706"/>
+            <circle cx="725" cy="510" r="11" fill="#d97706"/>
+
+            <rect x="850" y="110" width="70" height="180" fill="#334155" stroke="#eab308" stroke-width="2"/>
+            <line x1="850" y1="130" x2="920" y2="130" stroke="#eab308" stroke-width="1.5"/>
+            <line x1="850" y1="150" x2="920" y2="150" stroke="#eab308" stroke-width="1.5"/>
+            <line x1="850" y1="170" x2="920" y2="170" stroke="#eab308" stroke-width="1.5"/>
+            <line x1="850" y1="190" x2="920" y2="190" stroke="#eab308" stroke-width="1.5"/>
+            <line x1="850" y1="210" x2="920" y2="210" stroke="#eab308" stroke-width="1.5"/>
+            <line x1="850" y1="230" x2="920" y2="230" stroke="#eab308" stroke-width="1.5"/>
+            <line x1="850" y1="250" x2="920" y2="250" stroke="#eab308" stroke-width="1.5"/>
+            <line x1="850" y1="270" x2="920" y2="270" stroke="#eab308" stroke-width="1.5"/>
+            <text x="885" y="200" fill="#fde047" font-size="10.5" font-weight="900" transform="rotate(-90 885 200)" text-anchor="middle">UNTOUCHED STAIRS</text>
+
+            <rect x="560" y="98" width="280" height="190" fill="#1e3a5f" fill-opacity="0.3" stroke="#00d2ff" stroke-width="2"/>
+            <text x="700" y="125" fill="#38bdf8" font-size="11.5" font-weight="800" text-anchor="middle">KIDS ROOM (ENCLOSED WITH DOOR)</text>
+
+            <rect x="560" y="210" width="18" height="75" fill="#08172c"/>
+            <path d="M 560 210 A 75 75 0 0 1 500 285" fill="none" stroke="#10b981" stroke-width="2" stroke-dasharray="3,3"/>
+            <line x1="560" y1="210" x2="500" y2="285" stroke="#10b981" stroke-width="2.5"/>
+            <text x="535" y="250" fill="#34d399" font-size="9" font-weight="900">DOOR</text>
+
+            <rect x="670" y="140" width="160" height="85" rx="4" fill="#1e40af" fill-opacity="0.4" stroke="#60a5fa" stroke-width="2"/>
+            <text x="750" y="185" fill="#93c5fd" font-size="11" font-weight="800" text-anchor="middle">BUNK BED (2-TIER)</text>
+
+            <rect x="580" y="140" width="80" height="60" rx="3" fill="#065f46" stroke="#34d399" stroke-width="2"/>
+            <text x="620" y="175" fill="#a7f3d0" font-size="10" font-weight="800" text-anchor="middle">WARDROBE</text>
+
+            <rect x="470" y="300" width="452" height="262" fill="none" stroke="#ef4444" stroke-width="3" stroke-dasharray="6,6"/>
+            <rect x="760" y="495" width="155" height="55" rx="4" fill="#881337" stroke="#fb7185" stroke-width="1.5"/>
+            <text x="837" y="515" fill="#ffffff" font-size="10" font-weight="900" text-anchor="middle">OVERHEAD SLAB:</text>
+            <text x="837" y="530" fill="#fecdd3" font-size="9.5" font-weight="700" text-anchor="middle">MASTER SUITE + WARDROBE</text>
+            <text x="837" y="542" fill="#fecdd3" font-size="9.5" font-weight="700" text-anchor="middle">&amp; CHANGING PLACE</text>
+
+            <line x1="140" y1="35" x2="940" y2="35" stroke="#00d2ff" stroke-width="2" marker-start="url(#arrowK)" marker-end="url(#arrowK)"/>
+            <rect x="475" y="20" width="130" height="26" rx="4" fill="#061222" stroke="#00d2ff" stroke-width="1.5"/>
+            <text x="540" y="38" fill="#ffffff" font-size="13" font-weight="900" text-anchor="middle">8.00 METERS</text>
+
+            <line x1="75" y1="80" x2="75" y2="580" stroke="#00d2ff" stroke-width="2" marker-start="url(#arrowK)" marker-end="url(#arrowK)"/>
+            <rect x="25" y="315" width="100" height="26" rx="4" fill="#061222" stroke="#00d2ff" stroke-width="1.5"/>
+            <text x="75" y="333" fill="#ffffff" font-size="13" font-weight="900" text-anchor="middle">5.00 METERS</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- TAB 2: EDITABLE MEASUREMENTS & LIVE AREA CALCULATOR     -->
+  <!-- ======================================================= -->
+  <div id="tab-opt-editor" class="tab-content">
+    <section class="main-card">
+      <div class="card-header-row">
+        <div>
+          <h2 class="card-title">Live Editable Measurement Inspector</h2>
+          <p class="card-subtitle">Adjust any room or architectural element dimensions below. Floor areas and material estimates recalculate dynamically in real time and persist offline.</p>
+        </div>
+        <button class="ctrl-action-btn" onclick="resetMeasurements()">Reset to Defaults</button>
+      </div>
+
+      <div class="measurements-editor-grid">
+        <div class="form-group">
+          <label class="form-label" for="input_plotWidth">House Width (Meters)</label>
+          <input type="number" step="0.1" class="form-input" id="input_plotWidth" oninput="onMeasurementChange()" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="input_plotDepth">House Depth (Meters)</label>
+          <input type="number" step="0.1" class="form-input" id="input_plotDepth" oninput="onMeasurementChange()" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="input_seatingWidth">Seating Room Width (Meters)</label>
+          <input type="number" step="0.1" class="form-input" id="input_seatingWidth" oninput="onMeasurementChange()" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="input_seatingDepth">Seating Room Depth (Meters)</label>
+          <input type="number" step="0.1" class="form-input" id="input_seatingDepth" oninput="onMeasurementChange()" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="input_kidsWidth">Kids Room Width (Meters)</label>
+          <input type="number" step="0.1" class="form-input" id="input_kidsWidth" oninput="onMeasurementChange()" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="input_kidsDepth">Kids Room Depth (Meters)</label>
+          <input type="number" step="0.1" class="form-input" id="input_kidsDepth" oninput="onMeasurementChange()" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="input_kitchenWidth">Kitchen / Master Slab Width (Meters)</label>
+          <input type="number" step="0.1" class="form-input" id="input_kitchenWidth" oninput="onMeasurementChange()" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="input_kitchenDepth">Kitchen / Master Slab Depth (Meters)</label>
+          <input type="number" step="0.1" class="form-input" id="input_kitchenDepth" oninput="onMeasurementChange()" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="input_cathedralHeight">Cathedral Ceiling Peak (Meters)</label>
+          <input type="number" step="0.1" class="form-input" id="input_cathedralHeight" oninput="onMeasurementChange()" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="input_doorWidth">Main Entrance Door Width (Meters)</label>
+          <input type="number" step="0.01" class="form-input" id="input_doorWidth" oninput="onMeasurementChange()" />
+        </div>
+      </div>
+
+      <!-- Live Dynamic Area Calculation Chips -->
+      <div class="stats-card-grid">
+        <div class="stat-chip">
+          <div class="stat-chip-label">Total Ground Footprint</div>
+          <div class="stat-chip-value" id="calc_footprint">40.00 m²</div>
+        </div>
+        <div class="stat-chip">
+          <div class="stat-chip-label">Seating Lounge Area</div>
+          <div class="stat-chip-value" id="calc_seatingArea">12.32 m²</div>
+        </div>
+        <div class="stat-chip">
+          <div class="stat-chip-label">Kids Bedroom Area</div>
+          <div class="stat-chip-value" id="calc_kidsArea">6.16 m²</div>
+        </div>
+        <div class="stat-chip">
+          <div class="stat-chip-label">Lower Kitchen Under Slab</div>
+          <div class="stat-chip-value" id="calc_kitchenArea">9.88 m²</div>
+        </div>
+        <div class="stat-chip">
+          <div class="stat-chip-label">Upper Master Suite Slab</div>
+          <div class="stat-chip-value" id="calc_masterArea">9.88 m²</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- TAB 3: EXPENSE & BUDGET TRACKER                         -->
+  <!-- ======================================================= -->
+  <div id="tab-opt-expenses" class="tab-content">
+    <section class="main-card">
+      <div class="card-header-row">
+        <div>
+          <h2 class="card-title">Construction Expense &amp; Budget Manager</h2>
+          <p class="card-subtitle">Log every payment, track real-time contractor disbursements, monitor budget variance, and export financial summaries.</p>
+        </div>
+        <button class="ctrl-action-btn" onclick="exportExpensesCSV()">Export to CSV</button>
+      </div>
+
+      <!-- Budget Progress Summary Bar -->
+      <div class="budget-summary-bar">
+        <div class="card-header-row">
+          <div>
+            <span class="form-label">Total Allocated Budget ($):</span>
+            <input type="number" class="form-input" id="totalBudgetInput" onchange="updateBudget()" />
+          </div>
+          <div class="profile-info">
+            <span class="stat-chip-label">Current Spend Progress</span>
+            <span class="profile-name-text" id="stat_budgetPercent">0%</span>
+          </div>
+        </div>
+
+        <div class="progress-track">
+          <div class="progress-fill fill-success" id="budgetProgressBar"></div>
+        </div>
+
+        <div class="stats-card-grid">
+          <div class="stat-chip">
+            <div class="stat-chip-label">Total Budget</div>
+            <div class="stat-chip-value" id="stat_totalBudget">$32,000</div>
+          </div>
+          <div class="stat-chip">
+            <div class="stat-chip-label">Total Paid &amp; Committed</div>
+            <div class="stat-chip-value" id="stat_totalSpent">$0</div>
+          </div>
+          <div class="stat-chip">
+            <div class="stat-chip-label">Remaining Contingency</div>
+            <div class="stat-chip-value" id="stat_remainingBudget">$32,000</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add Expense Form -->
+      <form id="expenseForm" class="expense-form-row">
+        <div class="form-group">
+          <label class="form-label" for="expName">Expense Description</label>
+          <input type="text" class="form-input" id="expName" placeholder="e.g. Parapet Wall Masonry" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="expCategory">Category</label>
+          <select class="form-select" id="expCategory">
+            <option value="Foundation">Foundation &amp; Substructure</option>
+            <option value="Masonry">Blockwork &amp; Walls</option>
+            <option value="Roofing">Kangaroo Hidden Roof</option>
+            <option value="Doors/Windows">Doors &amp; Windows</option>
+            <option value="Electrical">Electrical &amp; Lighting</option>
+            <option value="Plumbing">Plumbing &amp; Box Gutters</option>
+            <option value="Finishes">Finishes &amp; Painting</option>
+            <option value="Labor">Contractor Labor</option>
+            <option value="Permits">Permits &amp; Approvals</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="expAmount">Amount ($)</label>
+          <input type="number" class="form-input" id="expAmount" placeholder="Amount in USD" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="expDate">Date</label>
+          <input type="date" class="form-input" id="expDate" />
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="expStatus">Status</label>
+          <select class="form-select" id="expStatus">
+            <option value="Paid">Paid</option>
+            <option value="Pending">Pending</option>
+          </select>
+        </div>
+        <button type="submit" class="ctrl-action-btn">+ Add Expense</button>
+      </form>
+
+      <!-- Expense Ledger Table -->
+      <div class="section-margin-top">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Expense Description</th>
+              <th>Category</th>
+              <th>Amount ($)</th>
+              <th>Date</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="expenseTableBody">
+            <!-- Rendered by app.js -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- TAB 4: MATERIAL, FINISHING & ENGINEERING ESTIMATORS     -->
+  <!-- ======================================================= -->
+  <div id="tab-opt-estimators" class="tab-content">
+    <section class="main-card">
+      <div class="card-header-row">
+        <div>
+          <h2 class="card-title">Construction, Finishing &amp; Engineering Estimators</h2>
+          <p class="card-subtitle">Automated material takeoffs and engineering estimates calculated specifically for Devin's House.</p>
+        </div>
+      </div>
+
+      <div class="dual-view-grid">
+        <!-- 1. Wall Painting & Primer Takeoff -->
+        <div class="spec-box">
+          <div class="spec-title">
+            <span>🎨 1. Wall Paint &amp; Primer Calculator</span>
+            <span class="badge-pill pill-green">Finishes</span>
+          </div>
+          <div class="spec-content">
+            <p>Calculates gross wall area from your house dimensions minus openings (doors/windows):</p>
+            <div class="stats-card-grid">
+              <div class="stat-chip">
+                <div class="stat-chip-label">Net Wall Surface Area</div>
+                <div class="stat-chip-value" id="calc_netWallArea">0 m²</div>
+              </div>
+              <div class="stat-chip">
+                <div class="stat-chip-label">Primer / Undercoat Required</div>
+                <div class="stat-chip-value" id="calc_primerLiters">0 Liters</div>
+              </div>
+              <div class="stat-chip">
+                <div class="stat-chip-label">Topcoat Paint (2 Coats)</div>
+                <div class="stat-chip-value" id="calc_paintLiters">0 Liters</div>
+              </div>
+              <div class="stat-chip">
+                <div class="stat-chip-label">Estimated Paint Cost</div>
+                <div class="stat-chip-value" id="calc_paintCost">$0</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Parquet & Flooring Takeoff -->
+        <div class="spec-box">
+          <div class="spec-title">
+            <span>🪵 2. Oak Parquet &amp; Tile Estimator</span>
+            <span class="badge-pill pill-amber">Flooring</span>
+          </div>
+          <div class="spec-content">
+            <p>Calculates herringbone engineered oak flooring for seating room + master loft, with 10% wastage allowance:</p>
+            <div class="stats-card-grid">
+              <div class="stat-chip">
+                <div class="stat-chip-label">Required Parquet Area</div>
+                <div class="stat-chip-value" id="calc_parquetArea">0 m²</div>
+              </div>
+              <div class="stat-chip">
+                <div class="stat-chip-label">Estimated Flooring Cost</div>
+                <div class="stat-chip-value" id="calc_parquetCost">$0</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Electrical Estimator -->
+        <div class="spec-box">
+          <div class="spec-title">
+            <span>⚡ 3. Electrical Rough-In Estimator</span>
+            <span class="badge-pill pill-purple">Electrical</span>
+          </div>
+          <div class="spec-content">
+            <div class="form-group section-margin-top">
+              <label class="form-label" for="input_lightPoints">Ceiling &amp; Sconce Light Points</label>
+              <input type="number" class="form-input" id="input_lightPoints" value="14" oninput="calculateElectrical()" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="input_socketPoints">Power &amp; TV Socket Outlets</label>
+              <input type="number" class="form-input" id="input_socketPoints" value="12" oninput="calculateElectrical()" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="input_coveStrips">LED Architectural Cove Strips (Meters)</label>
+              <input type="number" class="form-input" id="input_coveStrips" value="25" oninput="calculateElectrical()" />
+            </div>
+            <div class="stat-chip section-margin-top">
+              <div class="stat-chip-label">Total Electrical Estimate</div>
+              <div class="stat-chip-value" id="calc_electricalCost">$0</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. Plumbing & Roof Drainage Estimator -->
+        <div class="spec-box">
+          <div class="spec-title">
+            <span>🚰 4. Plumbing &amp; Kangaroo Roof Gutters</span>
+            <span class="badge-pill pill-blue">Plumbing</span>
+          </div>
+          <div class="spec-content">
+            <div class="form-group section-margin-top">
+              <label class="form-label" for="input_gutterLength">Concealed Box Gutters (Linear Meters)</label>
+              <input type="number" class="form-input" id="input_gutterLength" value="16" oninput="calculatePlumbing()" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="input_bathPoints">Bathroom Supply &amp; Drainage Points</label>
+              <input type="number" class="form-input" id="input_bathPoints" value="4" oninput="calculatePlumbing()" />
+            </div>
+            <p class="profile-role-text section-margin-top">Note: Kitchen is strictly DRY (saves over $1,500 in plumbing runs).</p>
+            <div class="stat-chip section-margin-top">
+              <div class="stat-chip-label">Plumbing &amp; Gutters Estimate</div>
+              <div class="stat-chip-value" id="calc_plumbingCost">$0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- TAB 5: CONSTRUCTION PROGRESS TRACKER                    -->
+  <!-- ======================================================= -->
+  <div id="tab-opt-milestones" class="tab-content">
+    <section class="main-card">
+      <div class="card-header-row">
+        <div>
+          <h2 class="card-title">Construction Milestone Progress Tracker</h2>
+          <p class="card-subtitle">Track every stage of Devin's House from setting out to final handover. Click any stage to toggle completion status.</p>
+        </div>
+        <span class="badge-pill pill-green" id="stat_milestonePercent">0% Completed</span>
+      </div>
+
+      <div class="progress-track">
+        <div class="progress-fill fill-success" id="milestoneProgressBar"></div>
+      </div>
+
+      <div class="milestones-container" id="milestonesList">
+        <!-- Rendered by app.js -->
+      </div>
+    </section>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- TAB 6: COST MINIMIZATION ADVISOR                        -->
+  <!-- ======================================================= -->
+  <div id="tab-opt-savings" class="tab-content">
+    <section class="main-card">
+      <div class="card-header-row">
+        <div>
+          <h2 class="card-title">Cost Minimization &amp; Value Engineering Guide</h2>
+          <p class="card-subtitle">Proven structural decisions that reduce your total construction expense by over $10,800 without compromising beauty or durability.</p>
+        </div>
+        <span class="badge-pill pill-green">ESTIMATED SAVINGS: $10,800+</span>
+      </div>
+
+      <div class="spec-grid">
+        <div class="spec-box">
+          <div class="spec-title">
+            <span>🏗️ Single Kitchen Slab vs Full Floor</span>
+            <span class="badge-pill pill-green">Saves ~$4,200</span>
+          </div>
+          <p class="spec-content">Casting an intermediate concrete slab <strong>strictly over the kitchen area (~9.88m²)</strong> rather than the entire 40m² ground floor saves 75% of second-floor formwork, props, concrete volume, and rebar steel reinforcement.</p>
+        </div>
+
+        <div class="spec-box">
+          <div class="spec-title">
+            <span>🦘 Kangaroo Roof vs Flat Concrete Roof</span>
+            <span class="badge-pill pill-green">Saves ~$3,800</span>
+          </div>
+          <p class="spec-content">Flat concrete roof slabs require costly torch-on waterproofing membranes, thermal screed, and frequent maintenance. The kangaroo concealed roof uses cost-effective light gauge metal trusses and corrugated sheeting hidden behind parapets, delivering the same modern flat-top aesthetic with zero leakage risks.</p>
+        </div>
+
+        <div class="spec-box">
+          <div class="spec-title">
+            <span>🍽️ Dry Pantry vs Wet Kitchen Plumbing</span>
+            <span class="badge-pill pill-green">Saves ~$1,500</span>
+          </div>
+          <p class="spec-content">Eliminating the kitchen sink and dishwasher eliminates underground grease trap excavation, kitchen waste piping through the foundation slab, and hot/cold water supply lines to the kitchen island.</p>
+        </div>
+
+        <div class="spec-box">
+          <div class="spec-title">
+            <span>🚪 Single Metal Entrance Security Door</span>
+            <span class="badge-pill pill-green">Saves ~$1,300</span>
+          </div>
+          <p class="spec-content">Installing one single 3.5ft solid metal security door and omitting back patio sliding glass doors eliminates expensive multi-track patio sliders, exterior security shutters, and secondary deadbolts.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- TAB 7: EXPORT & DOWNLOAD HUB                            -->
+  <!-- ======================================================= -->
+  <div id="tab-opt-export" class="tab-content">
+    <section class="main-card">
+      <div class="card-header-row">
+        <div>
+          <h2 class="card-title">Export &amp; Download Center</h2>
+          <p class="card-subtitle">Download high-resolution 3D renders, vector CAD floor plans, and financial logs individually, or export the full construction pack as a printable PDF.</p>
+        </div>
+      </div>
+
+      <div class="download-grid">
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">3D Interior Cutaway Model</div>
+            <div class="download-card-desc">High-resolution photorealistic 3D render showing the kangaroo parapets, master suite on kitchen slab, and interior rooms.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('house_kangaroo_cutaway.jpg', 'Devins_House_3D_Interior_Cutaway.jpg')">Download 3D Interior (.jpg)</button>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">3D Exterior Facade Model</div>
+            <div class="download-card-desc">High-resolution architectural exterior showing the flat-top kangaroo box silhouette, 3.5ft metal door, and facade.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('house_kangaroo_exterior.jpg', 'Devins_House_3D_Exterior_Facade.jpg')">Download 3D Exterior (.jpg)</button>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">Tailored 2D CAD Blueprint</div>
+            <div class="download-card-desc">Full 2D CAD vector floor plan with laser dimension chains, door swing arcs, and room zoning.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="window.open('house_kangaroo_cutaway.jpg', '_blank')">View Blueprint Fullscreen</button>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">Expense Ledger (CSV)</div>
+            <div class="download-card-desc">Complete spreadsheet of all logged expenses, categories, payment dates, and status for Microsoft Excel or Google Sheets.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="exportExpensesCSV()">Export Expenses (.csv)</button>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">Master Data Backup (JSON)</div>
+            <div class="download-card-desc">Full offline backup of custom measurements, budget, milestone states, and user profile data.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="exportAllDataJSON()">Export Master Data (.json)</button>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">Full Construction Pack (Print / PDF)</div>
+            <div class="download-card-desc">Generate a professional clean printable PDF document containing the complete architectural specs, dimensions, and financial summary.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="printFullSpecificationDocument()">Print / Save as PDF</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- TAB 8: ALL PRIOR OPTIONS & COMPARISON ARCHIVE           -->
+  <!-- ======================================================= -->
+  <div id="tab-opt-archive" class="tab-content">
+    <section class="main-card">
+      <div class="card-header-row">
+        <div>
+          <h2 class="card-title">Prior Design Options Archive &amp; Side-by-Side Comparison</h2>
+          <p class="card-subtitle">Review previous iterations (Compact Loft, Single-Level Dry Cabin, Expanded Luxury Villa) alongside the comprehensive comparison matrix.</p>
+        </div>
+      </div>
+
+      <div class="spec-grid">
+        <div class="download-card">
+          <div class="download-card-header">Option 2: 8x5m Compact Loft House</div>
+          <div class="render-frame section-margin-top">
+            <img src="house_8x5_compact.jpg" alt="Option 2 Compact Loft" class="render-img" />
+          </div>
+          <div class="download-card-desc section-margin-top">Mezzanine loft master bedroom over kids room and bath, double-height ceiling over living room.</div>
+        </div>
+
+        <div class="download-card">
+          <div class="download-card-header">Option 4: Expanded 2-Story Luxury Villa (87m²)</div>
+          <div class="render-frame section-margin-top">
+            <img src="house_kids_lower.jpg" alt="Option 4 Luxury Villa" class="render-img" />
+          </div>
+          <div class="download-card-desc section-margin-top">Multi-level luxury villa with separate ground-floor kids suite and upper master retreat with private balcony.</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

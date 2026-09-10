@@ -1,0 +1,25 @@
+{
+  "name": "Devin's House - Architectural & Construction Manager",
+  "short_name": "Devin's House",
+  "description": "Offline-ready architectural floor plans, 3D visualizers, expense tracking, and construction management for Devin's House.",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#070d18",
+  "theme_color": "#0f192c",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "app_icon.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["productivity", "utilities", "lifestyle"]
+}

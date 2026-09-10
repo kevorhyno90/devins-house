@@ -1113,3 +1113,75 @@ body.in-edit-mode [contenteditable="true"]:focus {
   background: #ef4444;
   color: #ffffff;
 }
+
+/* Table Edit Inputs & Expense Actions */
+.table-edit-input {
+  padding: 5px 8px;
+  font-size: 12.5px;
+  background: #091322 !important;
+  border: 1px solid var(--accent-cyan) !important;
+  border-radius: 6px;
+  color: #ffffff !important;
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.3);
+  width: 100%;
+}
+
+.table-action-cell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.edit-row-btn {
+  background: rgba(56, 189, 248, 0.15);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.edit-row-btn:hover {
+  background: #38bdf8;
+  color: #04101e;
+}
+
+.save-row-btn {
+  background: #10b981;
+  color: #ffffff;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.save-row-btn:hover {
+  background: #34d399;
+}
+
+.cancel-row-btn {
+  background: rgba(148, 163, 184, 0.2);
+  color: #cbd5e1;
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 11.5px;
+  cursor: pointer;
+}
+
+.clickable-status-badge {
+  cursor: pointer;
+  transition: transform 0.15s, opacity 0.15s;
+}
+
+.clickable-status-badge:hover {
+  transform: scale(1.06);
+  opacity: 0.9;
+}

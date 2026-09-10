@@ -269,13 +269,104 @@ function addExpense(e) {
   renderExpenseTable();
 }
 
-function deleteExpense(id) {
-  if (confirm("Delete this expense item?")) {
-    expenses = expenses.filter((item) => item.id !== id);
+let currentlyEditingExpenseId = null;
+
+function adjustBudget(delta) {
+  totalBudget = Math.max(0, totalBudget + delta);
+  localStorage.setItem("devins_budget", totalBudget.toString());
+  const budgetInput = document.getElementById("totalBudgetInput");
+  if (budgetInput) budgetInput.value = totalBudget;
+  renderExpenseTable();
+}
+
+function toggleExpenseStatus(id) {
+  const item = expenses.find((e) => e.id === id);
+  if (item) {
+    item.status = item.status === "Paid" ? "Pending" : "Paid";
     localStorage.setItem("devins_expenses", JSON.stringify(expenses));
     renderExpenseTable();
   }
 }
+
+function startEditExpense(id) {
+  currentlyEditingExpenseId = id;
+  renderExpenseTable();
+}
+
+function cancelExpenseEdit() {
+  currentlyEditingExpenseId = null;
+  renderExpenseTable();
+}
+
+function saveExpenseRow(id) {
+  const nameEl = document.getElementById("edit_exp_name_" + id);
+  const catEl = document.getElementById("edit_exp_cat_" + id);
+  const amountEl = document.getElementById("edit_exp_amount_" + id);
+  const dateEl = document.getElementById("edit_exp_date_" + id);
+  const statusEl = document.getElementById("edit_exp_status_" + id);
+
+  if (!nameEl || !amountEl) return;
+
+  const newName = nameEl.value.trim();
+  const newCat = catEl ? catEl.value : "General";
+  const newAmount = parseFloat(amountEl.value);
+  const newDate = dateEl ? dateEl.value : "";
+  const newStatus = statusEl ? statusEl.value : "Pending";
+
+  if (!newName || isNaN(newAmount) || newAmount <= 0) {
+    alert("Please enter a valid expense title and positive amount.");
+    return;
+  }
+
+  const item = expenses.find((e) => e.id === id);
+  if (item) {
+    item.name = newName;
+    item.cat = newCat;
+    item.amount = newAmount;
+    item.date = newDate;
+    item.status = newStatus;
+
+    localStorage.setItem("devins_expenses", JSON.stringify(expenses));
+    currentlyEditingExpenseId = null;
+    renderExpenseTable();
+  }
+}
+
+function deleteExpense(id) {
+  if (confirm("Delete this expense item?")) {
+    expenses = expenses.filter((item) => item.id !== id);
+    localStorage.setItem("devins_expenses", JSON.stringify(expenses));
+    if (currentlyEditingExpenseId === id) currentlyEditingExpenseId = null;
+    renderExpenseTable();
+  }
+}
+
+function loadOption6EstimateItems() {
+  const opt6Items = [
+    { id: Date.now() + 1, name: "Option 6: 4 Solid Masonry Pillars & Footings", cat: "Masonry", amount: 480, date: new Date().toISOString().slice(0, 10), status: "Pending" },
+    { id: Date.now() + 2, name: "Option 6: Structural Steel I-Beams (150x75mm)", cat: "Masonry", amount: 580, date: new Date().toISOString().slice(0, 10), status: "Pending" },
+    { id: Date.now() + 3, name: "Option 6: 50x150mm Timber Joists & T&G Decking", cat: "Roofing", amount: 650, date: new Date().toISOString().slice(0, 10), status: "Pending" },
+    { id: Date.now() + 4, name: "Option 6: Under-Stair TV Unit & Bookshelves", cat: "Finishes", amount: 420, date: new Date().toISOString().slice(0, 10), status: "Pending" },
+    { id: Date.now() + 5, name: "Option 6: Kids Built-in Bunk Beds & Step Drawers", cat: "Finishes", amount: 550, date: new Date().toISOString().slice(0, 10), status: "Pending" }
+  ];
+
+  expenses = [...opt6Items, ...expenses];
+  localStorage.setItem("devins_expenses", JSON.stringify(expenses));
+  renderExpenseTable();
+  alert("Added Option 6 Smart Zero-Slab estimate items to the budget tracker!");
+}
+
+const CATEGORY_OPTIONS = [
+  "Foundation",
+  "Masonry",
+  "Roofing",
+  "Doors/Windows",
+  "Electrical",
+  "Plumbing",
+  "Finishes",
+  "Labor",
+  "Permits"
+];
 
 function renderExpenseTable() {
   const tbody = document.getElementById("expenseTableBody");
@@ -287,14 +378,48 @@ function renderExpenseTable() {
   expenses.forEach((item) => {
     totalSpent += item.amount;
     const tr = document.createElement("tr");
-    tr.innerHTML = `
-      <td><strong>${escapeHTML(item.name)}</strong></td>
-      <td><span class="badge-pill pill-blue">${item.cat}</span></td>
-      <td><strong>$${item.amount.toLocaleString()}</strong></td>
-      <td>${item.date}</td>
-      <td><span class="badge-pill ${item.status === 'Paid' ? 'pill-green' : 'pill-amber'}">${item.status}</span></td>
-      <td><button class="ctrl-action-btn delete-btn" onclick="deleteExpense(${item.id})">Delete</button></td>
-    `;
+
+    if (currentlyEditingExpenseId === item.id) {
+      const catOptionsHTML = CATEGORY_OPTIONS.map(c => `<option value="${c}" ${c === item.cat ? 'selected' : ''}>${c}</option>`).join("");
+      tr.innerHTML = `
+        <td><input type="text" id="edit_exp_name_${item.id}" class="form-input table-edit-input" value="${escapeHTML(item.name)}" /></td>
+        <td><select id="edit_exp_cat_${item.id}" class="form-select table-edit-input">${catOptionsHTML}</select></td>
+        <td><input type="number" id="edit_exp_amount_${item.id}" class="form-input table-edit-input" value="${item.amount}" style="max-width: 110px;" /></td>
+        <td><input type="date" id="edit_exp_date_${item.id}" class="form-input table-edit-input" value="${item.date}" /></td>
+        <td>
+          <select id="edit_exp_status_${item.id}" class="form-select table-edit-input">
+            <option value="Paid" ${item.status === 'Paid' ? 'selected' : ''}>Paid</option>
+            <option value="Pending" ${item.status === 'Pending' ? 'selected' : ''}>Pending</option>
+          </select>
+        </td>
+        <td>
+          <div class="table-action-cell">
+            <button type="button" class="save-row-btn" onclick="saveExpenseRow(${item.id})">💾 Save</button>
+            <button type="button" class="cancel-row-btn" onclick="cancelExpenseEdit()">Cancel</button>
+          </div>
+        </td>
+      `;
+    } else {
+      tr.innerHTML = `
+        <td><strong>${escapeHTML(item.name)}</strong></td>
+        <td><span class="badge-pill pill-blue">${item.cat}</span></td>
+        <td><strong>$${item.amount.toLocaleString()}</strong></td>
+        <td>${item.date}</td>
+        <td>
+          <span class="badge-pill clickable-status-badge ${item.status === 'Paid' ? 'pill-green' : 'pill-amber'}" 
+                onclick="toggleExpenseStatus(${item.id})" title="Click to toggle Paid/Pending">
+            ${item.status === 'Paid' ? '✓ Paid' : '⏳ Pending'}
+          </span>
+        </td>
+        <td>
+          <div class="table-action-cell">
+            <button type="button" class="edit-row-btn" onclick="startEditExpense(${item.id})">✏️ Edit</button>
+            <button type="button" class="ctrl-action-btn delete-btn" onclick="deleteExpense(${item.id})">Delete</button>
+          </div>
+        </td>
+      `;
+    }
+
     tbody.appendChild(tr);
   });
 

@@ -2049,7 +2049,13 @@
         <div class="card-header-row">
           <div>
             <span class="form-label">Total Allocated Budget ($):</span>
-            <input type="number" class="form-input" id="totalBudgetInput" onchange="updateBudget()" />
+            <div style="display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-top: 4px;">
+              <input type="number" class="form-input" id="totalBudgetInput" onchange="updateBudget()" style="max-width: 160px;" />
+              <button type="button" class="ctrl-action-btn" onclick="adjustBudget(1000)">+$1,000</button>
+              <button type="button" class="ctrl-action-btn" onclick="adjustBudget(5000)">+$5,000</button>
+              <button type="button" class="ctrl-action-btn" onclick="adjustBudget(-1000)">-$1,000</button>
+              <button type="button" class="ctrl-action-btn" onclick="loadOption6EstimateItems()" style="background: rgba(16,185,129,0.2); border-color: #10b981; color: #34d399;">+ Load Option 6 Estimates</button>
+            </div>
           </div>
           <div class="profile-info">
             <span class="stat-chip-label">Current Spend Progress</span>
@@ -2114,7 +2120,7 @@
         <button type="submit" class="ctrl-action-btn">+ Add Expense</button>
       </form>
 
-      <div class="section-margin-top">
+      <div class="section-margin-top table-responsive">
         <table class="data-table">
           <thead>
             <tr>
@@ -2122,7 +2128,7 @@
               <th>Category</th>
               <th>Amount ($)</th>
               <th>Date</th>
-              <th>Status</th>
+              <th>Status (Click to Toggle)</th>
               <th>Action</th>
             </tr>
           </thead>

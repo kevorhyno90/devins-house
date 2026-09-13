@@ -1,4 +1,4 @@
-const CACHE_NAME = "devins-house-v6";
+const CACHE_NAME = "devins-house-v7";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
@@ -42,7 +42,7 @@ self.addEventListener("install", (event) => {
   );
 });
 
-// Activate Event: Clean up old caches
+// Activate Event: Clean up old caches immediately and claim clients
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((keyList) => {
@@ -58,31 +58,46 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-// Fetch Event: Cache First, Network Fallback
+// Fetch Event: Network-First for HTML/JS/CSS (auto-refresh online), Cache-First for static media
 self.addEventListener("fetch", (event) => {
-  // Ignore non-GET or cross-origin calls (e.g. google fonts/apis)
   if (event.request.method !== "GET") return;
 
-  event.respondWith(
-    caches.match(event.request).then((cachedResponse) => {
-      if (cachedResponse) {
-        return cachedResponse;
-      }
-      return fetch(event.request).then((networkResponse) => {
-        if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== "basic") {
+  const url = new URL(event.request.url);
+  const isCode = url.pathname.endsWith(".html") || 
+                 url.pathname.endsWith(".js") || 
+                 url.pathname.endsWith(".css") || 
+                 url.pathname.endsWith("/") ||
+                 event.request.mode === "navigate";
+
+  if (isCode) {
+    // Network-First: fetch latest code when online, seamlessly fall back to cache when offline
+    event.respondWith(
+      fetch(event.request)
+        .then((networkResponse) => {
+          if (networkResponse && networkResponse.status === 200) {
+            const responseClone = networkResponse.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
+          }
           return networkResponse;
+        })
+        .catch(() => caches.match(event.request).then((cached) => cached || caches.match("./index.html")))
+    );
+  } else {
+    // Cache-First for images & heavy assets for instantaneous load
+    event.respondWith(
+      caches.match(event.request).then((cachedResponse) => {
+        if (cachedResponse) {
+          return cachedResponse;
         }
-        const responseToCache = networkResponse.clone();
-        caches.open(CACHE_NAME).then((cache) => {
-          cache.put(event.request, responseToCache);
+        return fetch(event.request).then((networkResponse) => {
+          if (!networkResponse || networkResponse.status !== 200 || networkResponse.type !== "basic") {
+            return networkResponse;
+          }
+          const responseToCache = networkResponse.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
+          return networkResponse;
         });
-        return networkResponse;
-      }).catch(() => {
-        // Offline fallback for navigations
-        if (event.request.mode === "navigate") {
-          return caches.match("./index.html");
-        }
-      });
-    })
-  );
+      })
+    );
+  }
 });

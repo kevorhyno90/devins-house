@@ -10,8 +10,21 @@ let deferredInstallPrompt = null;
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("./sw.js")
-      .then((reg) => console.log("[Devin's House] Service Worker Registered:", reg.scope))
+      .then((reg) => {
+        console.log("[Devin's House] Service Worker Registered:", reg.scope);
+        // Force update check every time app opens
+        reg.update();
+      })
       .catch((err) => console.log("[Devin's House] Service Worker Error:", err));
+  });
+
+  // Automatically refresh the page once a new service worker version activates
+  let refreshing = false;
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if (!refreshing) {
+      refreshing = true;
+      window.location.reload();
+    }
   });
 }
 

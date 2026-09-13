@@ -146,32 +146,35 @@ function scrollToDesign(elementId) {
 // Original 8.00m (26.25 ft) + 2.0 ft added length = 28.25 ft total length
 // Width 5.00m = 16.40 ft total width
 // Total Footprint = 28.25 ft × 16.40 ft = 463.3 sq ft
+// Exactly 50% split (14.125 ft): Seating Room (14.125 ft × 16.40 ft = 231.65 sq ft)
+// Other 50% split (14.125 ft): Kids Bed (14.125 × 8.00 ft) + Kitchen & Bar (14.125 × 8.40 ft)
+// Upper Floor 50% split: Master Bedroom Suite (14.125 ft × 16.40 ft = 231.65 sq ft) on metal & timber slab
 const DEFAULT_MEASUREMENTS = {
   plotWidth: 28.25, // feet (+2 ft added to original 26.25 ft length)
   plotDepth: 16.40, // feet (5.00m)
-  seatingWidth: 15.75, // feet (expanded seating suite)
-  seatingDepth: 9.20, // feet
-  kidsWidth: 9.20, // feet
-  kidsDepth: 7.20, // feet
-  kitchenWidth: 12.50, // feet
-  kitchenDepth: 8.50, // feet
-  masterWidth: 12.50, // feet
-  masterDepth: 8.50, // feet
+  seatingWidth: 14.125, // feet (exact 50% split of 28.25 ft)
+  seatingDepth: 16.40, // feet (full depth)
+  kidsWidth: 14.125, // feet (half length)
+  kidsDepth: 8.00, // feet (half of depth)
+  kitchenWidth: 14.125, // feet (half length)
+  kitchenDepth: 8.40, // feet (half of depth: 8.00 + 8.40 = 16.40 ft)
+  masterWidth: 14.125, // feet (exact 50% split over kitchen + kids room)
+  masterDepth: 16.40, // feet (full depth on metal & timber slab)
   doorWidth: 3.50, // feet (standard 3.5ft security entrance door)
-  cathedralHeight: 13.80, // feet (4.20m high cathedral ceiling)
-  slabHeight: 7.90, // feet (2.40m ceiling clearance)
-  opt6MasterWidth: 15.10, // feet
+  cathedralHeight: 15.70, // feet (soaring cathedral ceiling)
+  slabHeight: 8.50, // feet (metal beam + timber joist mezzanine height)
+  opt6MasterWidth: 14.125, // feet
   opt6MasterDepth: 16.40, // feet
-  opt6KidsWidth: 8.50, // feet
-  opt6KidsDepth: 10.50, // feet
-  opt6KitchenWidth: 7.90, // feet
-  opt6KitchenDepth: 10.50 // feet
+  opt6KidsWidth: 14.125, // feet
+  opt6KidsDepth: 8.00, // feet
+  opt6KitchenWidth: 14.125, // feet
+  opt6KitchenDepth: 8.40 // feet
 };
 
 let measurements = JSON.parse(localStorage.getItem("devins_measurements")) || DEFAULT_MEASUREMENTS;
 
-// Auto-upgrade stored meter measurements (<20) to feet dimensions
-if (measurements && measurements.plotWidth < 20) {
+// Auto-upgrade stored measurements to exact 50/50 split (14.125 ft x 16.40 ft)
+if (!measurements || measurements.plotWidth < 20 || measurements.seatingWidth !== 14.125) {
   measurements = { ...DEFAULT_MEASUREMENTS };
   localStorage.setItem("devins_measurements", JSON.stringify(measurements));
 }
@@ -209,9 +212,9 @@ function recalculateAreas() {
   setText("calc_masterArea", masterArea + " sq ft");
 
   // Option 6 Live Recalculations
-  const opt6Master = ((measurements.opt6MasterWidth || 15.1) * (measurements.opt6MasterDepth || 16.4)).toFixed(1);
-  const opt6Kids = ((measurements.opt6KidsWidth || 8.5) * (measurements.opt6KidsDepth || 10.5)).toFixed(1);
-  const opt6Kitchen = ((measurements.opt6KitchenWidth || 7.9) * (measurements.opt6KitchenDepth || 10.5)).toFixed(1);
+  const opt6Master = ((measurements.opt6MasterWidth || 14.125) * (measurements.opt6MasterDepth || 16.40)).toFixed(1);
+  const opt6Kids = ((measurements.opt6KidsWidth || 14.125) * (measurements.opt6KidsDepth || 8.00)).toFixed(1);
+  const opt6Kitchen = ((measurements.opt6KitchenWidth || 14.125) * (measurements.opt6KitchenDepth || 8.40)).toFixed(1);
 
   setText("calc_opt6MasterArea", opt6Master + " sq ft");
   setText("calc_opt6KidsArea", opt6Kids + " sq ft");

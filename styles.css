@@ -912,6 +912,285 @@ svg {
   border-color: #38bdf8;
 }
 
+/* Day 1 Real-Site Alert Banner */
+.site-alert-banner {
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.12) 0%, rgba(2, 132, 199, 0.1) 100%);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.site-alert-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.site-alert-icon {
+  font-size: 28px;
+  background: rgba(16, 185, 129, 0.2);
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.site-alert-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #34d399;
+  margin-bottom: 3px;
+}
+
+.site-alert-subtitle {
+  font-size: 12.5px;
+  color: #cbd5e1;
+  line-height: 1.4;
+}
+
+.site-alert-actions {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, #0284c7 0%, #06b6d4 100%);
+  color: #ffffff;
+  border: none;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.1s;
+}
+
+.btn-accent:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid var(--card-border);
+  color: #e2e8f0;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.btn-outline:hover {
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+/* Foundation & Quality Checklist */
+.checklist-card {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-top: 24px;
+}
+
+.checklist-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.checklist-title {
+  font-size: 15px;
+  font-weight: 800;
+  color: #f8fafc;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.checklist-item {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  transition: border-color 0.2s, background 0.2s;
+  cursor: pointer;
+}
+
+.checklist-item:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.checklist-item.checked {
+  border-color: rgba(16, 185, 129, 0.4);
+  background: rgba(16, 185, 129, 0.05);
+}
+
+.checklist-checkbox {
+  margin-top: 3px;
+  width: 18px;
+  height: 18px;
+  accent-color: #10b981;
+  cursor: pointer;
+}
+
+.checklist-content {
+  flex: 1;
+}
+
+.checklist-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #f1f5f9;
+  margin-bottom: 3px;
+}
+
+.checklist-desc {
+  font-size: 11.5px;
+  color: #94a3b8;
+  line-height: 1.4;
+}
+
+/* Daily Site Diary & Log */
+.site-diary-section {
+  margin-top: 28px;
+}
+
+.site-diary-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.site-diary-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.site-diary-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.site-diary-entry {
+  background: rgba(255, 255, 255, 0.025);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 16px 18px;
+  transition: border-color 0.2s;
+}
+
+.site-diary-entry:hover {
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.entry-top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.entry-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: #38bdf8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.entry-date-badge {
+  font-size: 11.5px;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.entry-summary {
+  font-size: 13px;
+  color: #e2e8f0;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.entry-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 11.5px;
+  color: #94a3b8;
+  margin-bottom: 8px;
+}
+
+.entry-meta-item strong {
+  color: #cbd5e1;
+}
+
+.entry-notes {
+  font-size: 12px;
+  color: #38bdf8;
+  background: rgba(2, 132, 199, 0.08);
+  border-left: 3px solid #0284c7;
+  padding: 6px 10px;
+  border-radius: 0 6px 6px 0;
+  margin-top: 8px;
+}
+
+.diary-form-card {
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 16px;
+}
+
+.diary-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
 /* Download & Export Cards */
 .download-grid {
   display: grid;

@@ -1,4 +1,4 @@
-const CACHE_NAME = "devins-house-v5";
+const CACHE_NAME = "devins-house-v6";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",

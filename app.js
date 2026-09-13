@@ -128,29 +128,40 @@ function scrollToDesign(elementId) {
 // -------------------------------------------------------------------------
 // 4. Live Editable Room Measurements Engine
 // -------------------------------------------------------------------------
+// 4. Live Editable Room Measurements Engine (Dimensions in Feet & Sq Ft)
+// -------------------------------------------------------------------------
+// Original 8.00m (26.25 ft) + 2.0 ft added length = 28.25 ft total length
+// Width 5.00m = 16.40 ft total width
+// Total Footprint = 28.25 ft × 16.40 ft = 463.3 sq ft
 const DEFAULT_MEASUREMENTS = {
-  plotWidth: 8.00,
-  plotDepth: 5.00,
-  seatingWidth: 4.40,
-  seatingDepth: 2.80,
-  kidsWidth: 2.80,
-  kidsDepth: 2.20,
-  kitchenWidth: 3.80,
-  kitchenDepth: 2.60,
-  masterWidth: 3.80,
-  masterDepth: 2.60,
-  doorWidth: 1.07, // 3.5 feet
-  cathedralHeight: 4.20,
-  slabHeight: 2.40,
-  opt6MasterWidth: 4.00,
-  opt6MasterDepth: 5.00,
-  opt6KidsWidth: 2.60,
-  opt6KidsDepth: 3.20,
-  opt6KitchenWidth: 2.40,
-  opt6KitchenDepth: 3.20
+  plotWidth: 28.25, // feet (+2 ft added to original 26.25 ft length)
+  plotDepth: 16.40, // feet (5.00m)
+  seatingWidth: 15.75, // feet (expanded seating suite)
+  seatingDepth: 9.20, // feet
+  kidsWidth: 9.20, // feet
+  kidsDepth: 7.20, // feet
+  kitchenWidth: 12.50, // feet
+  kitchenDepth: 8.50, // feet
+  masterWidth: 12.50, // feet
+  masterDepth: 8.50, // feet
+  doorWidth: 3.50, // feet (standard 3.5ft security entrance door)
+  cathedralHeight: 13.80, // feet (4.20m high cathedral ceiling)
+  slabHeight: 7.90, // feet (2.40m ceiling clearance)
+  opt6MasterWidth: 15.10, // feet
+  opt6MasterDepth: 16.40, // feet
+  opt6KidsWidth: 8.50, // feet
+  opt6KidsDepth: 10.50, // feet
+  opt6KitchenWidth: 7.90, // feet
+  opt6KitchenDepth: 10.50 // feet
 };
 
 let measurements = JSON.parse(localStorage.getItem("devins_measurements")) || DEFAULT_MEASUREMENTS;
+
+// Auto-upgrade stored meter measurements (<20) to feet dimensions
+if (measurements && measurements.plotWidth < 20) {
+  measurements = { ...DEFAULT_MEASUREMENTS };
+  localStorage.setItem("devins_measurements", JSON.stringify(measurements));
+}
 
 function initMeasurements() {
   for (const [key, val] of Object.entries(measurements)) {
@@ -172,26 +183,26 @@ function onMeasurementChange() {
 }
 
 function recalculateAreas() {
-  const footprint = (measurements.plotWidth * measurements.plotDepth).toFixed(2);
-  const seatingArea = (measurements.seatingWidth * measurements.seatingDepth).toFixed(2);
-  const kidsArea = (measurements.kidsWidth * measurements.kidsDepth).toFixed(2);
-  const kitchenArea = (measurements.kitchenWidth * measurements.kitchenDepth).toFixed(2);
-  const masterArea = (measurements.masterWidth * measurements.masterDepth).toFixed(2);
+  const footprint = (measurements.plotWidth * measurements.plotDepth).toFixed(1);
+  const seatingArea = (measurements.seatingWidth * measurements.seatingDepth).toFixed(1);
+  const kidsArea = (measurements.kidsWidth * measurements.kidsDepth).toFixed(1);
+  const kitchenArea = (measurements.kitchenWidth * measurements.kitchenDepth).toFixed(1);
+  const masterArea = (measurements.masterWidth * measurements.masterDepth).toFixed(1);
 
-  setText("calc_footprint", footprint + " m²");
-  setText("calc_seatingArea", seatingArea + " m²");
-  setText("calc_kidsArea", kidsArea + " m²");
-  setText("calc_kitchenArea", kitchenArea + " m²");
-  setText("calc_masterArea", masterArea + " m²");
+  setText("calc_footprint", footprint + " sq ft");
+  setText("calc_seatingArea", seatingArea + " sq ft");
+  setText("calc_kidsArea", kidsArea + " sq ft");
+  setText("calc_kitchenArea", kitchenArea + " sq ft");
+  setText("calc_masterArea", masterArea + " sq ft");
 
   // Option 6 Live Recalculations
-  const opt6Master = ((measurements.opt6MasterWidth || 4.0) * (measurements.opt6MasterDepth || 5.0)).toFixed(2);
-  const opt6Kids = ((measurements.opt6KidsWidth || 2.6) * (measurements.opt6KidsDepth || 3.2)).toFixed(2);
-  const opt6Kitchen = ((measurements.opt6KitchenWidth || 2.4) * (measurements.opt6KitchenDepth || 3.2)).toFixed(2);
+  const opt6Master = ((measurements.opt6MasterWidth || 15.1) * (measurements.opt6MasterDepth || 16.4)).toFixed(1);
+  const opt6Kids = ((measurements.opt6KidsWidth || 8.5) * (measurements.opt6KidsDepth || 10.5)).toFixed(1);
+  const opt6Kitchen = ((measurements.opt6KitchenWidth || 7.9) * (measurements.opt6KitchenDepth || 10.5)).toFixed(1);
 
-  setText("calc_opt6MasterArea", opt6Master + " m²");
-  setText("calc_opt6KidsArea", opt6Kids + " m²");
-  setText("calc_opt6KitchenArea", opt6Kitchen + " m²");
+  setText("calc_opt6MasterArea", opt6Master + " sq ft");
+  setText("calc_opt6KidsArea", opt6Kids + " sq ft");
+  setText("calc_opt6KitchenArea", opt6Kitchen + " sq ft");
 
   // Re-run paint and structural calculators based on updated measurements
   calculateFinishes();
@@ -199,7 +210,7 @@ function recalculateAreas() {
 }
 
 function resetMeasurements() {
-  if (confirm("Reset all dimensions to the approved 8.00m x 5.00m specifications?")) {
+  if (confirm("Reset all dimensions to the updated 28.25 ft × 16.4 ft (+2 ft extended length) specifications?")) {
     measurements = { ...DEFAULT_MEASUREMENTS };
     localStorage.setItem("devins_measurements", JSON.stringify(measurements));
     initMeasurements();
@@ -213,13 +224,13 @@ const DEFAULT_BUDGET = 32000;
 let totalBudget = parseFloat(localStorage.getItem("devins_budget")) || DEFAULT_BUDGET;
 
 const DEFAULT_EXPENSES = [
-  { id: 1, name: "Site Clearance & Setting Out", cat: "Foundation", amount: 650, date: "2026-09-01", status: "Paid" },
-  { id: 2, name: "Excavation & Strip Footing Concrete", cat: "Foundation", amount: 2800, date: "2026-09-05", status: "Paid" },
-  { id: 3, name: "Ground Floor Concrete Slab (40m²)", cat: "Foundation", amount: 3400, date: "2026-09-12", status: "Paid" },
-  { id: 4, name: "Perimeter Blockwork Masonry (8m x 5m)", cat: "Masonry", amount: 4100, date: "2026-09-18", status: "Pending" },
+  { id: 1, name: "Site Clearance & Setting Out (28.25ft × 16.4ft)", cat: "Foundation", amount: 650, date: "2026-09-01", status: "Paid" },
+  { id: 2, name: "Excavation & 6-Pillar Rebar Footing Concrete", cat: "Foundation", amount: 2800, date: "2026-09-05", status: "Paid" },
+  { id: 3, name: "Ground Floor Concrete Slab (463 sq ft)", cat: "Foundation", amount: 3400, date: "2026-09-12", status: "Paid" },
+  { id: 4, name: "Perimeter Blockwork Masonry (28.25ft × 16.4ft)", cat: "Masonry", amount: 4100, date: "2026-09-18", status: "Pending" },
   { id: 5, name: "Reinforced Intermediate Slab Over Kitchen", cat: "Masonry", amount: 2100, date: "2026-09-25", status: "Pending" },
   { id: 6, name: "Kangaroo Hidden Parapet Roof Framing", cat: "Roofing", amount: 3900, date: "2026-10-02", status: "Pending" },
-  { id: 7, name: "3.5ft Solid Metal Security Door", cat: "Doors/Windows", amount: 850, date: "2026-10-08", status: "Pending" },
+  { id: 7, name: "3.5ft Solid Metal Security Entrance Door", cat: "Doors/Windows", amount: 850, date: "2026-10-08", status: "Pending" },
   { id: 8, name: "Electrical Wiring & Conduit Piping", cat: "Electrical", amount: 1400, date: "2026-10-15", status: "Pending" },
   { id: 9, name: "Concealed Box Gutters & Drainage", cat: "Plumbing", amount: 950, date: "2026-10-20", status: "Pending" }
 ];
@@ -439,79 +450,101 @@ function renderExpenseTable() {
 }
 
 // -------------------------------------------------------------------------
-// 6. Finishing, Painting & Construction Cost Calculators
+// 6. Finishing, Painting & Construction Cost Calculators (Feet & Sq Ft)
 // -------------------------------------------------------------------------
 function calculateFinishes() {
   const wallAreaGross = (2 * (measurements.plotWidth + measurements.plotDepth)) * measurements.cathedralHeight;
-  const openingsArea = 16.5; // Windows + doors deducted
-  const netWallArea = Math.max(10, wallAreaGross - openingsArea);
+  const openingsArea = 180; // ~180 sq ft deducted for doors & windows
+  const netWallArea = Math.max(100, wallAreaGross - openingsArea);
 
-  // 1 Liter of primer covers ~10 m²
-  const primerLiters = Math.ceil(netWallArea / 10);
-  // 1 Liter of topcoat covers ~8 m² per coat (2 coats required)
-  const paintLiters = Math.ceil((netWallArea * 2) / 8);
-  const paintCost = (primerLiters * 18) + (paintLiters * 28); // $18/L primer, $28/L quality acrylic
+  // 1 Gallon of primer covers ~350 sq ft
+  const primerGallons = Math.ceil(netWallArea / 350);
+  // 1 Gallon of topcoat covers ~350 sq ft per coat (2 coats required)
+  const paintGallons = Math.ceil((netWallArea * 2) / 350);
+  const paintCost = (primerGallons * 35) + (paintGallons * 55); // $35/gal primer, $55/gal premium acrylic
 
-  setText("calc_netWallArea", netWallArea.toFixed(1) + " m²");
-  setText("calc_primerLiters", primerLiters + " Liters");
-  setText("calc_paintLiters", paintLiters + " Liters (2 coats)");
+  setText("calc_netWallArea", Math.round(netWallArea).toLocaleString() + " sq ft");
+  setText("calc_primerLiters", primerGallons + " Gallons");
+  setText("calc_paintLiters", paintGallons + " Gallons (2 coats)");
   setText("calc_paintCost", "$" + paintCost.toLocaleString());
 
   // Flooring Calculator
   const parquetArea = ((measurements.seatingWidth * measurements.seatingDepth) + (measurements.masterWidth * measurements.masterDepth)) * 1.10; // +10% wastage
-  const floorCost = Math.round(parquetArea * 45); // $45/m² engineered oak
-  setText("calc_parquetArea", parquetArea.toFixed(1) + " m² (incl 10% wastage)");
+  const floorCost = Math.round(parquetArea * 4.50); // $4.50/sq ft engineered oak
+  setText("calc_parquetArea", Math.round(parquetArea).toLocaleString() + " sq ft (incl 10% wastage)");
   setText("calc_parquetCost", "$" + floorCost.toLocaleString());
 }
 
 function calculateElectrical() {
   const lightPoints = parseInt(document.getElementById("input_lightPoints")?.value || 14);
   const socketPoints = parseInt(document.getElementById("input_socketPoints")?.value || 12);
-  const coveStrips = parseInt(document.getElementById("input_coveStrips")?.value || 25); // meters
+  const coveStrips = parseInt(document.getElementById("input_coveStrips")?.value || 80); // linear feet
 
-  const cost = (lightPoints * 40) + (socketPoints * 55) + (coveStrips * 22) + 650; // $650 DB & breakers
+  const cost = (lightPoints * 40) + (socketPoints * 55) + (coveStrips * 7) + 650; // $650 DB & breakers
   setText("calc_electricalCost", "$" + cost.toLocaleString());
 }
 
 function calculatePlumbing() {
-  const gutterLength = parseFloat(document.getElementById("input_gutterLength")?.value || 16); // meters of concealed box gutter
+  const gutterLength = parseFloat(document.getElementById("input_gutterLength")?.value || 55); // linear feet of box gutter
   const bathPoints = parseInt(document.getElementById("input_bathPoints")?.value || 4); // Shower, WC, Basin, External tap
 
   // Note: Kitchen is strictly DRY (saves $1,500 in plumbing costs)
-  const cost = (gutterLength * 65) + (bathPoints * 180) + 450; // Drainage & inspection chambers
+  const cost = (gutterLength * 20) + (bathPoints * 180) + 450; // Drainage & inspection chambers
   setText("calc_plumbingCost", "$" + cost.toLocaleString());
 }
 
 function calculateStructuralCost() {
-  const concreteGround = (measurements.plotWidth * measurements.plotDepth * 0.15); // 150mm slab
-  const concreteKitchenSlab = (measurements.kitchenWidth * measurements.kitchenDepth * 0.15); // Kitchen slab only
-  const totalConcrete = (concreteGround + concreteKitchenSlab).toFixed(1);
+  // Concrete Ground slab: 6-inch (0.5 ft) thick
+  const concreteGroundCuFt = (measurements.plotWidth * measurements.plotDepth * 0.5);
+  const concreteKitchenCuFt = (measurements.kitchenWidth * measurements.kitchenDepth * 0.5);
+  const totalCuFt = concreteGroundCuFt + concreteKitchenCuFt;
+  const totalCuYd = (totalCuFt / 27).toFixed(1);
 
-  const masonryBlocks = Math.round(2 * (measurements.plotWidth + measurements.plotDepth) * measurements.cathedralHeight * 12.5);
-  const structuralCost = Math.round((concreteGround * 220) + (concreteKitchenSlab * 260) + (masonryBlocks * 3.5) + 3800); // 3800 kangaroo roof structure
+  const perimeter = 2 * (measurements.plotWidth + measurements.plotDepth);
+  const masonryBlocks = Math.round(perimeter * measurements.cathedralHeight * 1.15); // standard block estimate
+  const structuralCost = Math.round((totalCuYd * 140) + (masonryBlocks * 3.5) + 3800); // 3800 kangaroo roof structure
 
-  setText("calc_totalConcrete", totalConcrete + " m³");
+  setText("calc_totalConcrete", totalCuYd + " cu yd (" + Math.round(totalCuFt) + " cu ft)");
   setText("calc_masonryBlocks", masonryBlocks.toLocaleString() + " blocks");
   setText("calc_structuralEstimate", "$" + structuralCost.toLocaleString());
 }
 
 // -------------------------------------------------------------------------
-// 7. Construction Milestone Progress Tracker
+// 7. Construction Milestone Progress Tracker & Daily Site Diary (Feet Specs)
 // -------------------------------------------------------------------------
 const DEFAULT_MILESTONES = [
-  { id: 1, title: "1. Site Clearance & Setting Out", status: "Done" },
-  { id: 2, title: "2. Foundation Excavation & Concrete Footings", status: "Done" },
-  { id: 3, title: "3. Ground Concrete Slab Pouring (40m²)", status: "Done" },
-  { id: 4, title: "4. Superstructure Blockwork Walls (8m x 5m)", status: "In Progress" },
-  { id: 5, title: "5. Reinforced Slab Over Kitchen Area", status: "Pending" },
-  { id: 6, title: "6. Kangaroo Hidden Roof Framing & Parapet Coping", status: "Pending" },
-  { id: 7, title: "7. Single 3.5ft Metal Door & Window Glazing", status: "Pending" },
-  { id: 8, title: "8. Electrical, Box Gutters & Plumbing Rough-In", status: "Pending" },
-  { id: 9, title: "9. Interior Plastering, Ceilings & Untouched Stairs", status: "Pending" },
-  { id: 10, title: "10. Cabinetry, Master Changing Nook & Painting", status: "Pending" }
+  { id: 1, title: "1. Landscaping, Site Clearance & Setting Out (28.25 ft × 16.4 ft)", status: "Done" },
+  { id: 2, title: "2. Foundation Trenches & 6 Pillar Rebar Cages Tying (28.25 ft Span)", status: "Done" },
+  { id: 3, title: "3. Diagonal Squareness Verification (32.67 ft / 32' 8\") & 2-inch Blinding Concrete", status: "In Progress" },
+  { id: 4, title: "4. Reinforced Footing Pads & 6 Column Base Starters", status: "Pending" },
+  { id: 5, title: "5. Foundation Plinth Wall & Hardcore Backfilling", status: "Pending" },
+  { id: 6, title: "6. Ground Floor Concrete Slab (28.25 ft × 16.4 ft / 463 sq ft)", status: "Pending" },
+  { id: 7, title: "7. 6 Reinforced Concrete Pillar Columns & Ring Beam", status: "Pending" },
+  { id: 8, title: "8. Superstructure Perimeter Blockwork Walls (28.25 ft × 16.4 ft)", status: "Pending" },
+  { id: 9, title: "9. Kitchen Mezzanine Intermediate Support Structure", status: "Pending" },
+  { id: 10, title: "10. Kangaroo Hidden Parapet Roof Framing & Box Gutters", status: "Pending" },
+  { id: 11, title: "11. Single 3.5ft Metal Security Door & Glazed Windows", status: "Pending" },
+  { id: 12, title: "12. Electrical, Plumbing & Box Gutter Rough-In", status: "Pending" },
+  { id: 13, title: "13. Wall Plastering, Ceiling & Untouched Timber Stairs", status: "Pending" },
+  { id: 14, title: "14. Wardrobe Cabinetry, Painting & Final Handover", status: "Pending" }
 ];
 
 let milestones = JSON.parse(localStorage.getItem("devins_milestones")) || DEFAULT_MILESTONES;
+
+// Upgrade any stored milestones that still have old meter titles
+if (Array.isArray(milestones) && (milestones.length === 10 || (milestones[0] && milestones[0].title.includes("8m")) || (milestones[0] && !milestones[0].title.includes("28.25")))) {
+  milestones = DEFAULT_MILESTONES;
+  localStorage.setItem("devins_milestones", JSON.stringify(milestones));
+}
+
+function syncRealSiteMilestones() {
+  if (confirm("Sync milestones with current Day 1 progress in feet (28.25 ft × 16.4 ft footprint, trenches dug, 6 pillar rebar tied, 32.67 ft diagonal check & 2-inch blinding next)?")) {
+    milestones = JSON.parse(JSON.stringify(DEFAULT_MILESTONES));
+    localStorage.setItem("devins_milestones", JSON.stringify(milestones));
+    renderMilestones();
+    alert("Milestones synchronized with Day 1 real-world construction progress (in feet)!");
+  }
+}
 
 function initMilestones() {
   renderMilestones();
@@ -558,6 +591,170 @@ function renderMilestones() {
 }
 
 // -------------------------------------------------------------------------
+// Daily Site Construction Diary & Inspection Engine
+// -------------------------------------------------------------------------
+const DEFAULT_SITE_LOGS = [
+  {
+    id: "log_1",
+    day: "Day 1 (Groundbreaking)",
+    date: new Date().toISOString().split("T")[0],
+    summary: "Construction officially kicked off today! Completed site landscaping and clearance. Excavated foundation trenches for the updated 28.25 ft × 16.4 ft (463 sq ft) footprint (+2 ft length extension) and column footings. Cut, bent, and tied 6 pillar support column metal rebar cages.",
+    crew: "Site supervisor, masons & excavation crew",
+    weather: "Dry / clear weather, firm ground",
+    materials: "Steel rebar rods (main bars + stirrup rings), binding wire",
+    notes: "Crucial next steps for tomorrow: 1) Verify opposite diagonals (32.67 ft / 32' 8\") to guarantee 90° right angles. 2) Place 2-inch concrete cover blocks so rebar never touches soil. 3) Pour 2-inch lean blinding concrete before placing column footings."
+  }
+];
+
+let siteLogs = JSON.parse(localStorage.getItem("devins_site_logs")) || DEFAULT_SITE_LOGS;
+
+// Auto-upgrade siteLogs if containing old 8m/5m/9.43m
+if (siteLogs && siteLogs[0] && siteLogs[0].summary && siteLogs[0].summary.includes("8.00m")) {
+  siteLogs = DEFAULT_SITE_LOGS;
+  localStorage.setItem("devins_site_logs", JSON.stringify(siteLogs));
+}
+
+function initSiteDiary() {
+  renderSiteLogs();
+  initInspectionChecklist();
+
+  const diaryForm = document.getElementById("siteDiaryForm");
+  if (diaryForm) {
+    diaryForm.addEventListener("submit", addSiteLog);
+  }
+}
+
+function renderSiteLogs() {
+  const container = document.getElementById("siteDiaryList");
+  if (!container) return;
+
+  if (!siteLogs || siteLogs.length === 0) {
+    container.innerHTML = `<div style="text-align:center; padding: 24px; color: var(--text-muted); font-size: 13px;">No site logs recorded yet. Click "Log Daily Work" to add an entry!</div>`;
+    return;
+  }
+
+  container.innerHTML = "";
+  siteLogs.forEach((log) => {
+    const card = document.createElement("div");
+    card.className = "site-diary-entry";
+    card.innerHTML = `
+      <div class="entry-top-row">
+        <div class="entry-title">
+          <span>🧱</span> ${escapeHTML(log.day || "Site Entry")}
+        </div>
+        <div style="display:flex; align-items:center; gap:8px;">
+          <span class="entry-date-badge">📅 ${escapeHTML(log.date)}</span>
+          <button class="delete-btn" onclick="deleteSiteLog('${log.id}')" title="Delete Log">✕</button>
+        </div>
+      </div>
+      <div class="entry-summary">${escapeHTML(log.summary)}</div>
+      <div class="entry-meta-grid">
+        <div class="entry-meta-item"><strong>👷 Crew:</strong> ${escapeHTML(log.crew || "N/A")}</div>
+        <div class="entry-meta-item"><strong>🌤️ Weather:</strong> ${escapeHTML(log.weather || "N/A")}</div>
+        <div class="entry-meta-item"><strong>📦 Materials:</strong> ${escapeHTML(log.materials || "N/A")}</div>
+      </div>
+      ${log.notes ? `<div class="entry-notes"><strong>💡 Engineering &amp; Next Steps:</strong> ${escapeHTML(log.notes)}</div>` : ""}
+    `;
+    container.appendChild(card);
+  });
+}
+
+function toggleDiaryForm() {
+  const formEl = document.getElementById("siteDiaryFormContainer");
+  if (formEl) {
+    formEl.classList.toggle("hidden-element");
+    if (!formEl.classList.contains("hidden-element")) {
+      const dayInput = document.getElementById("diaryDay");
+      if (dayInput && !dayInput.value) {
+        dayInput.value = `Day ${siteLogs.length + 1}`;
+      }
+      const dateInput = document.getElementById("diaryDate");
+      if (dateInput && !dateInput.value) {
+        dateInput.value = new Date().toISOString().split("T")[0];
+      }
+    }
+  }
+}
+
+function addSiteLog(e) {
+  if (e) e.preventDefault();
+  const day = (document.getElementById("diaryDay")?.value || `Day ${siteLogs.length + 1}`).trim();
+  const date = document.getElementById("diaryDate")?.value || new Date().toISOString().split("T")[0];
+  const summary = (document.getElementById("diarySummary")?.value || "").trim();
+  const crew = (document.getElementById("diaryCrew")?.value || "").trim();
+  const weather = (document.getElementById("diaryWeather")?.value || "").trim();
+  const materials = (document.getElementById("diaryMaterials")?.value || "").trim();
+  const notes = (document.getElementById("diaryNotes")?.value || "").trim();
+
+  if (!summary) {
+    alert("Please enter a brief summary of the work completed today.");
+    return;
+  }
+
+  const newLog = {
+    id: "log_" + Date.now(),
+    day,
+    date,
+    summary,
+    crew,
+    weather,
+    materials,
+    notes
+  };
+
+  siteLogs.unshift(newLog);
+  localStorage.setItem("devins_site_logs", JSON.stringify(siteLogs));
+  renderSiteLogs();
+
+  const form = document.getElementById("siteDiaryForm");
+  if (form) form.reset();
+  toggleDiaryForm();
+}
+
+function deleteSiteLog(id) {
+  if (confirm("Delete this site log entry?")) {
+    siteLogs = siteLogs.filter((l) => l.id !== id);
+    localStorage.setItem("devins_site_logs", JSON.stringify(siteLogs));
+    renderSiteLogs();
+  }
+}
+
+// -------------------------------------------------------------------------
+// Foundation & 6-Pillar Quality Inspection Checklist
+// -------------------------------------------------------------------------
+const DEFAULT_INSPECTION = {
+  check_diagonals: false,
+  check_trench_depth: true,
+  check_pillar_rebar: true,
+  check_cover_blocks: false,
+  check_blinding: false,
+  check_column_anchors: true
+};
+
+let inspectionState = JSON.parse(localStorage.getItem("devins_inspection_checklist")) || DEFAULT_INSPECTION;
+
+function initInspectionChecklist() {
+  Object.keys(inspectionState).forEach((key) => {
+    const el = document.getElementById(key);
+    if (el) {
+      el.checked = !!inspectionState[key];
+      const parent = el.closest(".checklist-item");
+      if (parent) parent.classList.toggle("checked", el.checked);
+    }
+  });
+}
+
+function toggleInspectionCheck(key) {
+  const el = document.getElementById(key);
+  if (el) {
+    inspectionState[key] = el.checked;
+    localStorage.setItem("devins_inspection_checklist", JSON.stringify(inspectionState));
+    const parent = el.closest(".checklist-item");
+    if (parent) parent.classList.toggle("checked", el.checked);
+  }
+}
+
+// -------------------------------------------------------------------------
 // 8. Export & Download Hub
 // -------------------------------------------------------------------------
 function downloadImage(imgSrc, filename) {
@@ -592,6 +789,8 @@ function exportAllDataJSON() {
     totalBudget,
     expenses,
     milestones,
+    siteLogs,
+    inspectionState,
     exportedAt: new Date().toISOString()
   };
 
@@ -641,6 +840,7 @@ document.addEventListener("DOMContentLoaded", () => {
   calculatePlumbing();
   calculateStructuralCost();
   initMilestones();
+  initSiteDiary();
 
   const expForm = document.getElementById("expenseForm");
   if (expForm) expForm.addEventListener("submit", addExpense);

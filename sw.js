@@ -1,4 +1,4 @@
-const CACHE_NAME = "devins-house-v16";
+const CACHE_NAME = "devins-house-v17";
 const ASSETS_TO_CACHE = [
   "./",
   "./index.html",
@@ -67,6 +67,9 @@ self.addEventListener("fetch", (event) => {
   if (event.request.method !== "GET") return;
 
   const url = new URL(event.request.url);
+  // Ignore non-http/https requests (e.g., chrome-extension://, moz-extension://, blob:, data:)
+  if (!url.protocol.startsWith("http")) return;
+
   const isCode = url.pathname.endsWith(".html") || 
                  url.pathname.endsWith(".js") || 
                  url.pathname.endsWith(".css") || 
@@ -80,7 +83,9 @@ self.addEventListener("fetch", (event) => {
         .then((networkResponse) => {
           if (networkResponse && networkResponse.status === 200) {
             const responseClone = networkResponse.clone();
-            caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseClone));
+            caches.open(CACHE_NAME)
+              .then((cache) => cache.put(event.request, responseClone))
+              .catch(() => {});
           }
           return networkResponse;
         })
@@ -98,7 +103,9 @@ self.addEventListener("fetch", (event) => {
             return networkResponse;
           }
           const responseToCache = networkResponse.clone();
-          caches.open(CACHE_NAME).then((cache) => cache.put(event.request, responseToCache));
+          caches.open(CACHE_NAME)
+            .then((cache) => cache.put(event.request, responseToCache))
+            .catch(() => {});
           return networkResponse;
         });
       })

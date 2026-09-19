@@ -1051,3 +1051,42 @@ function resetInPlaceEdits() {
     location.reload();
   }
 }
+
+// -------------------------------------------------------------------------
+// 12. Pinterest Business Kit & Social Share Engine
+// -------------------------------------------------------------------------
+function copyTextToClipboard(text, alertMsg) {
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(() => {
+      alert(alertMsg || "Copied to clipboard!");
+    }).catch(() => {
+      fallbackCopy(text, alertMsg);
+    });
+  } else {
+    fallbackCopy(text, alertMsg);
+  }
+}
+
+function fallbackCopy(text, alertMsg) {
+  const ta = document.createElement("textarea");
+  ta.value = text;
+  ta.style.position = "fixed";
+  ta.style.left = "-999999px";
+  document.body.appendChild(ta);
+  ta.select();
+  try {
+    document.execCommand("copy");
+    alert(alertMsg || "Copied to clipboard!");
+  } catch (e) {
+    prompt("Copy to clipboard:", text);
+  }
+  document.body.removeChild(ta);
+}
+
+function shareOnPinterest(url, mediaUrl, description) {
+  const fullUrl = url.startsWith("http") ? url : window.location.origin + "/" + url.replace(/^\.\//, "");
+  const fullMedia = mediaUrl.startsWith("http") ? mediaUrl : window.location.origin + "/" + mediaUrl.replace(/^\.\//, "");
+  const pinterestUrl = `https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(fullUrl)}&media=${encodeURIComponent(fullMedia)}&description=${encodeURIComponent(description)}`;
+  window.open(pinterestUrl, "_blank", "width=750,height=620,scrollbars=yes,resizable=yes");
+}
+

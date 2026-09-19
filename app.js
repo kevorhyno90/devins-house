@@ -562,6 +562,37 @@ function syncRealSiteMilestones() {
   }
 }
 
+function syncPillarsPouringMilestones() {
+  if (confirm("Sync milestones to current stage: Superstructure brickwork completed all round & 6 pillars pouring in progress for tomorrow?")) {
+    milestones = [
+      { id: 1, title: "1. Landscaping, Site Clearance & Setting Out (28.25 ft × 16.4 ft)", status: "Done" },
+      { id: 2, title: "2. Foundation Trenches & 6 Pillar Rebar Cages Tying (28.25 ft Span)", status: "Done" },
+      { id: 3, title: "3. Diagonal Squareness Verification (32.67 ft / 32' 8\") & 2-inch Blinding Concrete", status: "Done" },
+      { id: 4, title: "4. Reinforced Footing Pads & 6 Column Base Starters", status: "Done" },
+      { id: 5, title: "5. Foundation Plinth Wall & Hardcore Backfilling", status: "Done" },
+      { id: 6, title: "6. Ground Floor Concrete Slab (28.25 ft × 16.4 ft / 463 sq ft)", status: "Done" },
+      { id: 7, title: "7. 6 Reinforced Concrete Pillar Columns & Ring Beam", status: "In Progress" },
+      { id: 8, title: "8. Superstructure Perimeter Blockwork Walls (28.25 ft × 16.4 ft)", status: "Done" },
+      { id: 9, title: "9. Kitchen Mezzanine Intermediate Support Structure", status: "Pending" },
+      { id: 10, title: "10. Kangaroo Hidden Parapet Roof Framing & Box Gutters", status: "Pending" },
+      { id: 11, title: "11. Single 3.5ft Metal Security Door & Glazed Windows", status: "Pending" },
+      { id: 12, title: "12. Electrical, Plumbing & Box Gutter Rough-In", status: "Pending" },
+      { id: 13, title: "13. Wall Plastering, Ceiling & Untouched Timber Stairs", status: "Pending" },
+      { id: 14, title: "14. Wardrobe Cabinetry, Painting & Final Handover", status: "Pending" }
+    ];
+    localStorage.setItem("devins_milestones", JSON.stringify(milestones));
+    renderMilestones();
+
+    const hasLog2 = siteLogs && siteLogs.some(l => l.day && l.day.includes("Day 8"));
+    if (!hasLog2 && Array.isArray(siteLogs)) {
+      siteLogs.unshift(DEFAULT_SITE_LOGS[0]);
+      localStorage.setItem("devins_site_logs", JSON.stringify(siteLogs));
+      renderSiteLogs();
+    }
+    alert("Milestones synchronized: Brickwork walls marked Done, 6 Pillar Columns marked In Progress for tomorrow's pour!");
+  }
+}
+
 function initMilestones() {
   renderMilestones();
 }
@@ -611,9 +642,19 @@ function renderMilestones() {
 // -------------------------------------------------------------------------
 const DEFAULT_SITE_LOGS = [
   {
+    id: "log_2",
+    day: "Day 8 (Superstructure Brickwork Done & 6 Pillars Pre-Pour)",
+    date: new Date().toISOString().split("T")[0],
+    summary: "Superstructure perimeter brick walls completed all round for Option 6 (28.25 ft × 16.4 ft). Formwork shutters erected, clamped, and mortar-sealed around the 6 vertical pillar locations (8\"×8\"). Pre-pour checklist completed: bottom cleanout pockets cleared of mortar crumbs, bricks soaked with water, 4 × #4 rebar cover verified, and top levels marked for Option 6 mezzanine steel I-beam bearing plates.",
+    crew: "Lead mason, carpenters (shuttering) & concrete mixing crew",
+    weather: "Dry, clear conditions",
+    materials: "6 bags cement (50kg), 11 cu ft sharp sand (~0.5 ton), 22 cu ft crushed stone (3/4\" / ~1 ton), water, timber shuttering & clamps",
+    notes: "Pouring scheduled for tomorrow: 1) Drench adjacent brickwork again 30 min before pouring. 2) C25 mix (1:1.5:3) poured in 3 lifts with poker vibrator/rodding. 3) Embed 5/8\" anchor bolts / steel baseplates coplanar at top level."
+  },
+  {
     id: "log_1",
     day: "Day 1 (Groundbreaking)",
-    date: new Date().toISOString().split("T")[0],
+    date: new Date(Date.now() - 7 * 86400000).toISOString().split("T")[0],
     summary: "Construction officially kicked off today! Completed site landscaping and clearance. Excavated foundation trenches for the updated 28.25 ft × 16.4 ft (463 sq ft) footprint (+2 ft length extension) and column footings. Cut, bent, and tied 6 pillar support column metal rebar cages.",
     crew: "Site supervisor, masons & excavation crew",
     weather: "Dry / clear weather, firm ground",
@@ -624,8 +665,8 @@ const DEFAULT_SITE_LOGS = [
 
 let siteLogs = JSON.parse(localStorage.getItem("devins_site_logs")) || DEFAULT_SITE_LOGS;
 
-// Auto-upgrade siteLogs if containing old 8m/5m/9.43m
-if (siteLogs && siteLogs[0] && siteLogs[0].summary && siteLogs[0].summary.includes("8.00m")) {
+// Auto-upgrade siteLogs if containing old 8m/5m/9.43m or missing log_2
+if (siteLogs && (siteLogs.length <= 1 || (siteLogs[0] && siteLogs[0].summary && siteLogs[0].summary.includes("8.00m")))) {
   siteLogs = DEFAULT_SITE_LOGS;
   localStorage.setItem("devins_site_logs", JSON.stringify(siteLogs));
 }
@@ -739,15 +780,28 @@ function deleteSiteLog(id) {
 // Foundation & 6-Pillar Quality Inspection Checklist
 // -------------------------------------------------------------------------
 const DEFAULT_INSPECTION = {
-  check_diagonals: false,
+  check_diagonals: true,
   check_trench_depth: true,
   check_pillar_rebar: true,
-  check_cover_blocks: false,
-  check_blinding: false,
-  check_column_anchors: true
+  check_cover_blocks: true,
+  check_blinding: true,
+  check_column_anchors: true,
+  check_column_cleanout: false,
+  check_brick_wetting: false,
+  check_shutter_clamping: false,
+  check_rebar_cover: false,
+  check_top_datum_level: false,
+  check_anchor_bolts_ready: false
 };
 
 let inspectionState = JSON.parse(localStorage.getItem("devins_inspection_checklist")) || DEFAULT_INSPECTION;
+
+// Merge any missing keys from DEFAULT_INSPECTION into saved state
+Object.keys(DEFAULT_INSPECTION).forEach((k) => {
+  if (inspectionState[k] === undefined) {
+    inspectionState[k] = DEFAULT_INSPECTION[k];
+  }
+});
 
 function initInspectionChecklist() {
   Object.keys(inspectionState).forEach((key) => {
@@ -768,6 +822,60 @@ function toggleInspectionCheck(key) {
     const parent = el.closest(".checklist-item");
     if (parent) parent.classList.toggle("checked", el.checked);
   }
+}
+
+// -------------------------------------------------------------------------
+// Option 6: 6-Pillar Concrete Takeoff Calculator Engine
+// -------------------------------------------------------------------------
+function calculatePillarConcrete() {
+  const numPillars = parseFloat(document.getElementById("input_pillarCount")?.value) || 6;
+  const colWidthIn = parseFloat(document.getElementById("input_pillarWidth")?.value) || 8;
+  const colDepthIn = parseFloat(document.getElementById("input_pillarDepth")?.value) || 8;
+  const colHeightFt = parseFloat(document.getElementById("input_pillarHeight")?.value) || 8.53;
+  const wastePct = parseFloat(document.getElementById("input_pillarWaste")?.value) || 15;
+  const mixGrade = document.getElementById("select_pillarMix")?.value || "c25";
+
+  const volPerColCuFt = (colWidthIn / 12) * (colDepthIn / 12) * colHeightFt;
+  const totalWetCuFt = volPerColCuFt * numPillars * (1 + wastePct / 100);
+  const totalWetM3 = totalWetCuFt * 0.0283168;
+  const totalDryM3 = totalWetM3 * 1.54;
+
+  let cementParts = 1, sandParts = 1.5, stoneParts = 3;
+  if (mixGrade === "c20") {
+    sandParts = 2;
+    stoneParts = 4;
+  }
+  const totalParts = cementParts + sandParts + stoneParts;
+
+  // Cement (density 1440 kg/m3)
+  const cementVolM3 = (cementParts / totalParts) * totalDryM3;
+  const cementKg = cementVolM3 * 1440;
+  const cementBags50kg = Math.ceil(cementKg / 50);
+  const cementBags94lb = Math.ceil((cementKg * 2.20462) / 94);
+
+  // Sand (density ~1600 kg/m3)
+  const sandVolM3 = (sandParts / totalParts) * totalDryM3;
+  const sandCuFt = sandVolM3 * 35.3147;
+  const sandKg = sandVolM3 * 1600;
+  const sandWheelbarrows = (sandCuFt / 1.8).toFixed(1);
+
+  // Stone (density ~1600 kg/m3)
+  const stoneVolM3 = (stoneParts / totalParts) * totalDryM3;
+  const stoneCuFt = stoneVolM3 * 35.3147;
+  const stoneKg = stoneVolM3 * 1600;
+  const stoneWheelbarrows = (stoneCuFt / 1.8).toFixed(1);
+
+  // Water (~22-25L per 50kg bag)
+  const waterLiters = Math.round(cementKg * 0.48);
+  const waterBuckets = Math.round(waterLiters / 20);
+
+  setText("pillar_res_wetVol", totalWetCuFt.toFixed(1) + " cu ft (" + totalWetM3.toFixed(2) + " m³)");
+  setText("pillar_res_cement50", cementBags50kg + " bags (50kg)");
+  setText("pillar_res_cement94", cementBags94lb + " bags (94lb)");
+  setText("pillar_res_sand", Math.round(sandCuFt) + " cu ft (~" + Math.round(sandKg) + " kg)");
+  setText("pillar_res_stone", Math.round(stoneCuFt) + " cu ft (~" + (stoneKg / 1000).toFixed(2) + " tonnes)");
+  setText("pillar_res_water", waterLiters + " Liters (~" + waterBuckets + " buckets)");
+  setText("pillar_res_batches", cementBags50kg + " Single-Bag Batches");
 }
 
 // -------------------------------------------------------------------------
@@ -857,6 +965,7 @@ document.addEventListener("DOMContentLoaded", () => {
   calculateStructuralCost();
   initMilestones();
   initSiteDiary();
+  calculatePillarConcrete();
 
   const expForm = document.getElementById("expenseForm");
   if (expForm) expForm.addEventListener("submit", addExpense);

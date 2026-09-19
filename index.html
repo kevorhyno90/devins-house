@@ -9,6 +9,82 @@
   <link rel="apple-touch-icon" href="app_icon.jpg" />
   <meta name="theme-color" content="#0f192c" />
   <link rel="stylesheet" href="styles.css" />
+  <!-- Immediate Early Navigation & Cache Buster Helpers (Guaranteed to exist before DOM click events) -->
+  <script>
+    function switchToTab(tabId, index, jumpTargetId) {
+      document.querySelectorAll(".tab-btn").forEach((btn, i) => {
+        const btnTab = btn.getAttribute("data-tab");
+        if (btnTab) {
+          btn.classList.toggle("active", btnTab === tabId);
+        } else if (typeof index === "number") {
+          btn.classList.toggle("active", i === index);
+        }
+      });
+
+      document.querySelectorAll(".deck-card, .opt-summary-card").forEach((card, i) => {
+        const cardTab = card.getAttribute("data-tab");
+        if (cardTab) {
+          card.classList.toggle("active-opt", cardTab === tabId);
+        } else if (typeof index === "number") {
+          card.classList.toggle("active-opt", i === index);
+        }
+      });
+
+      document.querySelectorAll(".tab-content").forEach((content) => {
+        content.classList.remove("active");
+      });
+
+      const activeContent = document.getElementById("tab-" + tabId);
+      if (activeContent) {
+        activeContent.classList.add("active");
+      }
+
+      if (jumpTargetId) {
+        setTimeout(() => {
+          const targetEl = document.getElementById(jumpTargetId);
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: "smooth", block: "start" });
+          } else {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          }
+        }, 50);
+      } else {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      }
+    }
+
+    function scrollToDesign(elementId) {
+      const el = document.getElementById(elementId);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    function forceAppUpdateAndRefresh() {
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          var promises = [];
+          for (var i = 0; i < registrations.length; i++) {
+            promises.push(registrations[i].unregister());
+          }
+          if ('caches' in window) {
+            caches.keys().then(function(names) {
+              for (var j = 0; j < names.length; j++) {
+                caches.delete(names[j]);
+              }
+              window.location.reload(true);
+            });
+          } else {
+            window.location.reload(true);
+          }
+        }).catch(function() {
+          window.location.reload(true);
+        });
+      } else {
+        window.location.reload(true);
+      }
+    }
+  </script>
 </head>
 <body>
 
@@ -30,6 +106,9 @@
       </button>
       <button class="pwa-install-btn" id="installAppBtn" onclick="triggerAppInstall()">
         <span>📲</span> Install Devin's House App
+      </button>
+      <button class="refresh-app-btn" onclick="forceAppUpdateAndRefresh()" title="Reload latest blueprint updates from cloud" style="background:#2563eb; color:#fff; border:none; padding:8px 14px; border-radius:8px; font-weight:700; cursor:pointer; font-size:13px; display:inline-flex; align-items:center; gap:6px;">
+        <span>🔄</span> Refresh App Updates
       </button>
     </div>
   </aside>
@@ -824,6 +903,7 @@
         <button class="jump-link" onclick="scrollToDesign('sub-opt-6i')" style="background: rgba(56,189,248,0.15); border-color: #38bdf8; color: #7dd3fc;">6I: Clay Soil Drainage &amp; Waterproofing</button>
         <button class="jump-link" onclick="scrollToDesign('sub-opt-6j')" style="background: rgba(245,158,11,0.15); border-color: #f59e0b; color: #fbbf24;">6J: Electrical &amp; Plumbing Rough-In</button>
         <button class="jump-link" onclick="scrollToDesign('sub-opt-6k')" style="background: rgba(168,85,247,0.15); border-color: #a855f7; color: #d8b4fe;">6K: House Heights &amp; Window Specs</button>
+        <button class="jump-link" onclick="scrollToDesign('sub-opt-6l')" style="background: rgba(16,185,129,0.25); border-color: #10b981; color: #34d399; font-weight: 800;">🏛️ 6L: Round-Pole Tiled Floor &amp; Secret Ceiling</button>
       </div>
 
       <!-- ======================================================= -->
@@ -3418,6 +3498,419 @@
           </table>
         </div>
       </div>
+
+      <div class="design-showcase-divider"></div>
+
+      <!-- ======================================================= -->
+      <!-- SUB-DESIGN 6L: ROUND-POLE TILED MEZZANINE & SECRET CEILING -->
+      <!-- ======================================================= -->
+      <div id="sub-opt-6l" class="section-margin-top">
+        <div class="card-header-row">
+          <div>
+            <h3 class="spec-title" style="color: #34d399; font-size: 20px;">6L. Custom Round-Pole Composite Tiled Mezzanine &amp; Secret Concealed Ceiling System</h3>
+            <p class="spec-content">Tailored specifically for site execution: Built with <strong>seasoned round timber poles (Ø 5"–6" / 125–150mm)</strong> supported across the 6-pillar steel beam line, topped with a <strong>reinforced crack-proof cement screed (40–45mm)</strong> with dual BRC wiremesh + chicken wire, and finished in <strong>smart porcelain/ceramic floor tiles</strong>. Crucially, the underside is enclosed with a <strong>flush plastered gypsum false ceiling with warm recessed LED downlights</strong>—ensuring the round poles are <strong>100% invisible from below</strong> and giving the ground-floor kitchen and seating room an ultra-modern luxury architectural finish. The staircase is anchored solidly into the <strong>existing 3m rear brick wall</strong>, preserving 100% of the seating room floor space.</p>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+            <span class="badge-pill pill-green">TILED HYBRID SLAB</span>
+            <span class="badge-pill pill-cyan">100% CONCEALED POLES</span>
+            <span class="badge-pill pill-amber">3M REAR WALL STAIRS</span>
+          </div>
+        </div>
+
+        <!-- Main Exploded Material Layers Diagram -->
+        <div class="view-card section-margin-top" style="border: 2px solid #10b981;">
+          <div class="view-card-title" style="color: #34d399; font-size: 16px;"><span>🔍</span> 3D Exploded Material Diagram: Every Layer, Mesh &amp; Screed Labeled with Callouts</div>
+          <div class="render-frame" style="max-height: 580px;">
+            <img src="round_pole_all_materials_cutaway.jpg" alt="Option 6L All Materials Exploded Cutaway Diagram" class="render-img" style="object-fit: contain; background: #0b1329;" />
+            <div class="render-overlay-badge" style="background: rgba(16,185,129,0.95); color: #ffffff; font-weight: 800;">Master Material Takeoff: 9 Layers Fully Labeled</div>
+          </div>
+        </div>
+
+        <!-- 3D Visual Gallery Grid -->
+        <div class="dual-view-grid section-margin-top">
+          <!-- Left: 3D Cross-Section Cutaway -->
+          <div class="view-card">
+            <div class="view-card-title"><span>🏛️</span> 3D Cutaway: Master Bedroom, Poles &amp; Secret Ceiling</div>
+            <div class="render-frame">
+              <img src="round_pole_tiled_mezzanine_cutaway.jpg" alt="Option 6L Round Pole Tiled Mezzanine Cutaway" class="render-img" />
+              <div class="render-overlay-badge" style="background: rgba(16,185,129,0.9); color: #ffffff;">Cross-Section: Tiled Floor + Secret Hidden Ceiling</div>
+            </div>
+          </div>
+
+          <!-- Right: 3D Double-Height Interior with Rear Stairs -->
+          <div class="view-card">
+            <div class="view-card-title"><span>🪜</span> 3D Interior: Rear Wall Staircase &amp; Flawless Lower Ceiling</div>
+            <div class="render-frame">
+              <img src="concealed_ceiling_staircase_rear_wall.jpg" alt="Option 6L Staircase on Rear Wall with Concealed Ceiling" class="render-img" />
+              <div class="render-overlay-badge" style="background: rgba(56,189,248,0.9); color: #0f172a;">Seating Room Flow: Zero Poles Visible From Below</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2D Technical Layer Cross-Section SVG -->
+        <div class="view-card section-margin-top">
+          <div class="view-card-title"><span>📐</span> 2D Technical Blueprint: 9-Layer Crack-Proof Tiled Slab &amp; Concealment Detail</div>
+          <div class="blueprint-box">
+            <svg viewBox="0 0 1060 680" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100%" height="100%" fill="#061222"/>
+              <text x="530" y="38" fill="#34d399" font-size="14" font-weight="900" text-anchor="middle">TECHNICAL CROSS-SECTION: ROUND-POLE COMPOSITE TILED FLOOR + SECRET CONCEALED CEILING</text>
+
+              <!-- Upper Level Indicator -->
+              <text x="530" y="68" fill="#e2e8f0" font-size="12" font-weight="800" text-anchor="middle">UPPER MASTER BEDROOM LEVEL (+8.70 ft / +2.65m DATUM)</text>
+
+              <!-- Layer 1: Ceramic/Porcelain Tiles (600x600mm) -->
+              <rect x="120" y="85" width="820" height="20" fill="#d97706" stroke="#f59e0b" stroke-width="1.5" rx="2"/>
+              <line x1="284" y1="85" x2="284" y2="105" stroke="#ffffff" stroke-width="1.5"/>
+              <line x1="448" y1="85" x2="448" y2="105" stroke="#ffffff" stroke-width="1.5"/>
+              <line x1="612" y1="85" x2="612" y2="105" stroke="#ffffff" stroke-width="1.5"/>
+              <line x1="776" y1="85" x2="776" y2="105" stroke="#ffffff" stroke-width="1.5"/>
+              <text x="530" y="99" fill="#fef3c7" font-size="11" font-weight="800" text-anchor="middle">LAYER 1: 600×600mm Non-Slip Ceramic/Porcelain Tiles (3mm Flexible Grout Joints)</text>
+
+              <!-- Layer 2: Flexible Polymer-Modified Tile Adhesive -->
+              <rect x="120" y="108" width="820" height="10" fill="#475569" stroke="#94a3b8" stroke-width="1"/>
+              <text x="530" y="116" fill="#f1f5f9" font-size="9" font-weight="700" text-anchor="middle">LAYER 2: 3–4mm Flexible Polymer-Modified Tile Adhesive Bed (Latex/SBR Additive)</text>
+
+              <!-- Layer 3: 40-45mm Reinforced Cement-Sand Screed -->
+              <rect x="120" y="122" width="820" height="52" fill="#334155" stroke="#64748b" stroke-width="1.5"/>
+              <text x="530" y="145" fill="#38bdf8" font-size="12" font-weight="900" text-anchor="middle">LAYER 3: 40–45mm (1.75") Dense Cement Screed (1:3 Mix + 6mm Aggregate Chips)</text>
+              <line x1="120" y1="152" x2="940" y2="152" stroke="#38bdf8" stroke-width="2.5" stroke-dasharray="8,6"/>
+              <text x="530" y="165" fill="#bae6fd" font-size="10" font-weight="800" text-anchor="middle">DUAL REINFORCEMENT: BRC A142 (6mm Mesh) + Chicken Wire Anti-Crack Scrim</text>
+
+              <!-- Layer 4: Heavy 500-Gauge Polythene DPC Barrier -->
+              <line x1="120" y1="178" x2="940" y2="178" stroke="#06b6d4" stroke-width="3"/>
+              <text x="530" y="190" fill="#67e8f9" font-size="10" font-weight="800" text-anchor="middle">LAYER 4: 500-Gauge Heavy Polythene DPC Waterproof Membrane (Protects Timber from Wet Cement)</text>
+
+              <!-- Layer 5: Rigid Corrugated Metal Decking / Plywood Form -->
+              <rect x="120" y="196" width="820" height="14" fill="#64748b" stroke="#cbd5e1" stroke-width="1"/>
+              <text x="530" y="207" fill="#f8fafc" font-size="10" font-weight="700" text-anchor="middle">LAYER 5: 0.4mm Corrugated Iron Decking (CGI) or 12mm Timber Slat Formwork (Zero Sagging)</text>
+
+              <!-- Layer 6: Heavy Round Poles (5" to 6" Diameter @ 15" Centers) -->
+              <g>
+                <circle cx="170" cy="285" r="48" fill="#78350f" stroke="#d97706" stroke-width="3"/>
+                <circle cx="170" cy="285" r="38" fill="#92400e"/>
+                <circle cx="170" cy="285" r="8" fill="#b45309"/>
+
+                <circle cx="314" cy="285" r="48" fill="#78350f" stroke="#d97706" stroke-width="3"/>
+                <circle cx="314" cy="285" r="38" fill="#92400e"/>
+                <circle cx="314" cy="285" r="8" fill="#b45309"/>
+
+                <circle cx="458" cy="285" r="48" fill="#78350f" stroke="#d97706" stroke-width="3"/>
+                <circle cx="458" cy="285" r="38" fill="#92400e"/>
+                <circle cx="458" cy="285" r="8" fill="#b45309"/>
+
+                <circle cx="602" cy="285" r="48" fill="#78350f" stroke="#d97706" stroke-width="3"/>
+                <circle cx="602" cy="285" r="38" fill="#92400e"/>
+                <circle cx="602" cy="285" r="8" fill="#b45309"/>
+
+                <circle cx="746" cy="285" r="48" fill="#78350f" stroke="#d97706" stroke-width="3"/>
+                <circle cx="746" cy="285" r="38" fill="#92400e"/>
+                <circle cx="746" cy="285" r="8" fill="#b45309"/>
+
+                <circle cx="890" cy="285" r="48" fill="#78350f" stroke="#d97706" stroke-width="3"/>
+                <circle cx="890" cy="285" r="38" fill="#92400e"/>
+                <circle cx="890" cy="285" r="8" fill="#b45309"/>
+
+                <text x="530" y="280" fill="#fef3c7" font-size="12" font-weight="900" text-anchor="middle">LAYER 6: HEAVY SEASONED ROUND TIMBER POLES (Ø 5"–6" / 125–150mm) @ 15" CENTERS</text>
+                <text x="530" y="300" fill="#fcd34d" font-size="10" font-weight="700" text-anchor="middle">Treated Eucalyptus / Cypress / Hardwood Poles Resting on 6-Pillar Primary Steel Beams</text>
+              </g>
+
+              <!-- Layer 7: Insulation / Acoustic Air Gap -->
+              <rect x="120" y="345" width="820" height="40" fill="#0f172a" stroke="#ca8a04" stroke-dasharray="4,4" opacity="0.8"/>
+              <text x="530" y="368" fill="#fef08a" font-size="11" font-weight="800" text-anchor="middle">LAYER 7: 50mm Acoustic Mineral Wool / Rockwool Batts (Sound Decoupling Between Floors)</text>
+
+              <!-- Layer 8: Furring Battens Below Poles -->
+              <rect x="155" y="390" width="30" height="24" fill="#b45309" stroke="#d97706" rx="2"/>
+              <rect x="299" y="390" width="30" height="24" fill="#b45309" stroke="#d97706" rx="2"/>
+              <rect x="443" y="390" width="30" height="24" fill="#b45309" stroke="#d97706" rx="2"/>
+              <rect x="587" y="390" width="30" height="24" fill="#b45309" stroke="#d97706" rx="2"/>
+              <rect x="731" y="390" width="30" height="24" fill="#b45309" stroke="#d97706" rx="2"/>
+              <rect x="875" y="390" width="30" height="24" fill="#b45309" stroke="#d97706" rx="2"/>
+              <text x="530" y="405" fill="#cbd5e1" font-size="10" font-weight="800" text-anchor="middle">LAYER 8: 2"×2" (50×50mm) Treated Timber Furring Battens / Steel Hat Channels Leveling Grid</text>
+
+              <!-- Layer 9: THE SECRET CEILING (Gypsum Plasterboard + Downlights) -->
+              <rect x="120" y="420" width="820" height="22" fill="#ffffff" stroke="#10b981" stroke-width="2.5" rx="3"/>
+              <text x="530" y="435" fill="#0f172a" font-size="12" font-weight="900" text-anchor="middle">LAYER 9: 1/2" (12.5mm) Plastered Skim-Coat Gypsum Ceiling (100% HIDES ROUND POLES)</text>
+
+              <!-- Recessed LED Downlights -->
+              <g>
+                <circle cx="230" cy="431" r="7" fill="#fbbf24" stroke="#d97706"/>
+                <polygon points="215,442 245,442 255,510 205,510" fill="#fef08a" opacity="0.3"/>
+                <circle cx="410" cy="431" r="7" fill="#fbbf24" stroke="#d97706"/>
+                <polygon points="395,442 425,442 435,510 385,510" fill="#fef08a" opacity="0.3"/>
+                <circle cx="650" cy="431" r="7" fill="#fbbf24" stroke="#d97706"/>
+                <polygon points="635,442 665,442 675,510 625,510" fill="#fef08a" opacity="0.3"/>
+                <circle cx="830" cy="431" r="7" fill="#fbbf24" stroke="#d97706"/>
+                <polygon points="815,442 845,442 855,510 805,510" fill="#fef08a" opacity="0.3"/>
+                <text x="530" y="485" fill="#fef08a" font-size="11" font-weight="800" text-anchor="middle">RECESSED WARM-WHITE LED DOWNLIGHTS (CREATES ULTRA-MODERN LUXURY CEILING AESTHETIC)</text>
+              </g>
+
+              <!-- Ground Floor Clearance Tag -->
+              <rect x="120" y="530" width="820" height="110" fill="#0b172a" stroke="#1e293b" rx="4"/>
+              <text x="530" y="565" fill="#34d399" font-size="14" font-weight="900" text-anchor="middle">RESULT: FROM THE GROUND FLOOR KITCHEN &amp; SEATING ROOM, ZERO POLES ARE VISIBLE</text>
+              <text x="530" y="590" fill="#94a3b8" font-size="11" font-weight="600" text-anchor="middle">Visitors see a pristine, high-end white ceiling with warm lighting and a solid tiled upstairs floor that never squeaks.</text>
+              <text x="530" y="615" fill="#38bdf8" font-size="11" font-weight="700" text-anchor="middle">Staircase mounted along existing 3m rear brick wall connects seamlessly to the upper mezzanine edge.</text>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Dimensional Takeoff & Material Specifications Table -->
+        <div class="table-responsive section-margin-top">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Component / Layer</th>
+                <th>Material &amp; Exact Dimensions</th>
+                <th>Quantity Required (248 sq ft Floor)</th>
+                <th>Function &amp; Anti-Deflection Engineering</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1. Round Timber Poles</strong></td>
+                <td>Ø 5" to 6" (125–150mm) seasoned, treated round poles × 16.4 ft length</td>
+                <td><strong>13 to 14 Poles</strong> (spaced 14"–16" on center)</td>
+                <td>Primary floor joists. Supported across the center 6-pillar steel beam line (effective span only 7.5–8.2 ft each side), completely eliminating sag and deflection.</td>
+              </tr>
+              <tr>
+                <td><strong>2. Rigid Sub-Decking</strong></td>
+                <td>Lightweight 0.4mm Corrugated Iron (CGI) sheets OR 1/2" timber planks</td>
+                <td>8 sheets (CGI 3m length) or 248 sq ft timber slats</td>
+                <td>Provides a rigid, unyielding formwork base across the round poles to prevent chicken wire from sagging ("belly effect") under wet cement.</td>
+              </tr>
+              <tr>
+                <td><strong>3. Waterproof DPC Membrane</strong></td>
+                <td>500-gauge heavy-duty black polythene DPC sheet</td>
+                <td>1 roll (300 sq ft)</td>
+                <td>Prevents water from wet concrete soaking into timber poles (prevents wood rot) and stops cement slurry dripping into the kitchen below.</td>
+              </tr>
+              <tr>
+                <td><strong>4. Structural Wire Mesh</strong></td>
+                <td>BRC Welded Steel Mesh (6mm wire / A142 mesh @ 150mm)</td>
+                <td>2 full rolls / sheets (cut to 15.1ft × 16.4ft)</td>
+                <td>Provides high tensile strength to the thin slab, absorbing floor walking loads and preventing structural cracking. Elevated on 15mm cover spacers.</td>
+              </tr>
+              <tr>
+                <td><strong>5. Anti-Crack Chicken Wire</strong></td>
+                <td>Standard galvanized hexagonal chicken wire netting (25mm mesh)</td>
+                <td>1 roll (300 sq ft)</td>
+                <td>Tied across the top of BRC mesh. Acts as micro-crack secondary reinforcement, preventing hairline shrinkage cracks across the screed surface.</td>
+              </tr>
+              <tr>
+                <td><strong>6. Cement-Sand Screed</strong></td>
+                <td>1:3 Mix (1 bag Cement : 3 cu ft clean sand + 6mm pea gravel chips)</td>
+                <td><strong>14 to 16 bags Cement (50kg)</strong> + 1.2 tonnes sand + 0.8 tonnes chips</td>
+                <td>Poured 40mm to 45mm (1.5"–1.75") thick. Troweled dead-flat with straightedge. Cured wet for 5–7 days before tile laying.</td>
+              </tr>
+              <tr>
+                <td><strong>7. Flexible Tile Adhesive</strong></td>
+                <td>Polymer-modified flexible tile adhesive (C2TE grade or SBR latex)</td>
+                <td>6 to 7 bags (25kg each)</td>
+                <td><strong>CRITICAL:</strong> Standard cement mortar will crack under micro-vibrations. Flexible polymer adhesive absorbs timber elasticity and locks tiles permanently.</td>
+              </tr>
+              <tr>
+                <td><strong>8. Porcelain / Ceramic Tiles</strong></td>
+                <td>600×600mm or 300×600mm glazed porcelain floor tiles (8–9mm thickness)</td>
+                <td>275 sq ft (including 10% cutting waste)</td>
+                <td>Creates a luxury, smart, easy-to-clean floor. Grouted with flexible waterproof grout with 3mm spacers.</td>
+              </tr>
+              <tr>
+                <td><strong>9. Furring Battens (Ceiling)</strong></td>
+                <td>2"×2" (50×50mm) treated timber battens OR galvanized metal ceiling channels</td>
+                <td>180 linear feet (spaced 16" c/c perpendicular to poles)</td>
+                <td>Fixed to the underside of the round poles with 3" wood screws. Laser-leveled to create an unyielding, flat ceiling plane.</td>
+              </tr>
+              <tr>
+                <td><strong>10. Secret Gypsum Ceiling</strong></td>
+                <td>1/2" (12.5mm) moisture-resistant Gypsum plasterboard + skim coat</td>
+                <td>8 boards (8ft × 4ft)</td>
+                <td><strong>100% CONCEALMENT:</strong> Screwed into battens, taped, and skimmed with gypsum filler. Painted in white emulsion with recessed LED spots. Completely hides the poles!</td>
+              </tr>
+              <tr>
+                <td><strong>11. 3m Rear Wall Staircase</strong></td>
+                <td>100×50mm (4"×2") steel box stringers + pine/cypress treads</td>
+                <td>13 risers, 2.5 ft width</td>
+                <td>Inner stringer bolted into existing 3m rear brick wall with M12 mechanical sleeve anchors. Lands directly on mezzanine edge without touching seating area.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- Front Fascia Concealment Feature Card (Sitting Room Perspective) -->
+        <div class="view-card section-margin-top" style="border: 2px solid #38bdf8;">
+          <div class="view-card-title" style="color: #38bdf8; font-size: 16px;"><span>👁️</span> Sitting Room Perspective: The Front Fascia Apron Bulkhead (How the Front Edge is 100% Concealed)</div>
+          <div class="dual-view-grid" style="margin-top: 12px;">
+            <div class="render-frame" style="max-height: 420px;">
+              <img src="mezzanine_front_edge_fascia_detail.jpg" alt="Option 6L Front Edge Fascia Detail" class="render-img" />
+              <div class="render-overlay-badge" style="background: rgba(14,165,233,0.95); color: #ffffff;">Sitting Room View: Flawless Plastered Bulkhead Apron</div>
+            </div>
+            <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(56, 189, 248, 0.3); border-radius: 8px; padding: 18px; color: #cbd5e1; font-size: 13px; line-height: 1.6;">
+              <h4 style="color: #38bdf8; font-size: 15px; margin-top: 0; margin-bottom: 8px;">How the Front-Facing Edge is Built to Hide All Poles:</h4>
+              <p>When someone is sitting on the sofa in the double-height seating room looking up at the master bedroom mezzanine, they look directly at the front vertical face. Here is how it is finished so <strong>zero poles, zero wire, and zero raw concrete are ever visible</strong>:</p>
+              <ul style="margin-left: 18px; margin-bottom: 12px;">
+                <li><strong style="color: #f8fafc;">The Structural Header Beam:</strong> The round poles do not extend past the front pillars. They stop flush behind the primary 6"×3" steel beam (or 9"×3" timber header beam).</li>
+                <li><strong style="color: #f8fafc;">The 10-Inch Vertical Bulkhead Apron:</strong> A vertical 2"×2" stud frame (10 inches / 250mm tall) is fixed along the front face, spanning from the top tile level down to the bottom ceiling plane.</li>
+                <li><strong style="color: #f8fafc;">Gypsum Cladding &amp; Corner Bead:</strong> Clad in 1/2" moisture-resistant gypsum board. A metal angle corner bead is set at the bottom 90° corner where the vertical face meets the horizontal ceiling, skimmed dead-flat with plaster and painted white.</li>
+                <li><strong style="color: #f8fafc;">Tile Bullnose &amp; Guardrail:</strong> The tile edge on top is capped with a sleek black aluminum L-angle edge trim (Schluter strip), and the modern balustrade railing is bolted to the header beam.</li>
+              </ul>
+              <div style="background: rgba(56, 189, 248, 0.1); border-left: 3px solid #38bdf8; padding: 10px 14px; border-radius: 4px; color: #bae6fd;">
+                <strong>Result:</strong> To anyone in the sitting room, the mezzanine edge looks like a <strong>luxurious, solid concrete structural cantilever slab</strong> with an integrated architectural guardrail!
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step-by-Step Construction Guide for Site Crew -->
+        <div style="background: rgba(15, 23, 42, 0.7); border: 1px solid rgba(52, 211, 153, 0.3); border-radius: 8px; padding: 20px; margin-top: 24px;">
+          <h4 style="color: #34d399; font-size: 16px; margin-bottom: 12px;">🔨 Step-by-Step Site Execution Guide for Masons &amp; Carpenters</h4>
+          <ol style="margin-left: 20px; color: #cbd5e1; line-height: 1.8; font-size: 13.5px;">
+            <li><strong style="color: #f8fafc;">Anchor &amp; Level the Poles:</strong> Rest the round poles across the steel beam over your 6 pillars. Notch or flat-chisel the pole bearing seats so all top surfaces sit coplanar. Secure poles using heavy galvanized strapping or hoop iron to prevent rolling.</li>
+            <li><strong style="color: #f8fafc;">Lay the Rigid Backing:</strong> Fix lightweight corrugated iron sheets or 12mm timber slats across the top of the poles. This is what stops the wet cement from sagging down between poles.</li>
+            <li><strong style="color: #f8fafc;">Install Polythene &amp; Dual Mesh:</strong> Roll out the 500-gauge polythene membrane with 6" overlaps. Place small 15mm concrete biscuits/spacers, lay the BRC 6mm mesh, and tie the chicken wire over the top.</li>
+            <li><strong style="color: #f8fafc;">Pour 40–45mm Screed:</strong> Mix dense 1:3 mortar (use minimal water, stiff workable mix). Screed across screed guides to exact 40–45mm thickness. Trowel smooth and keep damp for 7 days to reach full strength.</li>
+            <li><strong style="color: #f8fafc;">Lay Tiles with Flexible Adhesive:</strong> Use polymer-modified adhesive with a notched trowel. Never use plain cement slurry. Use 3mm tile spacers and flexible grout.</li>
+            <li><strong style="color: #f8fafc;">Assemble the Secret Ceiling:</strong> Below the poles, fix 2"×2" furring battens across the underside, pop in 50mm acoustic mineral wool batts for quietness, and screw 1/2" gypsum boards. Skim with joint filler and paint matte white with 6 to 8 warm recessed LED downlights.</li>
+            <li><strong style="color: #f8fafc;">Mount Staircase to 3m Rear Wall:</strong> Align the stairs along the existing 3m rear brick wall, drill and fix with M12 sleeve anchors, and bolt the top landing cleat to the mezzanine steel header beam.</li>
+          </ol>
+        </div>
+
+        <!-- Upper Floor Complete Steel Rebar Takeoff Schedule -->
+        <div class="view-card section-margin-top" style="border: 2px solid #f59e0b;">
+          <div class="card-header-row">
+            <div>
+              <div class="view-card-title" style="color: #fbbf24; font-size: 16px;"><span>🔩</span> Complete Metal Rods &amp; Steel Rebar Schedule to Finish the Upper Floor Completely</div>
+              <p style="color: #cbd5e1; font-size: 13px; margin: 4px 0 10px 0; line-height: 1.5;">
+                Exact commercial order quantities (standard 12-meter / 40-ft lengths), cut lengths, stirrup counts, and total weights to finish the 4 upper bedroom pillars, intermediate belt ring beam, top roof ring beam, and slab reinforcement.
+              </p>
+            </div>
+            <span class="badge-pill pill-amber">STEEL TAKE-OFF</span>
+          </div>
+
+          <!-- Steel Summary Chips Grid -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 16px;">
+            <div class="stat-chip" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(180, 83, 9, 0.15);">
+              <div class="stat-chip-label" style="color: #fbbf24;">Y12 (12mm / #4) Main Bars</div>
+              <div class="stat-chip-value" style="color: #fffbeb; font-size: 20px;">36 Bars (12m each)</div>
+              <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Total ~432m / ~383 kg (0.38 tonnes)</div>
+            </div>
+            <div class="stat-chip" style="border-color: rgba(56, 189, 248, 0.4); background: rgba(14, 116, 144, 0.15);">
+              <div class="stat-chip-label" style="color: #38bdf8;">R8 (8mm / #2) Stirrups / Links</div>
+              <div class="stat-chip-value" style="color: #f0f9ff; font-size: 20px;">27 Bars (12m each)</div>
+              <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Total ~324m / ~107 kg (402 rings)</div>
+            </div>
+            <div class="stat-chip" style="border-color: rgba(52, 211, 153, 0.4); background: rgba(6, 95, 70, 0.15);">
+              <div class="stat-chip-label" style="color: #34d399;">BRC Welded Steel Mesh</div>
+              <div class="stat-chip-value" style="color: #ecfdf5; font-size: 20px;">2 Rolls / Sheets</div>
+              <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">BRC A142 (6mm wire @ 200mm grid)</div>
+            </div>
+            <div class="stat-chip" style="border-color: rgba(192, 132, 252, 0.4); background: rgba(126, 34, 206, 0.15);">
+              <div class="stat-chip-label" style="color: #c084fc;">Chicken Wire &amp; Binding Wire</div>
+              <div class="stat-chip-value" style="color: #faf5ff; font-size: 18px;">1 Roll + 1 Bag (25kg)</div>
+              <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Hexagonal wire (30m) + 16G wire</div>
+            </div>
+          </div>
+
+          <!-- Detailed Takeoff Table -->
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Structural Element</th>
+                  <th>Bar Spec &amp; Diameter</th>
+                  <th>Quantity of 12m Bars to Buy</th>
+                  <th>Total Linear Metres (Feet)</th>
+                  <th>Steel Weight (kg)</th>
+                  <th>Cutting &amp; Bending Schedule Instructions</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td rowspan="2"><strong>1. Upper 4 Master Columns</strong><br><span style="font-size:11px; color:#94a3b8;">(Over Master Bedroom, 8"×8" / 200×200mm)</span></td>
+                  <td><strong>Y12 (12mm)</strong> Main Vertical Bars</td>
+                  <td><strong style="color:#fbbf24;">5 Bars</strong> (12m each)</td>
+                  <td>60 m (197 ft)</td>
+                  <td>~53 kg</td>
+                  <td>Cut into 16 bars of 3.4m each (2.8m column height + 600mm / 2ft starter lap hooks). 4 bars per column.</td>
+                </tr>
+                <tr>
+                  <td><strong>R8 (8mm)</strong> Column Stirrup Rings</td>
+                  <td><strong style="color:#38bdf8;">4 Bars</strong> (12m each)</td>
+                  <td>48 m (157 ft)</td>
+                  <td>~19 kg</td>
+                  <td>Bend into 56 square rings (150×150mm inside dimension + 135° hooks, 750mm cut length each). Tied @ 200mm (8") centers.</td>
+                </tr>
+                <tr>
+                  <td rowspan="2"><strong>2. Intermediate Ring Beam</strong><br><span style="font-size:11px; color:#94a3b8;">(Mezzanine "Belt" at ~2.6m level, 32.2m total length)</span></td>
+                  <td><strong>Y12 (12mm)</strong> Longitudinal Main Bars</td>
+                  <td><strong style="color:#fbbf24;">13 Bars</strong> (12m each)</td>
+                  <td>156 m (512 ft)</td>
+                  <td>~138 kg</td>
+                  <td>4 continuous longitudinal bars (2 top, 2 bottom) with 600mm lap splices. Continuous around perimeter and central divider.</td>
+                </tr>
+                <tr>
+                  <td><strong>R8 (8mm)</strong> Beam Stirrup Rings</td>
+                  <td><strong style="color:#38bdf8;">11 Bars</strong> (12m each)</td>
+                  <td>132 m (433 ft)</td>
+                  <td>~52 kg</td>
+                  <td>Bend into 161 rectangular rings (750mm cut length). Spaced @ 200mm (8") centers throughout the 32.2m beam length.</td>
+                </tr>
+                <tr>
+                  <td rowspan="2"><strong>3. Top Roof Ring Beam</strong><br><span style="font-size:11px; color:#94a3b8;">(Capping Master Bedroom &amp; Parapet Walls, ~37m length)</span></td>
+                  <td><strong>Y12 (12mm)</strong> Longitudinal Main Bars</td>
+                  <td><strong style="color:#fbbf24;">15 Bars</strong> (12m each)</td>
+                  <td>180 m (590 ft)</td>
+                  <td>~160 kg</td>
+                  <td>4 continuous longitudinal bars capping all upper walls and Kangaroo parapet walls. Includes corner L-bends.</td>
+                </tr>
+                <tr>
+                  <td><strong>R8 (8mm)</strong> Beam Stirrup Rings</td>
+                  <td><strong style="color:#38bdf8;">12 Bars</strong> (12m each)</td>
+                  <td>144 m (472 ft)</td>
+                  <td>~57 kg</td>
+                  <td>Bend into 185 rectangular rings (750mm cut length). Spaced @ 200mm (8") centers. Troweled flush with top roof line.</td>
+                </tr>
+                <tr>
+                  <td><strong>4. Mezzanine Slab Edge Trimmers</strong></td>
+                  <td><strong>Y12 (12mm)</strong> Edge &amp; Balustrade Starters</td>
+                  <td><strong style="color:#fbbf24;">3 Bars</strong> (12m each)</td>
+                  <td>36 m (118 ft)</td>
+                  <td>~32 kg</td>
+                  <td>Cut into L-shaped anchor dowels embedded into the front beam to tie the slab and anchor the guardrail balustrade.</td>
+                </tr>
+                <tr>
+                  <td><strong>5. Mezzanine Slab Core Mesh</strong></td>
+                  <td><strong>BRC A142</strong> Welded Steel Wire Mesh</td>
+                  <td><strong style="color:#34d399;">2 Rolls / Sheets</strong></td>
+                  <td>250 sq ft coverage</td>
+                  <td>~60 kg</td>
+                  <td>Laid flat across the plastic membrane on 15mm concrete cover blocks. Absorbs all upper floor live loads.</td>
+                </tr>
+                <tr>
+                  <td><strong>6. Anti-Crack Netting</strong></td>
+                  <td><strong>Chicken Wire Netting</strong> (25mm / 1" hex)</td>
+                  <td><strong style="color:#c084fc;">1 Roll</strong> (30m × 1m)</td>
+                  <td>300 sq ft</td>
+                  <td>~12 kg</td>
+                  <td>Rolled across top of BRC mesh and tied with binding wire to prevent hairline screed shrinkage cracks.</td>
+                </tr>
+                <tr>
+                  <td><strong>7. Tying Hardware</strong></td>
+                  <td><strong>Annealed Binding Wire</strong> (16 Gauge)</td>
+                  <td><strong style="color:#c084fc;">1 Bag / Roll</strong> (25 kg)</td>
+                  <td>Full project</td>
+                  <td>25 kg</td>
+                  <td>Used by steel fixers to tie all column cages, beam stirrups, BRC mesh, and chicken wire netting.</td>
+                </tr>
+                <tr style="background: rgba(245, 158, 11, 0.15); font-weight: 900;">
+                  <td colspan="2" style="color: #fbbf24; font-size: 14px;">TOTAL STEEL REBAR ORDER FOR UPPER STRUCTURE</td>
+                  <td colspan="4" style="color: #fffbeb; font-size: 14px;">
+                    <strong>36 Bars of Y12 (12mm)</strong> + <strong>27 Bars of R8 (8mm)</strong> + <strong>2 BRC A142 Mesh Sheets</strong> + <strong>1 Chicken Wire Roll</strong> + <strong>25kg Binding Wire</strong>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
 
@@ -4037,7 +4530,8 @@
           </div>
         </div>
         <div class="site-alert-actions">
-          <button class="btn-accent" onclick="syncRealSiteMilestones()">🔄 Sync Day 1 Milestones</button>
+          <button class="btn-accent" onclick="syncPillarsPouringMilestones()" style="background: #059669; border-color: #34d399;">🧱 Sync Stage: 6 Pillars Pouring</button>
+          <button class="btn-outline" onclick="syncRealSiteMilestones()">🔄 Reset Day 1</button>
           <button class="btn-outline" onclick="toggleDiaryForm()">📝 Log Daily Work</button>
         </div>
       </div>
@@ -4108,6 +4602,170 @@
               <div class="checklist-desc">Pillar vertical bars bent with 10 to 12 inch 90° hook feet securely tied into the bottom footing pad mesh for rigid foundation anchorage.</div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <!-- Option 6: 6-Pillar Concrete Calculator & Confined Pour Station -->
+      <div class="checklist-card" id="pillarCalcCard" style="border-left: 4px solid #10b981; margin-top: 24px;">
+        <div class="checklist-header">
+          <div>
+            <div class="checklist-title" style="color: #34d399;">🏛️ Option 6: 6-Pillar Concrete Takeoff &amp; Confined Pour Station</div>
+            <p class="card-subtitle" style="margin-top:2px;">Real-time batch takeoff and pre-pour quality control for casting 6 reinforced concrete columns against finished brickwork.</p>
+          </div>
+          <span class="badge-pill pill-green">TOMORROW'S POUR READY</span>
+        </div>
+
+        <!-- Live Parameters & Calculator Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-top: 16px; background: rgba(15, 23, 42, 0.6); padding: 16px; border-radius: 8px; border: 1px solid rgba(52, 211, 153, 0.2);">
+          <div>
+            <label class="form-label" for="input_pillarCount" style="font-size: 11px;">Pillar Count</label>
+            <input type="number" id="input_pillarCount" class="form-input" value="6" min="1" max="12" oninput="calculatePillarConcrete()">
+          </div>
+          <div>
+            <label class="form-label" for="input_pillarWidth" style="font-size: 11px;">Width (Inches)</label>
+            <input type="number" id="input_pillarWidth" class="form-input" value="8" min="4" max="24" oninput="calculatePillarConcrete()">
+          </div>
+          <div>
+            <label class="form-label" for="input_pillarDepth" style="font-size: 11px;">Depth (Inches)</label>
+            <input type="number" id="input_pillarDepth" class="form-input" value="8" min="4" max="24" oninput="calculatePillarConcrete()">
+          </div>
+          <div>
+            <label class="form-label" for="input_pillarHeight" style="font-size: 11px;">Height (Feet)</label>
+            <input type="number" id="input_pillarHeight" class="form-input" value="8.53" step="0.1" oninput="calculatePillarConcrete()">
+          </div>
+          <div>
+            <label class="form-label" for="select_pillarMix" style="font-size: 11px;">Mix Specification</label>
+            <select id="select_pillarMix" class="form-input" onchange="calculatePillarConcrete()" style="cursor: pointer;">
+              <option value="c25" selected>C25 Structural (1 : 1.5 : 3) [Recommended]</option>
+              <option value="c20">C20 Standard (1 : 2 : 4)</option>
+            </select>
+          </div>
+          <div>
+            <label class="form-label" for="input_pillarWaste" style="font-size: 11px;">Brick Infiltration &amp; Waste</label>
+            <select id="input_pillarWaste" class="form-input" onchange="calculatePillarConcrete()" style="cursor: pointer;">
+              <option value="15" selected>+15% (Toothed Masonry Standard)</option>
+              <option value="20">+20% (Conservative / High Spillage)</option>
+              <option value="10">+10% (Tight Formwork)</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Calculated Material Takeoffs Grid -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-top: 16px;">
+          <div class="stat-chip" style="border-color: rgba(52, 211, 153, 0.4); background: rgba(6, 95, 70, 0.15);">
+            <div class="stat-chip-label" style="color: #34d399;">Cement Required (50kg)</div>
+            <div class="stat-chip-value" id="pillar_res_cement50" style="color: #ecfdf5; font-size: 20px;">6 bags (50kg)</div>
+            <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Or <span id="pillar_res_cement94">7 bags (94lb)</span></div>
+          </div>
+          <div class="stat-chip" style="border-color: rgba(56, 189, 248, 0.4); background: rgba(14, 116, 144, 0.15);">
+            <div class="stat-chip-label" style="color: #38bdf8;">Clean Sharp Sand</div>
+            <div class="stat-chip-value" id="pillar_res_sand" style="color: #f0f9ff; font-size: 17px;">11 cu ft (~485 kg)</div>
+            <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Approx 5–6 builder's wheelbarrows</div>
+          </div>
+          <div class="stat-chip" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(180, 83, 9, 0.15);">
+            <div class="stat-chip-label" style="color: #fbbf24;">Crushed Stone (3/4" / 20mm)</div>
+            <div class="stat-chip-value" id="pillar_res_stone" style="color: #fffbeb; font-size: 17px;">21 cu ft (~0.97 tonnes)</div>
+            <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Approx 10–11 builder's wheelbarrows</div>
+          </div>
+          <div class="stat-chip" style="border-color: rgba(192, 132, 252, 0.4); background: rgba(126, 34, 206, 0.15);">
+            <div class="stat-chip-label" style="color: #c084fc;">Clean Water &amp; Volume</div>
+            <div class="stat-chip-value" id="pillar_res_water" style="color: #faf5ff; font-size: 17px;">140 Liters (~7 buckets)</div>
+            <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Total Wet Vol: <span id="pillar_res_wetVol">26.2 cu ft (0.72 m³)</span></div>
+          </div>
+        </div>
+
+        <!-- Mixing Recipe Banner -->
+        <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 8px; padding: 12px 16px; margin-top: 14px; font-size: 13px; color: #d1fae5; line-height: 1.5;">
+          <strong>⚖️ On-Site Mixing Recipe (Per 1 Bag of 50kg Cement):</strong>
+          Add <strong>1 level wheelbarrow (or 2 builder's pans) of sand</strong> + <strong>2 level wheelbarrows (or 4 builder's pans) of crushed stone</strong> + <strong>22 to 25 Liters of water</strong> (approx 1¼ buckets). Each batch pours approximately <strong>1 full pillar</strong>!
+        </div>
+
+        <!-- Confined Masonry Quality Checklist -->
+        <div style="margin-top: 20px;">
+          <h4 style="color: #34d399; font-size: 14px; margin-bottom: 8px;">✅ Confined Masonry Pre-Pour Verification Checklist</h4>
+          <div class="checklist-grid">
+            <div class="checklist-item" onclick="toggleInspectionCheck('check_column_cleanout')">
+              <input type="checkbox" id="check_column_cleanout" class="checklist-checkbox" onchange="toggleInspectionCheck('check_column_cleanout')" onclick="event.stopPropagation()">
+              <div class="checklist-content">
+                <div class="checklist-label">1. Column Chute Base Cleanout</div>
+                <div class="checklist-desc">All mortar droppings, loose rubble, and brick dust cleared from bottom of all 6 pillar bases before closing lower shutters. Concrete will seat directly on solid footing pad.</div>
+              </div>
+            </div>
+            <div class="checklist-item" onclick="toggleInspectionCheck('check_brick_wetting')">
+              <input type="checkbox" id="check_brick_wetting" class="checklist-checkbox" onchange="toggleInspectionCheck('check_brick_wetting')" onclick="event.stopPropagation()">
+              <div class="checklist-content">
+                <div class="checklist-label">2. Brickwork Pre-Soaking (Anti-Suction)</div>
+                <div class="checklist-desc">Adjacent brick faces thoroughly drenched with water 30–60 min before casting so dry bricks do not suck water from wet concrete and cause honeycombing.</div>
+              </div>
+            </div>
+            <div class="checklist-item" onclick="toggleInspectionCheck('check_shutter_clamping')">
+              <input type="checkbox" id="check_shutter_clamping" class="checklist-checkbox" onchange="toggleInspectionCheck('check_shutter_clamping')" onclick="event.stopPropagation()">
+              <div class="checklist-content">
+                <div class="checklist-label">3. Heavy Shutter Clamping &amp; Slurry Sealing</div>
+                <div class="checklist-desc">Timber column formwork clamped tight with external yokes/kickers to withstand 8.5ft hydrostatic head pressure. Outer brick-timber seams sealed to prevent cement slurry leakage.</div>
+              </div>
+            </div>
+            <div class="checklist-item" onclick="toggleInspectionCheck('check_rebar_cover')">
+              <input type="checkbox" id="check_rebar_cover" class="checklist-checkbox" onchange="toggleInspectionCheck('check_rebar_cover')" onclick="event.stopPropagation()">
+              <div class="checklist-content">
+                <div class="checklist-label">4. 4 × #4 Rebar Cover &amp; Alignment</div>
+                <div class="checklist-desc">Rebar cages centered with 1-inch (25mm) cover spacers away from brick faces and timber shutters. Stirrups tied tight at 6–8" intervals.</div>
+              </div>
+            </div>
+            <div class="checklist-item" onclick="toggleInspectionCheck('check_top_datum_level')">
+              <input type="checkbox" id="check_top_datum_level" class="checklist-checkbox" onchange="toggleInspectionCheck('check_top_datum_level')" onclick="event.stopPropagation()">
+              <div class="checklist-content">
+                <div class="checklist-label">5. Water / Laser Level Across 6 Pillar Tops</div>
+                <div class="checklist-desc">Exact cut-off line marked with laser/water level across all 6 columns so the Option 6 6"×3" steel I-beams sit on a dead-level horizontal plane.</div>
+              </div>
+            </div>
+            <div class="checklist-item" onclick="toggleInspectionCheck('check_anchor_bolts_ready')">
+              <input type="checkbox" id="check_anchor_bolts_ready" class="checklist-checkbox" onchange="toggleInspectionCheck('check_anchor_bolts_ready')" onclick="event.stopPropagation()">
+              <div class="checklist-content">
+                <div class="checklist-label">6. 5/8" Anchor Bolts / Steel Baseplates Ready</div>
+                <div class="checklist-desc">Timber templates prepared to insert 5/8" threaded anchor bolts or baseplate studs into wet concrete immediately upon finishing pour.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Upper Floor Steel Rebar Shopping List Card -->
+      <div class="checklist-card" id="steelRebarCard" style="border-left: 4px solid #f59e0b; margin-top: 24px;">
+        <div class="checklist-header">
+          <div>
+            <div class="checklist-title" style="color: #fbbf24;">🔩 Upper Structure Steel Rebar (Metal Rods) Shopping List</div>
+            <p class="card-subtitle" style="margin-top:2px;">Complete steel yard order for the 4 upper master bedroom columns, intermediate belt ring beam, top roof ring beam, and mezzanine slab.</p>
+          </div>
+          <span class="badge-pill pill-amber">HARDWARE ORDER READY</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-top: 16px;">
+          <div class="stat-chip" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(180, 83, 9, 0.15);">
+            <div class="stat-chip-label" style="color: #fbbf24;">Y12 (12mm / #4) Main Bars</div>
+            <div class="stat-chip-value" style="color: #fffbeb; font-size: 20px;">36 Bars (12m each)</div>
+            <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">~432m / 383 kg (Columns &amp; Ring Beams)</div>
+          </div>
+          <div class="stat-chip" style="border-color: rgba(56, 189, 248, 0.4); background: rgba(14, 116, 144, 0.15);">
+            <div class="stat-chip-label" style="color: #38bdf8;">R8 (8mm / #2) Stirrups / Rings</div>
+            <div class="stat-chip-value" style="color: #f0f9ff; font-size: 20px;">27 Bars (12m each)</div>
+            <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">~324m / 107 kg (402 Rings Total)</div>
+          </div>
+          <div class="stat-chip" style="border-color: rgba(52, 211, 153, 0.4); background: rgba(6, 95, 70, 0.15);">
+            <div class="stat-chip-label" style="color: #34d399;">BRC Welded Slab Mesh</div>
+            <div class="stat-chip-value" style="color: #ecfdf5; font-size: 20px;">2 Sheets / Rolls</div>
+            <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">BRC A142 (6mm wire @ 200mm grid)</div>
+          </div>
+          <div class="stat-chip" style="border-color: rgba(192, 132, 252, 0.4); background: rgba(126, 34, 206, 0.15);">
+            <div class="stat-chip-label" style="color: #c084fc;">Chicken Wire &amp; Binding Wire</div>
+            <div class="stat-chip-value" style="color: #faf5ff; font-size: 18px;">1 Roll + 1 Bag (25kg)</div>
+            <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Hexagonal wire netting + 16G wire</div>
+          </div>
+        </div>
+
+        <div style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 8px; padding: 12px 16px; margin-top: 14px; font-size: 13px; color: #fef3c7; line-height: 1.5;">
+          <strong>📋 Steel Yard Order Quick Summary:</strong> 
+          Ask for <strong>36 lengths of 12mm High-Yield deformed rebar (Y12)</strong> + <strong>27 lengths of 8mm mild/high-yield rebar (R8)</strong> + <strong>2 rolls BRC A142 (6mm)</strong> + <strong>1 roll chicken wire (30m)</strong> + <strong>1 roll binding wire (25kg)</strong>. All rebar standard 12-meter (40 ft) commercial lengths.
         </div>
       </div>
 
@@ -4304,6 +4962,38 @@
             <div class="download-card-desc">High-detail cutaway focusing on the interior straight timber staircase with step lighting and zero added overhang.</div>
           </div>
           <button class="ctrl-action-btn" onclick="downloadImage('interior_staircase_mezzanine.jpg', 'Devins_House_Option6_Interior_Stairs.jpg')">Download Interior Stairs (.jpg)</button>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">Option 6L: All Materials Exploded Technical Diagram</div>
+            <div class="download-card-desc">Fully labeled 3D exploded diagram illustrating all 9 layers (tiles, adhesive, 40mm screed, BRC wiremesh, chicken wire, DPC plastic, corrugated iron, round poles, battens, and gypsum ceiling with callout arrows).</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('round_pole_all_materials_cutaway.jpg', 'Devins_House_Option6L_All_Materials_Exploded_Diagram.jpg')">Download All Materials Diagram (.jpg)</button>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">Option 6L: Round-Pole Tiled Mezzanine &amp; Secret Ceiling</div>
+            <div class="download-card-desc">High-resolution architectural cutaway showing the 9-layer tiled composite floor on round timber poles and the flush hidden gypsum ceiling with recessed downlights.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('round_pole_tiled_mezzanine_cutaway.jpg', 'Devins_House_Option6L_Tiled_Mezzanine_Cutaway.jpg')">Download 6L Tiled Mezzanine (.jpg)</button>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">Option 6L: Rear Wall Staircase &amp; Living Room Flow</div>
+            <div class="download-card-desc">Atmospheric 3D interior render showing the staircase anchored to the 3m rear brick wall, center pillar front door, and pristine white concealed lower ceiling.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('concealed_ceiling_staircase_rear_wall.jpg', 'Devins_House_Option6L_Rear_Stairs_Concealed_Ceiling.jpg')">Download 6L Rear Stairs &amp; Ceiling (.jpg)</button>
+        </div>
+
+        <div class="download-card">
+          <div>
+            <div class="download-card-header">Option 6L: Front Fascia Apron Bulkhead Detail</div>
+            <div class="download-card-desc">Architectural close-up render showing how the front-facing mezzanine edge is 100% boxed into a luxury plastered bulkhead with tile threshold and modern glass balustrade.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('mezzanine_front_edge_fascia_detail.jpg', 'Devins_House_Option6L_Front_Fascia_Bulkhead_Detail.jpg')">Download 6L Front Fascia Detail (.jpg)</button>
         </div>
 
         <div class="download-card">

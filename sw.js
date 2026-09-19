@@ -1,47 +1,21 @@
-const CACHE_NAME = "devins-house-v17";
-const ASSETS_TO_CACHE = [
+const CACHE_NAME = "devins-house-v18";
+// Pre-cache only lightweight app shell for instantaneous page launch (< 500KB)
+const CORE_APP_SHELL = [
   "./",
   "./index.html",
   "./styles.css",
   "./app.js",
   "./manifest.json",
   "./app_icon.jpg",
-  "./icon-512.png",
-  "./house_kangaroo_cutaway.jpg",
-  "./house_kangaroo_exterior.jpg",
-  "./house_master_wardrobe.jpg",
-  "./house_kitchen_full.jpg",
-  "./house_slab_kitchen.jpg",
-  "./house_8x5_compact.jpg",
-  "./house_8x5_custom.jpg",
-  "./house_kids_lower.jpg",
-  "./house_3d_exterior.jpg",
-  "./house_3d_interior.jpg",
-  "./smart_architectural_layout.jpg",
-  "./hidden_roof_integrated_beds.jpg",
-  "./exact_40sqm_dimensions.jpg",
-  "./master_wardrobe_lighting_render.jpg",
-  "./masonry_pillars_mezzanine.jpg",
-  "./four_pillar_metal_timber.jpg",
-  "./interior_staircase_mezzanine.jpg",
-  "./compact_20sqm_private_kids.jpg",
-  "./seating_suite_complete_cutaway.jpg",
-  "./metal_timber_master_cutaway.jpg",
-  "./timber_slab_construction_guide.jpg",
-  "./timber_metal_staircase_detail.jpg",
-  "./budget_timber_metal_staircase.jpg",
-  "./round_pole_tiled_mezzanine_cutaway.jpg",
-  "./concealed_ceiling_staircase_rear_wall.jpg",
-  "./round_pole_all_materials_cutaway.jpg",
-  "./mezzanine_front_edge_fascia_detail.jpg"
+  "./icon-512.png"
 ];
 
-// Install Event: Pre-cache all core assets and images
+// Install Event: Fast pre-caching of app shell only
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log("[Devin's House SW] Caching app shell and offline assets");
-      return cache.addAll(ASSETS_TO_CACHE);
+      console.log("[Devin's House SW] Caching ultra-fast core app shell");
+      return cache.addAll(CORE_APP_SHELL);
     }).then(() => self.skipWaiting())
   );
 });

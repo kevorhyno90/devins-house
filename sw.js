@@ -1,4 +1,4 @@
-const CACHE_NAME = "devins-house-v21";
+const CACHE_NAME = "devins-house-v23";
 // Pre-cache only lightweight app shell for instantaneous page launch (< 500KB)
 const CORE_APP_SHELL = [
   "./",
@@ -7,7 +7,8 @@ const CORE_APP_SHELL = [
   "./app.js",
   "./manifest.json",
   "./app_icon.jpg",
-  "./icon-512.png"
+  "./icon-512.png",
+  "./entrance_layout_plan.svg"
 ];
 
 // Install Event: Fast pre-caching of app shell only

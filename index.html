@@ -219,6 +219,20 @@
           <div class="deck-btn">View Option 6 Blueprint &amp; 3D ➜</div>
         </div>
       </div>
+
+      <div class="deck-card" data-tab="opt-site-engineering" onclick="switchToTab('opt-site-engineering', 13)">
+        <div class="deck-thumb-wrap">
+          <img loading="lazy" decoding="async" src="rectified_entrance_and_trench_design.jpg" alt="Site Entrance &amp; Rebar Blueprints" class="deck-thumb-img" />
+          <span class="deck-pill pill-cyan">NEW • Site Engineering</span>
+        </div>
+        <div class="deck-body">
+          <div>
+            <div class="deck-title">Entrance, Boundary &amp; Rebar Blueprints</div>
+            <div class="deck-meta">1.0m setback corridor • Stone-pitched trench • D10 &amp; D8 staircase rebar</div>
+          </div>
+          <div class="deck-btn">View Blueprints &amp; Schedules ➜</div>
+        </div>
+      </div>
     </div>
   </header>
 
@@ -265,6 +279,9 @@
     </button>
     <button class="tab-btn" data-tab="opt-pinterest" onclick="switchToTab('opt-pinterest', 12)" style="border: 1px solid #e60023; color:#e60023; font-weight:700;">
       <span>📌</span> Pinterest Business Kit
+    </button>
+    <button class="tab-btn" data-tab="opt-site-engineering" onclick="switchToTab('opt-site-engineering', 13)" style="border: 1px solid #38bdf8; color:#38bdf8; font-weight:700;">
+      <span>🏗️</span> Site Entrance &amp; Rebar Blueprints
     </button>
   </nav>
 
@@ -4765,6 +4782,40 @@
         </div>
       </div>
 
+      <!-- Live On-Site Photo Verification Gallery -->
+      <div class="view-card section-margin-top" style="border: 2px solid #34d399; margin-bottom: 24px;">
+        <div class="view-card-title" style="color: #34d399; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+          <span>📸 Live On-Site Progress: Masonry Walls, Column Shuttering &amp; Openings</span>
+          <span class="badge-pill pill-green">ACTIVE FIELD WORK VERIFIED</span>
+        </div>
+        <p class="spec-content" style="margin-bottom: 14px;">
+          Direct site photos showing current progress: Red quarry stone/brick walls erected, reinforced concrete column shutters braced with props, the Kitchen Outlet doorway (left), the wall holding the glass windows (right), and the 1.0m front corridor setback.
+        </p>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;">
+          <div class="render-frame" style="max-height: 380px;">
+            <img loading="lazy" decoding="async" src="site_progress_1.jpg" alt="Site Progress - Front Facade & 1m Setback Corridor" class="render-img" style="object-fit: cover; height: 100%;" />
+            <div class="render-overlay-badge" style="background: rgba(15,23,42,0.9); color: #38bdf8;">1. Front Facade &amp; 1.0m Corridor Area</div>
+          </div>
+          <div class="render-frame" style="max-height: 380px;">
+            <img loading="lazy" decoding="async" src="site_progress_2.jpg" alt="Site Progress - Kitchen Door & Glass Wall Openings" class="render-img" style="object-fit: cover; height: 100%;" />
+            <div class="render-overlay-badge" style="background: rgba(15,23,42,0.9); color: #34d399;">2. Kitchen Doorway (Left) &amp; Glass Wall (Right)</div>
+          </div>
+          <div class="render-frame" style="max-height: 380px;">
+            <img loading="lazy" decoding="async" src="site_progress_3.jpg" alt="Site Progress - Internal Masonry View" class="render-img" style="object-fit: cover; height: 100%;" />
+            <div class="render-overlay-badge" style="background: rgba(15,23,42,0.9); color: #fbbf24;">3. Looking Outward from Ground Foyer</div>
+          </div>
+          <div class="render-frame" style="max-height: 380px;">
+            <img loading="lazy" decoding="async" src="site_progress_4.jpg" alt="Site Progress - Column Shutters & Materials" class="render-img" style="object-fit: cover; height: 100%;" />
+            <div class="render-overlay-badge" style="background: rgba(15,23,42,0.9); color: #e2e8f0;">4. Timber Props &amp; Quarry Stones for Trench</div>
+          </div>
+          <div class="render-frame" style="max-height: 380px;">
+            <img loading="lazy" decoding="async" src="site_progress_5.jpg" alt="Site Progress - RC Column Shuttering by Mason" class="render-img" style="object-fit: cover; height: 100%;" />
+            <div class="render-overlay-badge" style="background: rgba(15,23,42,0.9); color: #38bdf8;">5. Column Formwork Clamping &amp; Alignment</div>
+          </div>
+        </div>
+      </div>
+
       <div class="progress-track">
         <div class="progress-fill fill-success" id="milestoneProgressBar"></div>
       </div>
@@ -5233,6 +5284,55 @@
           <button class="ctrl-action-btn" onclick="downloadImage('staircase_smooth_elevation_blueprint.jpg', 'Devins_House_Option6L_Staircase_Smooth_Elevation_Blueprint.jpg')">Download Staircase Elevation Blueprint (.jpg)</button>
         </div>
 
+        <!-- NEW DOWNLOAD CARDS: SITE ENTRANCE & REBAR BLUEPRINTS -->
+        <div class="download-card" style="border: 1.5px solid #38bdf8;">
+          <div>
+            <div class="download-card-header" style="color: #38bdf8;">Site Entrance &amp; Stone Trench: Rectified 3D Cutaway</div>
+            <div class="download-card-desc">Dimensioned 3D cutaway showing the 1.0m setback corridor, kitchen outlet door in foreground, main door on glass wall, 2.3m solid boundary wall, sliding gate, and 0.5m stone-pitched cement trench along the murram road.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('rectified_entrance_and_trench_design.jpg', 'Devins_House_Rectified_Entrance_And_Stone_Trench_3D.jpg')" style="background: #0284c7; color:#fff;">Download Entrance 3D (.jpg)</button>
+        </div>
+
+        <div class="download-card" style="border: 1.5px solid #38bdf8;">
+          <div>
+            <div class="download-card-header" style="color: #38bdf8;">Site Entrance 2D CAD Vector Plan (.svg)</div>
+            <div class="download-card-desc">Architectural vector CAD site plan blueprint showing public murram road, 0.5m stone-pitched trench, 2.3m wall with sliding gate, 1.0m corridor, kitchen outlet door, and main door below glasses.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('entrance_layout_plan.svg', 'Devins_House_Entrance_Site_Plan.svg')" style="background: #0284c7; color:#fff;">Download Vector Plan (.svg)</button>
+        </div>
+
+        <div class="download-card" style="border: 1.5px solid #34d399;">
+          <div>
+            <div class="download-card-header" style="color: #34d399;">Staircase 3D Rebar Grid Model (All Dimensions)</div>
+            <div class="download-card-desc">Photorealistic 3D shuttering model showing all dimensions: 7 D10 blue main bars @ 140mm c/c, 25 D8 orange cross bars @ 175mm c/c, 125mm waist slab, 25mm concrete spacers, 15 steps @ 177mm riser x 250mm tread.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('staircase_3d_all_dimensions.jpg', 'Devins_House_Staircase_3D_Rebar_All_Dimensions.jpg')" style="background: #059669; color:#fff;">Download 3D Rebar Model (.jpg)</button>
+        </div>
+
+        <div class="download-card" style="border: 1.5px solid #34d399;">
+          <div>
+            <div class="download-card-header" style="color: #34d399;">Staircase Rebar Top (Plan) View Blueprint</div>
+            <div class="download-card-desc">Architectural plan view blueprint of the 900mm wide flight looking down: 7 parallel D10 bars @ 140mm c/c, D8 distribution bars @ 175mm c/c, lap lengths, and anchorage hooks.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('staircase_top_view_rebar_blueprint.jpg', 'Devins_House_Staircase_Rebar_Top_Plan_Blueprint.jpg')" style="background: #059669; color:#fff;">Download Rebar Plan (.jpg)</button>
+        </div>
+
+        <div class="download-card" style="border: 1.5px solid #fbbf24;">
+          <div>
+            <div class="download-card-header" style="color: #fbbf24;">Staircase Rebar Elevation Blueprint &amp; Schedule</div>
+            <div class="download-card-desc">Complete side elevation section CAD blueprint with all dimensions and Bar Bending Schedule (BBS) for D10 and D8 steel reinforcement.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('staircase_complete_dimensions_blueprint.jpg', 'Devins_House_Staircase_Elevation_Blueprint_Schedule.jpg')" style="background: #d97706; color:#fff;">Download Elevation Blueprint (.jpg)</button>
+        </div>
+
+        <div class="download-card" style="border: 1.5px solid #34d399;">
+          <div>
+            <div class="download-card-header" style="color: #34d399;">Staircase Rebar Beginner Visual Analogy ("Ladder &amp; Grill")</div>
+            <div class="download-card-desc">Visual breakdown for masons and builders explaining the D10 long rungs, D8 cross grill rungs, and concrete spacer blocks.</div>
+          </div>
+          <button class="ctrl-action-btn" onclick="downloadImage('easy_rebar_explanation.jpg', 'Devins_House_Staircase_Rebar_Ladder_Grill_Analogy.jpg')" style="background: #059669; color:#fff;">Download Rebar Analogy Guide (.jpg)</button>
+        </div>
+
         <div class="download-card">
           <div>
             <div class="download-card-header">Option 5: Concept Cutaway</div>
@@ -5481,6 +5581,371 @@
         </p>
       </div>
 
+    </section>
+  </div>
+
+  <!-- ======================================================= -->
+  <!-- TAB 13: SITE ENTRANCE & REBAR BLUEPRINTS                -->
+  <!-- ======================================================= -->
+  <div id="tab-opt-site-engineering" class="tab-content">
+    <section class="main-card">
+      <div class="card-header-row">
+        <div>
+          <div class="sub-opt-badge" style="background:#0284c7; color:#fff; font-weight:800;">🏗️ FIELD-TESTED CIVIL &amp; REBAR BLUEPRINTS</div>
+          <h2 class="card-title">Site Entrance, Boundary Wall, Stone Trench &amp; Staircase Rebar</h2>
+          <p class="card-subtitle">Complete structural engineering schedules custom-dimensioned for Devin's House: 1.0m tight front setback on a red murram dirt road, natural stone-pitched cement trench, horizontal sliding gate, and single-flight concrete staircase reinforcement (D10 &amp; D8).</p>
+        </div>
+        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+          <button class="ctrl-action-btn" onclick="scrollToDesign('sec-entrance-wall')" style="background:#0369a1; color:#fff; border:none; padding: 8px 14px; font-weight:700;">🚪 1.0m Entrance &amp; Trench</button>
+          <button class="ctrl-action-btn" onclick="scrollToDesign('sec-stair-rebar')" style="background:#059669; color:#fff; border:none; padding: 8px 14px; font-weight:700;">🪜 D10 &amp; D8 Staircase Rebar</button>
+        </div>
+      </div>
+
+      <!-- Quick Summary Metric Chips -->
+      <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 24px;">
+        <div class="stat-chip" style="border-color: rgba(56, 189, 248, 0.4); background: rgba(14, 116, 144, 0.15);">
+          <div class="stat-chip-label" style="color: #38bdf8;">Front Corridor Setback</div>
+          <div class="stat-chip-value" style="color: #f0f9ff; font-size: 20px;">1.0 m (3.3 ft)</div>
+          <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Sheltered with canopy &amp; gutter</div>
+        </div>
+        <div class="stat-chip" style="border-color: rgba(245, 158, 11, 0.4); background: rgba(180, 83, 9, 0.15);">
+          <div class="stat-chip-label" style="color: #fbbf24;">Roadside Stone Trench</div>
+          <div class="stat-chip-value" style="color: #fffbeb; font-size: 20px;">0.5m Wide × 300mm</div>
+          <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Natural quarry stones with cement</div>
+        </div>
+        <div class="stat-chip" style="border-color: rgba(52, 211, 153, 0.4); background: rgba(6, 95, 70, 0.15);">
+          <div class="stat-chip-label" style="color: #34d399;">Boundary Privacy Wall</div>
+          <div class="stat-chip-value" style="color: #ecfdf5; font-size: 20px;">2.3 m (7.5 ft) High</div>
+          <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">Solid plastered blockwork + sliding gate</div>
+        </div>
+        <div class="stat-chip" style="border-color: rgba(192, 132, 252, 0.4); background: rgba(126, 34, 206, 0.15);">
+          <div class="stat-chip-label" style="color: #c084fc;">Main Staircase Rebar</div>
+          <div class="stat-chip-value" style="color: #faf5ff; font-size: 20px;">7 × D10 + 25 × D8</div>
+          <div style="font-size: 11px; color: #94a3b8; margin-top: 4px;">140mm c/c main / 175mm cross</div>
+        </div>
+      </div>
+
+      <!-- ======================================================= -->
+      <!-- SECTION 1: 1.0M ENTRANCE, STONE TRENCH & DOORS          -->
+      <!-- ======================================================= -->
+      <div id="sec-entrance-wall" class="section-margin-top">
+        <h3 class="spec-title" style="color: #38bdf8; font-size: 18px; display: flex; align-items: center; gap: 8px;">
+          <span>🚪</span> 1. Front Entrance, 2.3m Boundary Wall, Sliding Gate &amp; 0.5m Stone Trench
+        </h3>
+        <p class="spec-content">
+          Engineered specifically for your exact site condition: The house sits only 1.0m from the boundary wall, with an unpaved red murram dirt road just 0.5m outside.
+        </p>
+
+        <!-- 3D Rectified Cutaway Card -->
+        <div class="view-card section-margin-top" style="border: 2px solid #38bdf8;">
+          <div class="view-card-title" style="color: #38bdf8; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+            <span>📐 Rectified 3D Engineering Cutaway: All Dimensions &amp; Door Positions</span>
+            <span class="badge-pill pill-cyan">RECTIFIED BLUEPRINT</span>
+          </div>
+
+          <div class="render-frame" style="max-height: 580px;">
+            <img loading="lazy" decoding="async" src="rectified_entrance_and_trench_design.jpg" alt="Rectified 3D Entrance Design with Stone Trench" class="render-img" style="object-fit: contain; background: #07111e;" />
+            <div class="render-overlay-badge" style="background: rgba(14,116,144,0.95); color: #ffffff; font-weight: 800;">Confirmed: Kitchen Outlet at Foreground • Main Door Below Glass • Stone-Pitched Trench</div>
+          </div>
+          
+          <div style="padding: 16px; background: rgba(15, 23, 42, 0.75); border-radius: 12px; margin-top: 14px;">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+              <div style="background: rgba(30, 27, 75, 0.6); border: 1px solid #f59e0b; border-radius: 10px; padding: 14px;">
+                <div style="font-weight: 800; color: #fbbf24; font-size: 14px; margin-bottom: 6px;">🚪 Kitchen Outlet Door (Foreground)</div>
+                <div style="font-size: 13px; color: #cbd5e1; line-height: 1.5;">
+                  • <strong>Dimensions:</strong> 900 mm × 2,100 mm (3.0 ft × 7.0 ft)<br>
+                  • <strong>Placement:</strong> Right in the foreground cutaway opening into the kitchen pantry.<br>
+                  • <strong>Function:</strong> Fast grocery unloading directly from gate, waste bin removal, and cooking cross-ventilation.
+                </div>
+              </div>
+
+              <div style="background: rgba(12, 74, 110, 0.6); border: 1px solid #38bdf8; border-radius: 10px; padding: 14px;">
+                <div style="font-weight: 800; color: #38bdf8; font-size: 14px; margin-bottom: 6px;">👑 Main Entrance Door (Below Glass on Glass Wall)</div>
+                <div style="font-size: 13px; color: #cbd5e1; line-height: 1.5;">
+                  • <strong>Dimensions:</strong> 1,070 mm × 2,100 mm (3.5 ft × 7.0 ft) fluted metal door.<br>
+                  • <strong>Placement:</strong> On the long wall holding glasses, directly below/beside the glass window panels.<br>
+                  • <strong>Function:</strong> The primary family &amp; guest entrance into the double-height living room foyer.
+                </div>
+              </div>
+
+              <div style="background: rgba(15, 23, 42, 0.6); border: 1px solid #34d399; border-radius: 10px; padding: 14px;">
+                <div style="font-weight: 800; color: #34d399; font-size: 14px; margin-bottom: 6px;">🪨 Stone-Pitched Cement Trench (0.5m Shoulder)</div>
+                <div style="font-size: 13px; color: #cbd5e1; line-height: 1.5;">
+                  • <strong>Dimensions:</strong> 500 mm wide × 300 mm deep V-ditch.<br>
+                  • <strong>Materials:</strong> Natural dressed quarry stones bedded in 1:3 cement mortar with neat pointing.<br>
+                  • <strong>Function:</strong> Protects the 2.3m wall foundation from road mud erosion and heavy storm runoff.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2D Vector CAD Site Plan -->
+        <div class="view-card section-margin-top" style="border: 2px solid #0284c7;">
+          <div class="view-card-title" style="color: #0284c7; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+            <span>📐 2D CAD Vector Site Plan: 1.0m Corridor, Stone Trench &amp; Sliding Gate</span>
+            <span class="badge-pill pill-cyan">VECTOR BLUEPRINT</span>
+          </div>
+
+          <div class="render-frame" style="max-height: 520px; background: #06101e;">
+            <img loading="lazy" decoding="async" src="entrance_layout_plan.svg" alt="2D Vector Site Plan" class="render-img" style="object-fit: contain; width: 100%; height: 100%;" />
+          </div>
+        </div>
+
+        <!-- Real Field Photos vs Rectified Design Alignment -->
+        <div class="view-card section-margin-top" style="border: 2px solid #f59e0b;">
+          <div class="view-card-title" style="color: #fbbf24; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+            <span>📸 Site Status &amp; Real Construction Alignment: Field Photos vs Blueprint</span>
+            <span class="badge-pill pill-amber">SITE RECONCILIATION</span>
+          </div>
+          <p style="font-size: 13px; color: #cbd5e1; line-height: 1.5; margin: 10px 0 16px 0;">
+            Photos taken directly on site confirm physical structural alignment with the rectified blueprints:
+          </p>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px;">
+            <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: #0b1526;">
+              <img loading="lazy" decoding="async" src="site_progress_1.jpg" alt="Front Corridor &amp; Columns" style="width: 100%; height: 160px; object-fit: cover;" />
+              <div style="padding: 8px; font-size: 11px; color: #94a3b8;"><strong style="color: #38bdf8;">1. Front Corridor Setback:</strong> 1.0m clearance between column line and perimeter wall.</div>
+            </div>
+            <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: #0b1526;">
+              <img loading="lazy" decoding="async" src="site_progress_2.jpg" alt="Kitchen Door &amp; Glass Openings" style="width: 100%; height: 160px; object-fit: cover;" />
+              <div style="padding: 8px; font-size: 11px; color: #94a3b8;"><strong style="color: #fbbf24;">2. Door Openings:</strong> Foreground kitchen outlet + main door under glass transoms.</div>
+            </div>
+            <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: #0b1526;">
+              <img loading="lazy" decoding="async" src="site_progress_3.jpg" alt="Internal Masonry View" style="width: 100%; height: 160px; object-fit: cover;" />
+              <div style="padding: 8px; font-size: 11px; color: #94a3b8;"><strong style="color: #34d399;">3. Living Room &amp; TV Wall:</strong> Brick masonry enclosing under-stair TV nook.</div>
+            </div>
+            <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: #0b1526;">
+              <img loading="lazy" decoding="async" src="site_progress_4.jpg" alt="Column Shutters &amp; Steel" style="width: 100%; height: 160px; object-fit: cover;" />
+              <div style="padding: 8px; font-size: 11px; color: #94a3b8;"><strong style="color: #c084fc;">4. Formwork Timber:</strong> Shuttering timber and reinforcing steel staging.</div>
+            </div>
+            <div style="border-radius: 8px; overflow: hidden; border: 1px solid rgba(255,255,255,0.1); background: #0b1526;">
+              <img loading="lazy" decoding="async" src="site_progress_5.jpg" alt="RC Column Casting" style="width: 100%; height: 160px; object-fit: cover;" />
+              <div style="padding: 8px; font-size: 11px; color: #94a3b8;"><strong style="color: #38bdf8;">5. Concrete Casting:</strong> Reinforced concrete column casting underway by mason.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stone Trench & Boundary Wall Construction Checklist -->
+        <div style="background: rgba(15, 23, 42, 0.75); border: 1.5px solid #0284c7; border-radius: 12px; padding: 18px; margin-top: 16px;">
+          <h4 style="color: #38bdf8; font-size: 15px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+            <span>🪨</span> Engineering Execution Checklist: Stone-Pitched Trench &amp; 2.3m Boundary Wall
+          </h4>
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; font-size: 12px; color: #cbd5e1; line-height: 1.5;">
+            <div style="background: rgba(8, 47, 73, 0.4); padding: 10px; border-radius: 8px; border-left: 3px solid #38bdf8;">
+              <strong style="color: #7dd3fc;">1. Trench Bedding &amp; Pitching:</strong><br>
+              Excavate 500mm wide x 300mm deep ditch along the 0.5m road shoulder. Bed hard quarry stones in 1:3 cement-sand mortar. Finish with neat pointed grooved joints to ensure rapid, scour-free rainwater runoff.
+            </div>
+            <div style="background: rgba(8, 47, 73, 0.4); padding: 10px; border-radius: 8px; border-left: 3px solid #fbbf24;">
+              <strong style="color: #fde68a;">2. Wall Drainage &amp; Weep Holes:</strong><br>
+              Install 50mm diameter PVC weep hole pipes through the base of the 2.3m boundary wall every 1.5 meters c/c at trench level. This prevents hydrostatic groundwater buildup behind the wall during heavy rainfall.
+            </div>
+            <div style="background: rgba(8, 47, 73, 0.4); padding: 10px; border-radius: 8px; border-left: 3px solid #34d399;">
+              <strong style="color: #a7f3d0;">3. Horizontal Sliding Gate Track:</strong><br>
+              Cast a continuous 200mm x 250mm reinforced concrete grade beam flush with the ground. Embed an inverted 40mm x 40mm x 5mm steel angle iron track. The 3.0m gate slides entirely within the 1.0m corridor without encroaching on the road.
+            </div>
+            <div style="background: rgba(8, 47, 73, 0.4); padding: 10px; border-radius: 8px; border-left: 3px solid #c084fc;">
+              <strong style="color: #e9d5ff;">4. Corridor Weather Protection:</strong><br>
+              Install a continuous polycarbonate or metal flashing canopy sloping toward an integrated box gutter over the 1.0m walkway, keeping both the kitchen outlet and main doors completely dry.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ======================================================= -->
+      <!-- SECTION 2: CONCRETE STAIRCASE D10 & D8 REBAR            -->
+      <!-- ======================================================= -->
+      <div id="sec-stair-rebar" class="section-margin-top" style="padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.1);">
+        <h3 class="spec-title" style="color: #34d399; font-size: 18px; display: flex; align-items: center; gap: 8px;">
+          <span>🪜</span> 2. Single-Flight Concrete Staircase: Complete D10 &amp; D8 Rebar Detailing
+        </h3>
+        <p class="spec-content">
+          Structural reinforcement schedules for your single continuous straight flight (15 steps @ 35° incline) rising against the brick wall with open space beneath for the TV console:
+        </p>
+
+        <!-- 3D Rebar Grid Model Card -->
+        <div class="view-card section-margin-top" style="border: 2px solid #34d399;">
+          <div class="view-card-title" style="color: #34d399; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+            <span>📐 3D Rebar Cage Assembly on Formwork: Every Measurement Labeled</span>
+            <span class="badge-pill pill-green">FIELD-READY 3D REBAR MODEL</span>
+          </div>
+
+          <div class="render-frame" style="max-height: 580px;">
+            <img loading="lazy" decoding="async" src="staircase_3d_all_dimensions.jpg" alt="3D Staircase Rebar Grid with All Dimensions" class="render-img" style="object-fit: contain; background: #07111e;" />
+            <div class="render-overlay-badge" style="background: rgba(5,150,105,0.95); color: #ffffff; font-weight: 800;">7 D10 Main Bars @ 140mm c/c • 25 D8 Cross Bars @ 175mm c/c • 125mm Waist Slab</div>
+          </div>
+        </div>
+
+        <!-- 2 Column View: Top Plan View & Elevation CAD Blueprint -->
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(460px, 1fr)); gap: 16px; margin-top: 16px;">
+          <!-- Top View (Plan) Blueprint -->
+          <div class="view-card" style="border: 1.5px solid #38bdf8;">
+            <div class="view-card-title" style="color: #38bdf8; font-size: 15px;">
+              <span>🔍</span> Top (Plan) View: Rebar Mat Looking Down
+            </div>
+            <div class="render-frame" style="max-height: 380px;">
+              <img loading="lazy" decoding="async" src="staircase_top_view_rebar_blueprint.jpg" alt="Staircase Rebar Top View Blueprint" class="render-img" style="object-fit: contain; background: #07111e;" />
+            </div>
+            <div style="padding: 10px; font-size: 12px; color: #cbd5e1; line-height: 1.4;">
+              <strong>Plan View Layout:</strong> 900mm total width with 25mm side cover on both edges (850mm rebar mat). 7 parallel D10 bars spaced evenly at 140mm c/c, with D8 cross bars tied every 175mm along the 3,500mm run.
+            </div>
+          </div>
+
+          <!-- Elevation CAD Blueprint -->
+          <div class="view-card" style="border: 1.5px solid #fbbf24;">
+            <div class="view-card-title" style="color: #fbbf24; font-size: 15px;">
+              <span>📐</span> Side Elevation CAD Blueprint &amp; TV Clearance
+            </div>
+            <div class="render-frame" style="max-height: 380px;">
+              <img loading="lazy" decoding="async" src="staircase_complete_dimensions_blueprint.jpg" alt="Staircase Elevation Blueprint with Rebar" class="render-img" style="object-fit: contain; background: #07111e;" />
+            </div>
+            <div style="padding: 10px; font-size: 12px; color: #cbd5e1; line-height: 1.4;">
+              <strong>Elevation Profile:</strong> Total vertical rise: 2,650mm (8.7ft / 15 risers @ 177mm). Total horizontal run: 3,500mm (14 treads @ 250mm). 2,100mm clear under-stair TV console opening.
+            </div>
+          </div>
+        </div>
+
+        <!-- Complete Bar Bending Schedule (BBS) Table -->
+        <div class="section-margin-top">
+          <h4 style="color: #fbbf24; font-size: 16px; margin-bottom: 12px;">📋 Complete Rebar Bar-Bending Schedule (BBS) &amp; Material Order</h4>
+          
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Bar Mark</th>
+                  <th>Diameter</th>
+                  <th>Direction / Layer</th>
+                  <th>Quantity</th>
+                  <th>Spacing (c/c)</th>
+                  <th>Cut Length per Bar</th>
+                  <th>Anchorage / Lap Detailing</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong style="color: #38bdf8;">D10 Main</strong></td>
+                  <td>10 mm High-Yield</td>
+                  <td>Longitudinal (along slope)</td>
+                  <td><strong>7 bars</strong></td>
+                  <td><strong>140 mm c/c</strong></td>
+                  <td><strong>5,440 mm (5.44 m)</strong></td>
+                  <td>4,390mm slope + 450mm bottom lap into foundation ($L_d=45d$) + 600mm top hook into mezzanine slab.</td>
+                </tr>
+                <tr>
+                  <td><strong style="color: #fb7185;">D8 Distribution</strong></td>
+                  <td>8 mm Mild/High-Yield</td>
+                  <td>Transverse (crosswise across width)</td>
+                  <td><strong>25 bars</strong></td>
+                  <td><strong>175 mm c/c</strong></td>
+                  <td><strong>850 mm (0.85 m)</strong></td>
+                  <td>$900\text{mm width} - 2(25\text{mm cover}) = 850\text{mm}$. Tied over D10 bars with binding wire.</td>
+                </tr>
+                <tr>
+                  <td><strong style="color: #fbbf24;">D8 Step Nosing</strong></td>
+                  <td>8 mm</td>
+                  <td>Step nosing profile</td>
+                  <td><strong>15 bars</strong></td>
+                  <td>1 per step</td>
+                  <td><strong>850 mm (0.85 m)</strong></td>
+                  <td>Tied near step nosing to reinforce concrete corners against edge chipping.</td>
+                </tr>
+                <tr>
+                  <td><strong style="color: #38bdf8;">D10 Starter Dowels</strong></td>
+                  <td>10 mm</td>
+                  <td>Foundation to Stair</td>
+                  <td><strong>7 bars</strong></td>
+                  <td>140 mm c/c</td>
+                  <td><strong>1,050 mm (1.05 m)</strong></td>
+                  <td>600mm embedded in foundation footing with 90° hook + 450mm lap projection.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Total Hardware Store Shopping Order Box -->
+          <div style="background: rgba(15, 23, 42, 0.8); border: 2px solid #34d399; border-radius: 12px; padding: 18px; margin-top: 16px;">
+            <div style="font-weight: 800; color: #34d399; font-size: 15px; margin-bottom: 8px;">🛒 Total Steel Rebar Purchase Order for this Staircase:</div>
+            <div style="font-size: 13px; color: #f1f5f9; line-height: 1.6;">
+              • <strong>D10 Rebar (10mm):</strong> Total 45.5 meters $\rightarrow$ <strong>Buy 4 standard 12-meter commercial lengths</strong><br>
+              • <strong>D8 Rebar (8mm):</strong> Total 34.0 meters $\rightarrow$ <strong>Buy 3 standard 12-meter commercial lengths</strong><br>
+              • <strong>Binding Wire:</strong> <strong>1.5 kg – 2.0 kg</strong> (16-gauge annealed tie wire)<br>
+              • <strong>Concrete Spacer Blocks:</strong> <strong>20 pieces</strong> of 25 mm precast concrete biscuits
+            </div>
+          </div>
+
+          <!-- Beginner Rebar Visual Analogy ("Ladder & Grill") -->
+          <div class="view-card section-margin-top" style="border: 2px solid #10b981;">
+            <div class="view-card-title" style="color: #34d399; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+              <span>💡 Beginner Analogy: The "Ladder &amp; Grill" Concept for Site Masons</span>
+              <span class="badge-pill pill-green">INTUITIVE BUILDER GUIDE</span>
+            </div>
+
+            <div class="render-frame" style="max-height: 520px; background: #06101e;">
+              <img loading="lazy" decoding="async" src="easy_rebar_explanation.jpg" alt="Beginner Rebar Analogy - Ladder and Grill Concept" class="render-img" style="object-fit: contain; width: 100%; height: 100%;" />
+            </div>
+
+            <div style="padding: 16px; background: rgba(15, 23, 42, 0.75); border-radius: 12px; margin-top: 14px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px;">
+                <div style="background: rgba(6, 78, 59, 0.3); border-left: 3px solid #34d399; padding: 12px; border-radius: 8px;">
+                  <strong style="color: #34d399; font-size: 14px;">1. The 7 Long Stiles (D10 Tension Bars):</strong>
+                  <p style="font-size: 12px; color: #cbd5e1; margin-top: 4px; line-height: 1.5;">
+                    These 7 blue bars run continuously from the ground foundation footing up the 35° incline into the mezzanine floor. They take 100% of the bending tension load when people walk up. Spaced 140mm c/c.
+                  </p>
+                </div>
+
+                <div style="background: rgba(30, 58, 138, 0.3); border-left: 3px solid #38bdf8; padding: 12px; border-radius: 8px;">
+                  <strong style="color: #38bdf8; font-size: 14px;">2. The 25 Cross Rungs (D8 Distribution Bars):</strong>
+                  <p style="font-size: 12px; color: #cbd5e1; margin-top: 4px; line-height: 1.5;">
+                    These 25 orange bars run crosswise across the 900mm width. They lock the 7 D10 bars together into a rigid mat, prevent concrete shrinkage cracking, and distribute weight evenly. Spaced 175mm c/c.
+                  </p>
+                </div>
+
+                <div style="background: rgba(120, 53, 15, 0.3); border-left: 3px solid #fbbf24; padding: 12px; border-radius: 8px;">
+                  <strong style="color: #fbbf24; font-size: 14px;">3. The 15 Step Nosing Bars (D8):</strong>
+                  <p style="font-size: 12px; color: #cbd5e1; margin-top: 4px; line-height: 1.5;">
+                    One 850mm D8 bar is placed at the sharp front nose of every concrete step. This reinforces the step edges and prevents shoe impact chipping.
+                  </p>
+                </div>
+
+                <div style="background: rgba(88, 28, 135, 0.3); border-left: 3px solid #c084fc; padding: 12px; border-radius: 8px;">
+                  <strong style="color: #c084fc; font-size: 14px;">4. The 25mm Spacer Biscuits:</strong>
+                  <p style="font-size: 12px; color: #cbd5e1; margin-top: 4px; line-height: 1.5;">
+                    Small precast concrete blocks placed under the steel cage to lift it 25mm off the timber boards, guaranteeing the steel is fully encased in concrete and never rusts.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Concrete Pouring & Striking Checklist -->
+          <div style="background: rgba(15, 23, 42, 0.75); border: 1.5px solid #10b981; border-radius: 12px; padding: 18px; margin-top: 16px;">
+            <h4 style="color: #34d399; font-size: 15px; margin-bottom: 10px; display: flex; align-items: center; gap: 8px;">
+              <span>🏗️</span> Mason &amp; Contractor Execution Protocol: Concrete Pour &amp; Striking
+            </h4>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; font-size: 12px; color: #cbd5e1; line-height: 1.5;">
+              <div style="background: rgba(6, 78, 59, 0.25); padding: 10px; border-radius: 8px; border-left: 3px solid #34d399;">
+                <strong style="color: #6ee7b7;">1. Concrete Mix Design:</strong><br>
+                Use Class 20/25 Concrete: 1 Part Cement : 1.5 Parts River Sand : 3 Parts 20mm Crushed Aggregate. Keep water-cement ratio low (slump 75mm) so concrete doesn't slide down the 35° incline during placement.
+              </div>
+              <div style="background: rgba(6, 78, 59, 0.25); padding: 10px; border-radius: 8px; border-left: 3px solid #38bdf8;">
+                <strong style="color: #7dd3fc;">2. Pouring Direction &amp; Compaction:</strong><br>
+                Always pour concrete starting from the lowest step (Step 1) working upwards. Compact using a 25mm poker vibrator in quick 5-second dips to eliminate air voids without displacing formwork.
+              </div>
+              <div style="background: rgba(6, 78, 59, 0.25); padding: 10px; border-radius: 8px; border-left: 3px solid #fbbf24;">
+                <strong style="color: #fde68a;">3. Curing Regime:</strong><br>
+                Cover with wet burlap/hessian sacks or pond with water twice daily for at least 14 days continuously. Proper wet curing doubles concrete surface abrasion resistance.
+              </div>
+              <div style="background: rgba(6, 78, 59, 0.25); padding: 10px; border-radius: 8px; border-left: 3px solid #c084fc;">
+                <strong style="color: #e9d5ff;">4. Striking Schedule (Formwork Removal):</strong><br>
+                • Riser face boards: Remove after 24 hours to trowel tread nosings.<br>
+                • Side stringer boards: Remove after 3 days.<br>
+                • Soffit bottom formwork &amp; vertical props: Keep undisturbed for <strong>14 to 21 days</strong>.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </section>
   </div>
 </div>

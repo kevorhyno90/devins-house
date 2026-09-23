@@ -117,6 +117,12 @@ function switchToTab(tabId, index, jumpTargetId) {
     activeContent.classList.add("active");
   }
 
+  try {
+    if (window.history && window.history.replaceState) {
+      window.history.replaceState(null, null, "#" + tabId);
+    }
+  } catch (e) {}
+
   if (jumpTargetId) {
     setTimeout(() => {
       const targetEl = document.getElementById(jumpTargetId);
@@ -1089,4 +1095,42 @@ function shareOnPinterest(url, mediaUrl, description) {
   const pinterestUrl = `https://www.pinterest.com/pin/create/button/?url=${encodeURIComponent(fullUrl)}&media=${encodeURIComponent(fullMedia)}&description=${encodeURIComponent(description)}`;
   window.open(pinterestUrl, "_blank", "width=750,height=620,scrollbars=yes,resizable=yes");
 }
+
+// -------------------------------------------------------------------------
+// 13. Deep Linking & Cache Purge Engine
+// -------------------------------------------------------------------------
+async function forceAppUpdateAndRefresh() {
+  try {
+    if ("serviceWorker" in navigator) {
+      const registrations = await navigator.serviceWorker.getRegistrations();
+      for (const registration of registrations) {
+        await registration.unregister();
+      }
+    }
+    if ("caches" in window) {
+      const keys = await caches.keys();
+      for (const key of keys) {
+        await caches.delete(key);
+      }
+    }
+  } catch (err) {
+    console.error("Cache purge failed:", err);
+  }
+  window.location.reload(true);
+}
+
+function handleDeepLinkTabRouting() {
+  const hash = window.location.hash.replace("#", "");
+  if (hash) {
+    if (hash === "site-engineering" || hash === "opt-site-engineering" || hash === "tab-opt-site-engineering") {
+      switchToTab("opt-site-engineering");
+    } else {
+      switchToTab(hash);
+    }
+  }
+}
+
+window.addEventListener("DOMContentLoaded", handleDeepLinkTabRouting);
+window.addEventListener("hashchange", handleDeepLinkTabRouting);
+
 

@@ -1,4 +1,4 @@
-const CACHE_NAME = "devins-house-v25";
+const CACHE_NAME = "devins-house-v26";
 // Pre-cache only lightweight app shell for instantaneous page launch (< 500KB)
 const CORE_APP_SHELL = [
   "./",

@@ -135,30 +135,30 @@
     </div>
 
     <!-- PROMINENT ALERT BANNER: NEW BLUEPRINTS ADDED TODAY -->
-    <div onclick="switchToTab('opt-site-engineering')" style="background: linear-gradient(135deg, #0284c7 0%, #0d9488 100%); border: 2px solid #38bdf8; border-radius: 12px; padding: 14px 20px; margin: 16px 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; box-shadow: 0 4px 20px rgba(56, 189, 248, 0.35);">
+    <div onclick="switchToTab('opt-site-engineering', null, 'sec-smooth-stairs')" style="background: linear-gradient(135deg, #0284c7 0%, #0d9488 100%); border: 2px solid #38bdf8; border-radius: 12px; padding: 14px 20px; margin: 16px 0; cursor: pointer; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 12px; box-shadow: 0 4px 20px rgba(56, 189, 248, 0.35);">
       <div style="display: flex; align-items: center; gap: 14px;">
-        <span style="font-size: 32px;">🏗️</span>
+        <span style="font-size: 32px;">🪜</span>
         <div>
-          <div style="font-size: 16px; font-weight: 800; color: #ffffff; letter-spacing: 0.3px;">JUST ADDED: Site Entrance, Stone Trench &amp; Staircase Rebar Blueprints!</div>
-          <div style="font-size: 13px; color: #e0f2fe; margin-top: 2px;">Kitchen door in foreground • Main door under glass • 0.5m stone trench • D10/D8 rebar cage • Real site photos</div>
+          <div style="font-size: 16px; font-weight: 800; color: #ffffff; letter-spacing: 0.3px;">JUST ADDED: 2.7m × 3.5m Staircase Blueprint, Single-Step Wood Formwork &amp; Rebar Orders!</div>
+          <div style="font-size: 13px; color: #e0f2fe; margin-top: 2px;">15 risers @ 180mm • 14 treads @ 250mm • 20mm inward tilt rake • Single-step 4-piece wood guide • D10/D8 steel order</div>
         </div>
       </div>
       <button style="background: #ffffff; color: #0284c7; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 800; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 6px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);">
-        Open Blueprints &amp; 3D ➜
+        View Staircase &amp; Carpentry ➜
       </button>
     </div>
 
     <!-- Visual 3D Showcase Deck for All Options -->
     <div class="showcase-deck">
-      <div class="deck-card" data-tab="opt-site-engineering" onclick="switchToTab('opt-site-engineering')">
+      <div class="deck-card" data-tab="opt-site-engineering" onclick="switchToTab('opt-site-engineering', null, 'sec-smooth-stairs')">
         <div class="deck-thumb-wrap">
-          <img loading="lazy" decoding="async" src="rectified_entrance_and_trench_design.jpg" alt="Site Entrance &amp; Rebar Blueprints" class="deck-thumb-img" />
-          <span class="deck-pill pill-cyan">NEW • Site Engineering</span>
+          <img loading="lazy" decoding="async" src="concrete_staircase_2700_3500_blueprint.jpg" alt="2.7m x 3.5m Staircase &amp; Rebar Blueprints" class="deck-thumb-img" />
+          <span class="deck-pill pill-cyan">NEW • 2.7m Staircase &amp; Rebar</span>
         </div>
         <div class="deck-body">
           <div>
-            <div class="deck-title">Entrance, Boundary &amp; Rebar Blueprints</div>
-            <div class="deck-meta">1.0m setback corridor • Stone-pitched trench • D10 &amp; D8 staircase rebar</div>
+            <div class="deck-title">2.7m Staircase, Wood Formwork &amp; Steel Schedule</div>
+            <div class="deck-meta">15 risers @ 180mm • 20mm tilt rake • Single-step wood guide • 4 D10 &amp; 3 D8 bars</div>
           </div>
           <div class="deck-btn">View Blueprints &amp; Schedules ➜</div>
         </div>
@@ -7145,7 +7145,9 @@
         </div>
         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
           <button class="ctrl-action-btn" onclick="scrollToDesign('sec-entrance-wall')" style="background:#0369a1; color:#fff; border:none; padding: 8px 14px; font-weight:700;">🚪 1.0m Entrance &amp; Trench</button>
-          <button class="ctrl-action-btn" onclick="scrollToDesign('sec-stair-rebar')" style="background:#059669; color:#fff; border:none; padding: 8px 14px; font-weight:700;">🪜 D10 &amp; D8 Staircase Rebar</button>
+          <button class="ctrl-action-btn" onclick="scrollToDesign('sec-smooth-stairs')" style="background:#d97706; color:#fff; border:none; padding: 8px 14px; font-weight:700;">📐 2.7m × 3.5m Staircase Blueprint</button>
+          <button class="ctrl-action-btn" onclick="scrollToDesign('sec-single-step-wood')" style="background:#7c3aed; color:#fff; border:none; padding: 8px 14px; font-weight:700;">🪵 Single Step Wood Formwork</button>
+          <button class="ctrl-action-btn" onclick="scrollToDesign('sec-rebar-schedule')" style="background:#059669; color:#fff; border:none; padding: 8px 14px; font-weight:700;">🛒 D10 &amp; D8 Steel Order</button>
         </div>
       </div>
 
@@ -7627,7 +7629,204 @@
         </div>
 
       </div>
-    </section>
+    
+        <!-- ======================================================= -->
+        <!-- SECTION 3: 2.7M RISE × 3.5M BASE SMOOTH RAISING GUIDE   -->
+        <!-- ======================================================= -->
+        <div id="sec-smooth-stairs" class="section-margin-top" style="padding-top: 24px; border-top: 2px solid #38bdf8;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
+            <h3 class="spec-title" style="color: #38bdf8; font-size: 19px; display: flex; align-items: center; gap: 8px; margin: 0;">
+              <span>📐</span> 3. Exact 2.7m Rise × 3.5m Base: Smooth Raising Blueprint &amp; Formwork Guide
+            </h3>
+            <span class="badge-pill pill-cyan">OFFICIAL SPECIFICATION • 2.7M × 3.5M</span>
+          </div>
+          <p class="spec-content">
+            Custom engineered for Devin's exact measurements: <strong>2.7 m (2,700 mm) vertical height</strong> and <strong>3.5 m (3,500 mm) floor base run</strong>. Designed with the golden Blondel ratio ($2R + T = 610	ext{ mm}$), 37.6° natural incline, 20mm inward riser rake for smooth foot ascent, and a 130mm reinforced concrete waist slab.
+          </p>
+
+          <!-- 2.7m x 3.5m Architectural Blueprint Card -->
+          <div class="view-card section-margin-top" style="border: 2px solid #38bdf8;">
+            <div class="view-card-title" style="color: #38bdf8; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+              <span>📐 Technical CAD Blueprint: 2.7m Rise × 3.5m Base Section with Full Callouts</span>
+              <span class="badge-pill pill-cyan">CAD SECTION A-A</span>
+            </div>
+
+            <div class="render-frame" style="max-height: 580px; background: #07111e;">
+              <img loading="lazy" decoding="async" src="concrete_staircase_2700_3500_blueprint.jpg" alt="Technical Section Blueprint 2.7m x 3.5m Concrete Staircase" class="render-img" style="object-fit: contain; width: 100%; height: 100%;" />
+              <div class="render-overlay-badge" style="background: rgba(14,116,144,0.95); color: #ffffff; font-weight: 800;">15 Risers @ 180mm • 14 Treads @ 250mm • 20mm Nosing Undercut • 130mm Waist Slab • 37.6° Slope</div>
+            </div>
+            
+            <div style="padding: 16px; background: rgba(15, 23, 42, 0.75); border-radius: 12px; margin-top: 14px;">
+              <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px;">
+                <div style="background: rgba(12, 74, 110, 0.5); border: 1px solid #38bdf8; border-radius: 10px; padding: 12px;">
+                  <div style="color: #38bdf8; font-weight: 800; font-size: 13px;">📏 Total Rise (Height)</div>
+                  <div style="font-size: 20px; font-weight: 800; color: #f0f9ff; margin: 4px 0;">2,700 mm (2.7 m)</div>
+                  <div style="font-size: 11px; color: #94a3b8;">Floor-to-floor structural height</div>
+                </div>
+                <div style="background: rgba(6, 78, 59, 0.5); border: 1px solid #34d399; border-radius: 10px; padding: 12px;">
+                  <div style="color: #34d399; font-weight: 800; font-size: 13px;">📐 Total Base (Run)</div>
+                  <div style="font-size: 20px; font-weight: 800; color: #ecfdf5; margin: 4px 0;">3,500 mm (3.5 m)</div>
+                  <div style="font-size: 11px; color: #94a3b8;">Floor span from bottom step to landing</div>
+                </div>
+                <div style="background: rgba(180, 83, 9, 0.5); border: 1px solid #fbbf24; border-radius: 10px; padding: 12px;">
+                  <div style="color: #fbbf24; font-weight: 800; font-size: 13px;">🪜 15 Risers @ 180 mm</div>
+                  <div style="font-size: 20px; font-weight: 800; color: #fffbeb; margin: 4px 0;">180 mm (18 cm)</div>
+                  <div style="font-size: 11px; color: #94a3b8;">Uniform riser height for effortless climbing</div>
+                </div>
+                <div style="background: rgba(88, 28, 135, 0.5); border: 1px solid #c084fc; border-radius: 10px; padding: 12px;">
+                  <div style="color: #c084fc; font-weight: 800; font-size: 13px;">👣 14 Treads @ 250 mm</div>
+                  <div style="font-size: 20px; font-weight: 800; color: #faf5ff; margin: 4px 0;">250 mm + 20 mm Rake</div>
+                  <div style="font-size: 11px; color: #94a3b8;">Effective 270 mm walking foot-space</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ======================================================= -->
+          <!-- SUBSECTION: SINGLE STAIR WOOD CARPENTRY FORMWORK        -->
+          <!-- ======================================================= -->
+          <div id="sec-single-step-wood" class="section-margin-top" style="padding-top: 16px;">
+            <div class="view-card" style="border: 2px solid #fbbf24;">
+              <div class="view-card-title" style="color: #fbbf24; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                <span>🪵 Real-World Guide: Single Step Timber Formwork &amp; Shuttering Assembly</span>
+                <span class="badge-pill pill-amber">FIELD CARPENTRY GUIDE</span>
+              </div>
+
+              <div class="render-frame" style="max-height: 580px; background: #07111e;">
+                <img loading="lazy" decoding="async" src="single_step_formwork_carpentry.jpg" alt="Single Step Timber Formwork Carpentry Assembly" class="render-img" style="object-fit: contain; width: 100%; height: 100%;" />
+                <div class="render-overlay-badge" style="background: rgba(180,83,9,0.95); color: #ffffff; font-weight: 800;">Close-Up Anatomy: 180mm Riser Plank • 20mm Inward Rake • Support Cleat Batten • Open Top Tread • 130mm Waist Plywood</div>
+              </div>
+
+              <div style="padding: 16px; background: rgba(15, 23, 42, 0.85); border-radius: 12px; margin-top: 14px;">
+                <h4 style="color: #fbbf24; font-size: 16px; margin-bottom: 12px;">🔨 The 4 Wooden Components of Each Step (How It Fits Together):</h4>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;">
+                  <div style="background: rgba(30, 27, 75, 0.5); border-left: 3px solid #fbbf24; padding: 12px; border-radius: 8px;">
+                    <strong style="color: #fbbf24; font-size: 14px;">1. The Vertical Riser Board (180 mm High):</strong>
+                    <p style="font-size: 12px; color: #cbd5e1; margin-top: 6px; line-height: 1.5;">
+                      A sturdy wooden plank cut to <strong>180 mm height</strong> and <strong>900 mm wide</strong>. It acts as the dam to hold the wet concrete back.<br>
+                      <strong style="color: #38bdf8;">The Smooth Raising Trick:</strong> Tilt this board inward by <strong>20 mm at the bottom</strong> (called a rake or nosing undercut). Your toes never hit the vertical face when climbing, making ascending completely smooth.
+                    </p>
+                  </div>
+
+                  <div style="background: rgba(6, 78, 59, 0.5); border-left: 3px solid #34d399; padding: 12px; border-radius: 8px;">
+                    <strong style="color: #34d399; font-size: 14px;">2. The Tread Surface (OPEN TOP — NO WOOD!):</strong>
+                    <p style="font-size: 12px; color: #cbd5e1; margin-top: 6px; line-height: 1.5;">
+                      <strong>Common misconception:</strong> Builders sometimes wonder if wood goes on top. <strong>No wood is placed on top!</strong><br>
+                      The 250 mm horizontal top is left open so wet concrete can be shoveled in, compacted with a poker vibrator around the rebar, and screeded/smoothed flat with a wooden float and steel trowel.
+                    </p>
+                  </div>
+
+                  <div style="background: rgba(12, 74, 110, 0.5); border-left: 3px solid #38bdf8; padding: 12px; border-radius: 8px;">
+                    <strong style="color: #38bdf8; font-size: 14px;">3. Side Stringer &amp; Support Cleat (Batten):</strong>
+                    <p style="font-size: 12px; color: #cbd5e1; margin-top: 6px; line-height: 1.5;">
+                      The thick side timber plank (cheek board) is marked with the step profile. A small 2&times;2 inch wooden block (cleat) is nailed firmly onto the side stringer. The 180 mm riser board is then nailed against this cleat so the heavy pressure of wet concrete cannot push it forward.
+                    </p>
+                  </div>
+
+                  <div style="background: rgba(88, 28, 135, 0.5); border-left: 3px solid #c084fc; padding: 12px; border-radius: 8px;">
+                    <strong style="color: #c084fc; font-size: 14px;">4. Inclined Bottom Shuttering (15mm Plywood):</strong>
+                    <p style="font-size: 12px; color: #cbd5e1; margin-top: 6px; line-height: 1.5;">
+                      A continuous sheet of marine plywood supported by diagonal timber bearers and vertical props. Maintaining a uniform <strong>130 mm gap</strong> under the step crotches creates the solid concrete "waist slab" that carries the entire load down to the foundation.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ======================================================= -->
+          <!-- SUBSECTION: 3D REBAR ARRANGEMENT & SHOPPING LIST        -->
+          <!-- ======================================================= -->
+          <div id="sec-rebar-schedule" class="section-margin-top" style="padding-top: 16px;">
+            <div class="view-card" style="border: 2px solid #34d399;">
+              <div class="view-card-title" style="color: #34d399; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px;">
+                <span>🪜 3D Steel Rebar Layout: Exactly How D10 and D8 are Arranged</span>
+                <span class="badge-pill pill-green">COMPLETE STEEL ORDER</span>
+              </div>
+
+              <div class="render-frame" style="max-height: 580px; background: #07111e;">
+                <img loading="lazy" decoding="async" src="rebar_d10_d8_schedule_diagram.jpg" alt="3D Rebar D10 and D8 Schedule and Layout Diagram" class="render-img" style="object-fit: contain; width: 100%; height: 100%;" />
+                <div class="render-overlay-badge" style="background: rgba(5,150,105,0.95); color: #ffffff; font-weight: 800;">7 Blue D10 Longitudinal Bars @ 140mm c/c (5.5m Cut) • 25 Orange D8 Cross Bars @ 175mm c/c (0.85m Cut) • 25mm Spacers</div>
+              </div>
+
+              <div style="padding: 16px; background: rgba(15, 23, 42, 0.85); border-radius: 12px; margin-top: 14px;">
+                <h4 style="color: #34d399; font-size: 16px; margin-bottom: 12px;">🛒 Exact Steel Purchase Order &amp; Cutting Breakdown (For Hardware Store):</h4>
+                
+                <div class="table-responsive">
+                  <table class="data-table">
+                    <thead>
+                      <tr>
+                        <th>Bar Mark</th>
+                        <th>Color in Diagram</th>
+                        <th>Quantity to Buy (12m Bars)</th>
+                        <th>Cut Length per Piece</th>
+                        <th>Total Cut Pieces</th>
+                        <th>On-Site Placement &amp; Spacing</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td><strong style="color: #38bdf8;">D10 (10 mm)</strong></td>
+                        <td><span style="color:#38bdf8; font-weight:700;">Blue Rods</span></td>
+                        <td><strong>4 Full 12-Meter Bars</strong></td>
+                        <td><strong>5.50 meters</strong></td>
+                        <td><strong>7 long rods</strong></td>
+                        <td>Main tension bars running <strong>UP the slope</strong> from ground foundation into upper slab. Spaced <strong>140 mm c/c</strong>.</td>
+                      </tr>
+                      <tr>
+                        <td><strong style="color: #fb923c;">D8 (8 mm)</strong></td>
+                        <td><span style="color:#fb923c; font-weight:700;">Orange Rods</span></td>
+                        <td><strong>2 to 3 Full 12-Meter Bars</strong></td>
+                        <td><strong>850 mm (0.85 m)</strong></td>
+                        <td><strong>26 cross pieces</strong></td>
+                        <td>Distribution bars running <strong>ACROSS the width</strong> like ladder rungs. Tied over the D10 bars @ <strong>175 mm c/c</strong>.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Binding Wire</strong></td>
+                        <td>Dark Wire</td>
+                        <td><strong>2.0 kg</strong> (1 roll)</td>
+                        <td>Standard cut ties</td>
+                        <td>All intersections</td>
+                        <td>Tied securely at all D10 &times; D8 cross junctions with pliers to keep the cage rigid.</td>
+                      </tr>
+                      <tr>
+                        <td><strong>Cover Blocks</strong></td>
+                        <td>Concrete Spacers</td>
+                        <td><strong>25 pieces</strong></td>
+                        <td>25 mm square blocks</td>
+                        <td>Grid @ 600 mm</td>
+                        <td>Rests under D10 rods to lift steel 25 mm off plywood; ensures full concrete coverage and prevents rust.</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <!-- 4 Step Installation Protocol -->
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; margin-top: 16px;">
+                  <div style="background: rgba(8, 47, 73, 0.4); padding: 10px; border-radius: 8px; border-left: 3px solid #38bdf8;">
+                    <strong style="color: #7dd3fc;">Step 1: Lay Spacers on Wood:</strong><br>
+                    Place 25mm concrete spacer biscuits across the inclined plywood shuttering every 600mm.
+                  </div>
+                  <div style="background: rgba(8, 47, 73, 0.4); padding: 10px; border-radius: 8px; border-left: 3px solid #34d399;">
+                    <strong style="color: #a7f3d0;">Step 2: Place 7 D10 Bars Lengthwise:</strong><br>
+                    Lay the 7 long 5.5m D10 bars on the spacers, spaced evenly at 140mm c/c. Anchor 450mm into foundation starter rebar.
+                  </div>
+                  <div style="background: rgba(8, 47, 73, 0.4); padding: 10px; border-radius: 8px; border-left: 3px solid #fb923c;">
+                    <strong style="color: #fdba74;">Step 3: Lay 26 D8 Bars Crosswise:</strong><br>
+                    Lay the 850mm D8 rods horizontally across the D10 bars like ladder rungs, spaced at 175mm c/c.
+                  </div>
+                  <div style="background: rgba(8, 47, 73, 0.4); padding: 10px; border-radius: 8px; border-left: 3px solid #c084fc;">
+                    <strong style="color: #e9d5ff;">Step 4: Tie &amp; Pour:</strong><br>
+                    Tie every joint with binding wire. Fix the 15 wooden riser boards to the side stringers, and pour concrete from step 1 upward!
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
   </div>
 </div>
 
